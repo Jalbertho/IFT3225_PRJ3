@@ -1,4 +1,4 @@
-CREATE TABLE `brasseries` (
+CREATE TABLE IF NOT EXISTS `brasseries` (
   `name` VARCHAR(255) NOT NULL,
   `legalName` VARCHAR(255) NOT NULL,
   `otherName` VARCHAR(255),
