@@ -28,11 +28,9 @@ CREATE TABLE IF NOT EXISTS `brasseries` (
   `pinterest`VARCHAR(255),
   `snapchat` VARCHAR(255),
   `autre` VARCHAR(255),
-  `notes` VARCHAR(255)
+  `notes` VARCHAR(255),
+  PRIMARY KEY (`legalName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-ALTER TABLE `brasseries`
-  ADD PRIMARY KEY (`legalName`);
 
 LOAD DATA INFILE '/home/www-ens/jalbertk/public_html/fyWdSJ8v/PRJ3/IFT3225_PRJ3/microbrasseries.csv'
 INTO TABLE `brasseries`
