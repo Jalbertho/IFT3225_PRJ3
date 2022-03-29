@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `brasseries` (
   PRIMARY KEY (`legalName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOAD DATA INFILE '/home/www-ens/jalbertk/public_html/fyWdSJ8v/PRJ3/IFT3225_PRJ3/microbrasseries.csv'
+LOAD DATA LOCAL INFILE '/home/www-ens/jalbertk/public_html/fyWdSJ8v/PRJ3/IFT3225_PRJ3/microbrasseries.csv'
 INTO TABLE `brasseries`
 FIELDS TERMINATED BY ','
 ENCLOSED BY ''
