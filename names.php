@@ -3,7 +3,7 @@
 
 require "/.config.php";
 
-echo $debug;
+echo "Debug: " . $debug;
 
 // echo "".$pdo;
 
