@@ -1,7 +1,7 @@
 <?php
 // Pris des notes de cours Rest.pdf
 
-require "/.config.php";
+require "./config.php";
 
 echo "Debug: " . $debug;
 
