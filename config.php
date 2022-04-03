@@ -20,6 +20,7 @@ require "./requirements.php";
 
 /* The PDO object */
 $pdo = NULL;
+$debug = ":)";
 
 /* Connection string, or "data source name" */
 $dsn = 'mysql:host=' . $db_host . ';dbname=' . $db_name;
@@ -28,7 +29,8 @@ $dsn = 'mysql:host=' . $db_host . ';dbname=' . $db_name;
 try
 {  
    /* PDO object creation */
-   $pdo = new PDO($dsn, $db_user,  $db_pwd);
+   $pdo = new PDO($dsn, $db_user, $db_pwd);
+   $pdo->exec("set names utf8");
    
    /* Enable exceptions on errors */
    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

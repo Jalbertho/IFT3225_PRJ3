@@ -1,11 +1,11 @@
 <?php
 // Pris des notes de cours Rest.pdf
 
-echo ":)";
-
 require "/.config.php";
 
-echo "".$pdo;
+echo $debug;
+
+// echo "".$pdo;
 
 // $query = 'SELECT NAME FROM brasseries';
 
