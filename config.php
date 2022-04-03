@@ -41,4 +41,5 @@ catch (PDOException $e)
    die();
 }
 
+echo 'Database connection successfull<br>';
 ?>

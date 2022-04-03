@@ -3,7 +3,7 @@
 
 require "/.config.php";
 
-$query = "SELECT NAME FROM brasseries";
+$query = 'SELECT NAME FROM brasseries';
 
 // Execute query
 try
