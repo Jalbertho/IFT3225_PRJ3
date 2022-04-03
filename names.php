@@ -5,7 +5,7 @@ echo ":)";
 
 require "/.config.php";
 
-echo $pdo;
+echo "".$pdo;
 
 // $query = 'SELECT NAME FROM brasseries';
 
