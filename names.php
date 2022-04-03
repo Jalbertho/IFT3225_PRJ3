@@ -5,6 +5,8 @@ require "/.config.php";
 
 $query = 'SELECT NAME FROM brasseries';
 
+echo $query;
+
 // Execute query
 try
 {
