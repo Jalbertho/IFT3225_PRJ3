@@ -1,5 +1,5 @@
 <?php
-// Pris des notes de cours Rest.pdf
+// Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
 
 require "./config.php";
 
