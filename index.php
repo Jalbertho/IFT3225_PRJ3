@@ -28,7 +28,7 @@ function run ($p) {
 }
 
 $r->add('/names/:pfx', array(), function(Route $route) {
-    run("/names.php?pfx=".$route->from);
+    run("names.php?pfx=".$route->from);
     die();
 });
 
