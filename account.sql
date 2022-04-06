@@ -7,6 +7,7 @@ CREATE TABLE `account` (
   `pwd` varchar(255) NOT NULL,
   `priviledge` ENUM('READ', 'WRITE') NOT NULL DEFAULT 'READ', -- WRITE CAN ALSO READ THE DATABASE.
   `enabled` tinyint(1) UNSIGNED NOT NULL DEFAULT '1'
+  `account_reg_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `account`
