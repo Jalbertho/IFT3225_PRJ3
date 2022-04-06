@@ -17,6 +17,8 @@ echo 'router url: '.$_GET['url'].'<br>';
 //       faire appel à curl fait la job, il y a peut-etre plus simple (ca depend aussi de l'environnement php)
 
 function run ($p) {
+	echo "here";
+
     // possible de l'obtenir à partir de $_SERVER:
     $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
     $ch = curl_init();
