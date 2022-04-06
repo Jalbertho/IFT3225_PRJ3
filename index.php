@@ -4,9 +4,7 @@
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
 
-require_once 'Kunststube-Router/Router.php';
-
-echo "Index";
+require_once 'Kunststube/Router.php';
 
 $r = new Router;
 
