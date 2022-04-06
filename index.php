@@ -1,4 +1,6 @@
 <?php
+// TODO.. try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/?url=/names/ if no .htaccess working.
+
 // Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
