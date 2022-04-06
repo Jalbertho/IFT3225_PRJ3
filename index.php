@@ -1,6 +1,4 @@
 <?php
-// TODO.. try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/?url=/names/ if no .htaccess working.
-
 // Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
@@ -17,11 +15,7 @@ echo 'router url: '.$_GET['url'].'<br>';
 //       faire appel à curl fait la job, il y a peut-etre plus simple (ca depend aussi de l'environnement php)
 
 function run ($p) {
-	echo $_SERVER[SERVER_NAME];
-
-    // possible de l'obtenir à partir de $_SERVER:
     $local = $_SERVER[SERVER_NAME]."/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
-    // $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $local.$p);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -36,6 +30,7 @@ $r->add('/names', array(), function(Route $route) {
     die();
 });
 
+// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/names/ho
 $r->add('/names/:pfx', array(), function(Route $route) {
     run("/names.php?pfx=".$route->pfx);
     die();
