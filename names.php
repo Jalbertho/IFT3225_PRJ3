@@ -7,8 +7,6 @@ $pfx = "";
 if (isset($_GET['pfx']))
   $pfx = $_GET["pfx"];
 
-echo "pfx = ".$_GET["pfx"];
-
 $query = "SELECT NAME FROM brasseries WHERE NAME LIKE '".$pfx."%'";
 
 // Execute query

@@ -26,8 +26,14 @@ function run ($p) {
     echo $output;
 }
 
+$r->add('/names', array(), function(Route $route) {
+	echo '/names/';
+    run("/names.php".$route->pfx);
+    die();
+});
+
 $r->add('/names/:pfx', array(), function(Route $route) {
-	echo 'names';
+	echo '/names/pfx';
     run("/names.php?pfx=".$route->pfx);
     die();
 });
