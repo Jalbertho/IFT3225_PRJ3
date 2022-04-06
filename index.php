@@ -6,6 +6,8 @@ use Kunststube\Router\Router,
 
 require_once 'Kunststube/Router.php';
 
+echo "Index";
+
 $r = new Router;
 
 // if you see this: you are good (no more .htaccess to fix): -)
