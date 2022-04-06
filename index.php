@@ -26,10 +26,10 @@ function run ($p) {
     echo $output;
 }
 
-// $r->add('/names/:pfx', array(), function(Route $route) {
-//     run("/names.php?pfx=".$route->pfx);
-//     die();
-// });
+$r->add('/names/:pfx', array(), function(Route $route) {
+    run("/names.php?pfx=".$route->pfx);
+    die();
+});
 
 // $r->add('/permis/:permis', array(), function(Route $route) {
 // //    echo "permis: ".$route->dispatchValue('permis'). 
