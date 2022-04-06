@@ -1,11 +1,7 @@
 <?php
 // Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
-
-echo ":)";
-
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
-
 
 require_once 'Kunststube/Router.php';
 
@@ -30,10 +26,10 @@ function run ($p) {
     echo $output;
 }
 
-$r->add('/names/:pfx', array(), function(Route $route) {
-    run("/names.php?pfx=".$route->pfx);
-    die();
-});
+// $r->add('/names/:pfx', array(), function(Route $route) {
+//     run("/names.php?pfx=".$route->pfx);
+//     die();
+// });
 
 // $r->add('/permis/:permis', array(), function(Route $route) {
 // //    echo "permis: ".$route->dispatchValue('permis'). 
