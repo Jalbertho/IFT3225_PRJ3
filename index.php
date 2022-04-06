@@ -20,7 +20,8 @@ function run ($p) {
 	echo $_SERVER[SERVER_NAME];
 
     // possible de l'obtenir à partir de $_SERVER:
-    $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
+    $local = $_SERVER[SERVER_NAME];
+    // $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $local.$p);
     curl_setopt($ch, CURLOPT_HEADER, 0);
