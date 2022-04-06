@@ -1,8 +1,11 @@
 <?php
 // Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
 
+echo ":)";
+
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
+
 
 require_once 'Kunststube/Router.php';
 
