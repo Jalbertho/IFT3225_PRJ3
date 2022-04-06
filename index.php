@@ -16,7 +16,7 @@ echo 'router url: '.$_GET['url'].'<br>';
 
 function run ($p) {
     // possible de l'obtenir à partir de $_SERVER:
-    $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3";
+    $local = "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $local.$p);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -27,6 +27,7 @@ function run ($p) {
 }
 
 $r->add('/names/:pfx', array(), function(Route $route) {
+	echo 'names';
     run("/names.php?pfx=".$route->pfx);
     die();
 });
