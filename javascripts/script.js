@@ -4,32 +4,26 @@ var app = $.sammy('#main', function() {
 
     this.around(function(callback) {
       var context = this;
-      this.load("ajax/https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all", function(data){
-        console.log(data);
-        context = data;
-      });
+      console.log("AROUND");
+      /*$.ajax({
+        type: 'GET',
+        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+        async: false,
+        dataType: "json",
+        success: function(data){
+          console.log(data);
+          context = data;
+        },
+        error: function(XMLHttpRequest, status, err){
+          console.log("An Error Has Occur.");
+          console.log(err);
+          console.log(XMLHttpRequest);
+        }
+      });*/
     });
 
-    // this.around(function(callback) {
-    //   var context = this;
-    //   this.ajax({
-    //     type: 'GET',
-    //     url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-    //     async: false,
-    //     dataType: "json",
-    //     success: function(data){
-    //       console.log(data);
-    //       context = data;
-    //     },
-    //     error: function(XMLHttpRequest, status, err){
-    //       console.log("An Error Has Occur.");
-    //       console.log(err);
-    //       console.log(XMLHttpRequest);
-    //     }
-    //   });
-    // });
-
     this.get('#/', function(context) {
+      console.log("#/");
       context.app.swap('');
       /*$.each(this.items, function(i, item) {
         context.render('templates/item.template', {id: i, item: item})
@@ -39,9 +33,9 @@ var app = $.sammy('#main', function() {
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function(context) {
+      console.log("#/TABLE");
       // TODO.. this is not run ://
       context.app.swap('');
-      console.log("hello");
       console.log(context);
 
       $('#table').DataTable();
