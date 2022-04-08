@@ -4,22 +4,30 @@ var app = $.sammy('#main', function() {
 
     this.around(function(callback) {
       var context = this;
-      this.ajax({
-        type: 'GET',
-        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-        async: false,
-        dataType: "json",
-        success: function(data){
-          console.log(data);
-          context = data;
-        },
-        error: function(XMLHttpRequest, status, err){
-          console.log("An Error Has Occur.");
-          console.log(err);
-          console.log(XMLHttpRequest);
-        }
+      this.load("ajax/https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all", function(data){
+        console.log(data);
+        context = data;
       });
     });
+
+    // this.around(function(callback) {
+    //   var context = this;
+    //   this.ajax({
+    //     type: 'GET',
+    //     url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+    //     async: false,
+    //     dataType: "json",
+    //     success: function(data){
+    //       console.log(data);
+    //       context = data;
+    //     },
+    //     error: function(XMLHttpRequest, status, err){
+    //       console.log("An Error Has Occur.");
+    //       console.log(err);
+    //       console.log(XMLHttpRequest);
+    //     }
+    //   });
+    // });
 
     this.get('#/', function(context) {
       context.app.swap('');
