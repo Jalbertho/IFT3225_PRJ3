@@ -76,7 +76,7 @@
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function() {
-      $('#main').DataTable();
+      $('#table').DataTable();
     });
 
     /*this.bind('run', function() {
