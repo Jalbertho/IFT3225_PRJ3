@@ -2,9 +2,9 @@ var app = $.sammy('#main', function() {
     this.use('Template');
     this.use('Session');
 
-    /*this.around(function(callback) {
+    this.around(function(callback) {
       var context = this;
-      $.ajax({
+      this.ajax({
         type: 'GET',
         url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
         async: false,
@@ -19,7 +19,7 @@ var app = $.sammy('#main', function() {
           console.log(XMLHttpRequest);
         }
       });
-    });*/
+    });
 
     this.get('#/', function(context) {
       context.app.swap('');
