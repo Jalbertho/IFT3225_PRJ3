@@ -1,0 +1,28 @@
+<tr>
+  <th>Nom de la brasserie</th>
+  <th>Nom légal</th>
+  <th>Autre.s nom.s</th>
+  <th>Au Menu</th>
+  <th>Adresse</th>
+  <th>Ville</th>
+  <th>Province</th>
+  <th>Pays</th>
+  <th>Code Postal</th>
+  <th>Longitude</th>
+  <th>Latitude</th>
+  <th>Numéro de Téléphone</th>
+  <th>Courriel</th>
+  <th>Région</th>
+  <th>Membre AMBQ ?</th>
+  <th>RateBeer</th>
+  <th>Site Internet</th>
+  <th>Wikidata</th>
+  <th>Facebook</th>
+  <th>Instagram</th>
+  <th>Pinterest</th>
+  <th>Snapchat</th>
+  <th>Twitter</th>
+  <th>Youtube</th>
+  <th>Autre.s</th>
+  <th>Notes</th>
+</tr>
