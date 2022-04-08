@@ -8,7 +8,7 @@ var app = $.sammy('#main', function() {
         type: 'GET',
         url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
         async: false,
-        dataType: "jsonp",
+        dataType: "json",
         success: function(data){
           console.log(data);
           context = data;
