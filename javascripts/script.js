@@ -78,19 +78,27 @@
     this.get('#/table', function() {
 
       // $('#table').DataTable();
-      // Search for concept and/or relation
+      var result = null;
+
       $.ajax({
         type: 'GET',
         url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
         async: false,
         success: function(data){
-          console.log(data);
-          result = updateData(data);
+          // console.log(data);
+          result = data;
         },
         error: function(XMLHttpRequest, status, err){
           console.log(XMLHttpRequest);
         }
       });
+
+      // TODO.. debugging
+      $.each(result, function(index, elem){
+        console.log(elem);
+      });
+
+      // TODO.. create table with data 
 
     });
 
