@@ -86,7 +86,7 @@
         async: false,
         dataType: "jsonp",
         success: function(data){
-          // console.log(data);
+          console.log(data);
           result = data;
         },
         error: function(XMLHttpRequest, status, err){
@@ -95,9 +95,9 @@
       });
 
       // TODO.. debugging
-      $.each(result, function(index, elem){
-        console.log(elem);
-      });
+      // $.each(result, function(index, elem){
+      //   console.log(elem);
+      // });
 
       // TODO.. create table with data 
 
