@@ -89,8 +89,9 @@ var app = $.sammy('#main', function() {
     });*/
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
-    this.get('#/table', function() {
-      console.log(this.context);
+    this.get('#/table', function(context) {
+      console.log("hello");
+      console.log(context);
 
       // $('#table').DataTable();
       // var result = null;
