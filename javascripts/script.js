@@ -84,6 +84,7 @@
         type: 'GET',
         url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
         async: false,
+        dataType: "jsonp",
         success: function(data){
           // console.log(data);
           result = data;
