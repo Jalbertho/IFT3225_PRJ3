@@ -27,7 +27,7 @@
     });*/
 
     // ajout felipe
-    this.get('#/cart', function(context) {
+    /*this.get('#/cart', function(context) {
       context.app.swap('');
 
     	// probablement moyen d'utiliser renderEach ... 
@@ -44,7 +44,7 @@
       });
 	
      context.$element().append("</table>");
-    }); // get
+    }); // get*/
       
     /*this.post('#/cart', function(context) {
       var item_id = this.params['item_id'];
@@ -76,7 +76,7 @@
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function() {
-      alert("blob");
+      $('#main').DataTable();
     });
 
     /*this.bind('run', function() {
