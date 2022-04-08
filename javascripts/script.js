@@ -76,7 +76,22 @@
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function() {
-      $('#table').DataTable();
+
+      // $('#table').DataTable();
+      // Search for concept and/or relation
+      $.ajax({
+        type: 'GET',
+        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+        async: false,
+        success: function(data){
+          console.log(data);
+          result = updateData(data);
+        },
+        error: function(XMLHttpRequest, status, err){
+          console.log(XMLHttpRequest);
+        }
+      });
+
     });
 
     /*this.bind('run', function() {

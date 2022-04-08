@@ -8,7 +8,7 @@ require_once 'Kunststube/Router.php';
 $r = new Router;
 
 // if you see this: you are good (no more .htaccess to fix): -)
-echo 'router url: '.$_GET['url'].'<br>';
+// echo 'router url: '.$_GET['url'].'<br>';
 
 // note: en theorie, on peut seuelemnt faire un require_once du script php qui fait la job
 //       mais comme mes scripts lisent $_GET, il me faut passer les arguments à $_GET pour que le script l'obtienne  
