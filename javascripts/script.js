@@ -90,7 +90,7 @@ var app = $.sammy('#main', function() {
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function() {
-      alert("blip");
+      console.log(this.context);
 
       // $('#table').DataTable();
       // var result = null;
@@ -120,10 +120,10 @@ var app = $.sammy('#main', function() {
 
     });
 
-    this.bind('run', function() {
+    /*this.bind('run', function() {
       // initialize the cart display
       this.trigger('update-cart');
-    });
+    });*/
 
   });
 
