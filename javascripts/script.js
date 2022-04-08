@@ -62,11 +62,11 @@ var app = $.sammy('#main', function() {
   this.get('#/table', function(context) {
     console.log("#/TABLE");
     // TODO.. this is not run ://
-    context.app.swap('');
-    console.log(context);
+    // context.app.swap('');
+    // console.log(context);
     getBrasseries();
-
     $('#table').DataTable();
+
     // var result = null;
 
     // $.ajax({
