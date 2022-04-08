@@ -12,13 +12,13 @@
           .then(callback);
     });*/
 
-    /*this.get('#/', function(context) {
+    this.get('#/', function(context) {
       context.app.swap('');
       $.each(this.items, function(i, item) {
         context.render('templates/item.template', {id: i, item: item})
                .appendTo(context.$element());
       });
-    });*/
+    });
 
     /*this.get('#/item/:id', function(context) {
       this.item = this.items[this.params['id']];
@@ -27,7 +27,7 @@
     });*/
 
     // ajout felipe
-    /*this.get('#/cart', function(context) {
+    this.get('#/cart', function(context) {
       context.app.swap('');
 
     	// probablement moyen d'utiliser renderEach ... 
@@ -44,7 +44,7 @@
       });
 	
      context.$element().append("</table>");
-    }); // get*/
+    }); // get
       
     /*this.post('#/cart', function(context) {
       var item_id = this.params['item_id'];
