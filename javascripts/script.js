@@ -2,7 +2,7 @@ var app = $.sammy('#main', function() {
     this.use('Template');
     this.use('Session');
 
-    this.around(function(callback) {
+    /*this.around(function(callback) {
       var context = this;
       $.ajax({
         type: 'GET',
@@ -19,7 +19,7 @@ var app = $.sammy('#main', function() {
           console.log(XMLHttpRequest);
         }
       });
-    });
+    });*/
 
     this.get('#/', function(context) {
       context.app.swap('');
