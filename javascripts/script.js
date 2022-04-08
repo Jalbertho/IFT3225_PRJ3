@@ -1,23 +1,37 @@
-(function($) {
-  var app = $.sammy('#main', function() {
+var app = $.sammy('#main', function() {
     this.use('Template');
     this.use('Session');
 
-    /*this.around(function(callback) {
+    this.around(function(callback) {
       var context = this;
-      this.load('data/items.json')
-          .then(function(items) {
-            context.items = items;
-          })
-          .then(callback);
-    });*/
+      $.ajax({
+        type: 'GET',
+        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+        async: false,
+        dataType: "jsonp",
+        success: function(data){
+          console.log(data);
+          context = data;
+        },
+        error: function(XMLHttpRequest, status, err){
+          console.log("An Error Has Occur.");
+          console.log(err);
+          console.log(XMLHttpRequest);
+        }
+      });
+      // this.load('data/items.json')
+      //     .then(function(items) {
+      //       context.items = items;
+      //     })
+      //     .then(callback);
+    });
 
     this.get('#/', function(context) {
-      context.app.swap('');
+      /*context.app.swap('');
       $.each(this.items, function(i, item) {
         context.render('templates/item.template', {id: i, item: item})
                .appendTo(context.$element());
-      });
+      });*/
     });
 
     /*this.get('#/item/:id', function(context) {
@@ -27,24 +41,24 @@
     });*/
 
     // ajout felipe
-    this.get('#/cart', function(context) {
+    /*this.get('#/cart', function(context) {
       context.app.swap('');
 
-    	// probablement moyen d'utiliser renderEach ... 
-    	context.$element().append("<table>");
+      // probablement moyen d'utiliser renderEach ... 
+      context.$element().append("<table>");
 
       $.each(this.session('cart') || {}, function(id, quantity) {
         var item = context.items[id];
 
-	       context.render('templates/cart.template',
+         context.render('templates/cart.template',
           {id: id, title: item.title,
-			    artist: item.artist, image : item.image,
-			    quantity: quantity}).
-		    appendTo(context.$element());
+          artist: item.artist, image : item.image,
+          quantity: quantity}).
+        appendTo(context.$element());
       });
-	
+  
      context.$element().append("</table>");
-    }); // get
+    }); // get*/
       
     /*this.post('#/cart', function(context) {
       var item_id = this.params['item_id'];
@@ -76,25 +90,26 @@
 
     // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
     this.get('#/table', function() {
+      alert("blip");
 
       // $('#table').DataTable();
-      var result = null;
+      // var result = null;
 
-      $.ajax({
-        type: 'GET',
-        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-        async: false,
-        dataType: "jsonp",
-        success: function(data){
-          console.log(data);
-          result = data;
-        },
-        error: function(XMLHttpRequest, status, err){
-          console.log("An Error Has Occur.\n\n");
-          console.log(err);
-          console.log(XMLHttpRequest);
-        }
-      });
+      // $.ajax({
+      //   type: 'GET',
+      //   url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+      //   async: false,
+      //   dataType: "jsonp",
+      //   success: function(data){
+      //     console.log(data);
+      //     result = data;
+      //   },
+      //   error: function(XMLHttpRequest, status, err){
+      //     console.log("An Error Has Occur.");
+      //     console.log(err);
+      //     console.log(XMLHttpRequest);
+      //   }
+      // });
 
       // TODO.. debugging
       // $.each(result, function(index, elem){
@@ -105,15 +120,13 @@
 
     });
 
-    /*this.bind('run', function() {
+    this.bind('run', function() {
       // initialize the cart display
       this.trigger('update-cart');
-    });*/
+    });
 
   });
 
-  $(function() {
-    app.run('#/');
-  });
-
-})(jQuery);
+$(document).ready(function(){
+  app.run('#/');
+});
