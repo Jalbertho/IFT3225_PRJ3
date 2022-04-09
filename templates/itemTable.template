@@ -1,0 +1,33 @@
+<tr>
+  <td>%=name %</td>
+  <td>%=legalName %</td>
+  <td>%=otherName %</td>
+  <td>%=address %</td>
+  <td>%=city %</td>
+  <td>%=postalCode %</td>
+  <td>%=province %</td>
+  <td>%=country %</td>
+  <td>%=longitude %</td>
+  <td>%=latitude %</td>
+  <td>%=phone %</td>
+  <td>%=email %</td>
+  <td>%=yearFondation %</td>
+  <td>%=adminRegion %</td>
+  <td>%=isAMBQMember %</td>
+  <td>%=numPermit %</td>
+  <td>%=brasseUnderPermit %</td>
+  <td>%=typePermit %</td>
+  <td>%=webSite %</td>
+  <td>%=facebook %</td>
+  <td>%=instagram %</td>
+  <td>%=ratebeer %</td>
+  <td>%=auMenu %</td>
+  <td>%=untappd %</td>
+  <td>%=pinterest %</td>
+  <td>%=snapchat %</td>
+  <td>%=twitter %</td>
+  <td>%=youtube %</td>
+  <td>%=wikidata %</td>
+  <td>%=autre %</td>
+  <td>%=notes %</td>
+</tr>

@@ -23,6 +23,7 @@ var getBrasseries = function(){
   console.log("Brasseries");
   console.log(result);
 
+  return result;
 }
 
 var app = $.sammy('#main', function() {
@@ -62,9 +63,51 @@ var app = $.sammy('#main', function() {
   this.get('#/table', function(context) {
     console.log("#/TABLE");
     // TODO.. this is not run ://
-    getBrasseries();
+    var result = getBrasseries();
     context.app.swap('');
+
+    // TODO.. check how to get le data de getBrasseries
+    console.log("Testing");
+    console.log(result);
+    
     context.$element().append("<table>");
+    context.render('templates/headerTable.template').appentTo(context.$element());
+    /*$.each(, function(index, elem){
+      context.render('templates/itemTable.template', 
+      {
+        name:
+        legalName:
+        otherName:
+        address:
+        city:
+        postalCode:
+        province:
+        country:
+        longitude:
+        latitude:
+        phone:
+        email:
+        yearFondation:
+        adminRegion:
+        isAMBQMember:
+        numPermit:
+        brasseUnderPermit:
+        typePermit:
+        webSite:
+        facebook:
+        instagram:
+        ratebeer:
+        auMenu:
+        untappd:
+        pinterest:
+        snapchat:
+        twitter:
+        youtube:
+        wikidata:
+        autre:
+        notes:
+      }).appentTo(context.$element());
+    });*/
     context.$element().append("</table>");
 
     $('#table').DataTable();
