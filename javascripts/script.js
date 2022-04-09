@@ -63,51 +63,51 @@ var app = $.sammy('#main', function() {
   this.get('#/table', function(context) {
     console.log("#/TABLE");
     // TODO.. this is not run ://
-    var result = getBrasseries();
     context.app.swap('');
+    var result = getBrasseries();
 
     // TODO.. check how to get le data de getBrasseries
     console.log("Testing");
     console.log(result);
     
     context.$element().append("<table>");
-    context.render('templates/headerTable.template').appentTo(context.$element());
-    /*$.each(, function(index, elem){
+    context.render('templates/headerTable.template').appendTo(context.$element());
+    $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
       {
-        name:
-        legalName:
-        otherName:
-        address:
-        city:
-        postalCode:
-        province:
-        country:
-        longitude:
-        latitude:
-        phone:
-        email:
-        yearFondation:
-        adminRegion:
-        isAMBQMember:
-        numPermit:
-        brasseUnderPermit:
-        typePermit:
-        webSite:
-        facebook:
-        instagram:
-        ratebeer:
-        auMenu:
-        untappd:
-        pinterest:
-        snapchat:
-        twitter:
-        youtube:
-        wikidata:
-        autre:
-        notes:
-      }).appentTo(context.$element());
-    });*/
+        name: elem["name"],
+        legalName: elem["legalName"],
+        otherName: elem["otherName"],
+        address: elem["address"],
+        city: elem["city"],
+        postalCode: elem["postalCode"],
+        province: elem["province"],
+        country: elem["country"],
+        longitude: elem["longitude"],
+        latitude: elem["latitude"],
+        phone: elem["phone"],
+        email: elem["email"],
+        yearFondation: elem["yearFondation"],
+        adminRegion: elem["adminRegion"],
+        isAMBQMember: elem["isAMBQMember"],
+        numPermit: elem["numPermit"],
+        brasseUnderPermit: elem["brasseUnderPermit"],
+        typePermit: elem["typePermit"],
+        webSite: elem["webSite"],
+        facebook: elem["facebook"],
+        instagram: elem["instagram"],
+        ratebeer: elem["ratebeer"],
+        auMenu: elem["auMenu"],
+        untappd: elem["untappd"],
+        pinterest: elem["pinterest"],
+        snapchat: elem["snapchat"], 
+        twitter: elem["twitter"],
+        youtube: elem["youtube"],
+        wikidata: elem["wikidata"],
+        autre: elem["autre"],
+        notes: elem["notes"]
+      }).appendTo(context.$element());
+    });
     context.$element().append("</table>");
 
     $('#table').DataTable();
