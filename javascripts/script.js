@@ -64,9 +64,10 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     
     var result = getBrasseries();
-    
-    // context.$element().append('<table id="table>"');
-    context.render('<table id="table>"').appendTo(context.$element());
+    $("#main").append('<table id="talbe">');
+
+    context.$element().append('<table id="table>"');
+    // context.render('<table id="table>"').appendTo(context.$element());
     context.render('templates/headerTable.template').appendTo(context.$element());
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
@@ -104,8 +105,8 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo(context.$element());
     });
-    context.render("</table>").appendTo(context.$element());
-    //context.$element().append("</table>");
+    // context.render("</table>").appendTo(context.$element());
+    context.$element().append("</table>");
 
     console.log(context);
 
