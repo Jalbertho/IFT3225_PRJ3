@@ -70,7 +70,7 @@ var app = $.sammy('#main', function() {
     console.log("Testing");
     console.log(result);
     
-    context.$element().append("<table>");
+    context.$element().append('<table id="table>"');
     context.render('templates/headerTable.template').appendTo(context.$element());
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
