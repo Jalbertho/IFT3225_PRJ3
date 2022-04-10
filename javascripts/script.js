@@ -61,7 +61,7 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     
     var result = getBrasseries();
-    $("#main").append('<table>');
+    $("#main").append('<table id="first">');
 
     console.log(context.$element());
 
@@ -107,7 +107,7 @@ var app = $.sammy('#main', function() {
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
 
-    $('table').DataTable();
+    $('#first').DataTable();
 
     // var result = null;
 
