@@ -69,49 +69,53 @@ var app = $.sammy('#main', function() {
     console.log(context.$element());
 
     context.$element().append('<table id="table>"');
-    context.$element().next();
+    //context.$element().next();
 
 
     console.log(context.$element());
 
     // context.render('<table id="table>"').appendTo(context.$element());
-    context.render('templates/headerTable.template').appendTo("#table");
-    $.each(result, function(index, elem){
-      context.render('templates/itemTable.template', 
-      {
-        name: elem["name"],
-        legalName: elem["legalName"],
-        otherName: elem["otherName"],
-        address: elem["address"],
-        city: elem["city"],
-        postalCode: elem["postalCode"],
-        province: elem["province"],
-        country: elem["country"],
-        longitude: elem["longitude"],
-        latitude: elem["latitude"],
-        phone: elem["phone"],
-        email: elem["email"],
-        yearFondation: elem["yearFondation"],
-        adminRegion: elem["adminRegion"],
-        isAMBQMember: elem["isAMBQMember"],
-        numPermit: elem["numPermit"],
-        brasseUnderPermit: elem["brasseUnderPermit"],
-        typePermit: elem["typePermit"],
-        webSite: elem["webSite"],
-        facebook: elem["facebook"],
-        instagram: elem["instagram"],
-        ratebeer: elem["ratebeer"],
-        auMenu: elem["auMenu"],
-        untappd: elem["untappd"],
-        pinterest: elem["pinterest"],
-        snapchat: elem["snapchat"], 
-        twitter: elem["twitter"],
-        youtube: elem["youtube"],
-        wikidata: elem["wikidata"],
-        autre: elem["autre"],
-        notes: elem["notes"]
-      }).appendTo("#table"); // todo.. instead of context.$element()
+    context.$element().next().then(function(content){
+      console.log(content);
+      console.log(context);
     });
+    // context.render('templates/headerTable.template').appendTo("#table");
+    // $.each(result, function(index, elem){
+    //   context.render('templates/itemTable.template', 
+    //   {
+    //     name: elem["name"],
+    //     legalName: elem["legalName"],
+    //     otherName: elem["otherName"],
+    //     address: elem["address"],
+    //     city: elem["city"],
+    //     postalCode: elem["postalCode"],
+    //     province: elem["province"],
+    //     country: elem["country"],
+    //     longitude: elem["longitude"],
+    //     latitude: elem["latitude"],
+    //     phone: elem["phone"],
+    //     email: elem["email"],
+    //     yearFondation: elem["yearFondation"],
+    //     adminRegion: elem["adminRegion"],
+    //     isAMBQMember: elem["isAMBQMember"],
+    //     numPermit: elem["numPermit"],
+    //     brasseUnderPermit: elem["brasseUnderPermit"],
+    //     typePermit: elem["typePermit"],
+    //     webSite: elem["webSite"],
+    //     facebook: elem["facebook"],
+    //     instagram: elem["instagram"],
+    //     ratebeer: elem["ratebeer"],
+    //     auMenu: elem["auMenu"],
+    //     untappd: elem["untappd"],
+    //     pinterest: elem["pinterest"],
+    //     snapchat: elem["snapchat"], 
+    //     twitter: elem["twitter"],
+    //     youtube: elem["youtube"],
+    //     wikidata: elem["wikidata"],
+    //     autre: elem["autre"],
+    //     notes: elem["notes"]
+    //   }).appendTo("#table"); // todo.. instead of context.$element()
+    // });
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
 
