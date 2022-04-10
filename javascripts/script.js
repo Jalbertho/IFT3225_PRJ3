@@ -69,10 +69,11 @@ var app = $.sammy('#main', function() {
     console.log(context.$element());
 
     context.$element().append('<table id="table>"');
+    context.$element() = context.$element().firstChild();
 
 
     console.log(context.$element());
-    
+
     // context.render('<table id="table>"').appendTo(context.$element());
     context.render('templates/headerTable.template').appendTo(context.$element());
     $.each(result, function(index, elem){
