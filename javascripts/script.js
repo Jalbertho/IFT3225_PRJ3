@@ -61,13 +61,13 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     
     var result = getBrasseries();
-    $("#main").append('<table id="table">');
+    $("#main").append('<table>');
 
     console.log(context.$element());
 
     // context.render('<table id="table>"').appendTo(context.$element());
     
-    context.render('templates/headerTable.template').appendTo("#table");
+    context.render('templates/headerTable.template').appendTo("table");
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
       {
@@ -102,7 +102,7 @@ var app = $.sammy('#main', function() {
         wikidata: elem["wikidata"],
         autre: elem["autre"],
         notes: elem["notes"]
-      }).appendTo("#table"); // todo.. instead of context.$element()
+      }).appendTo("table"); // todo.. instead of context.$element()
     });
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
