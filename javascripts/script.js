@@ -61,14 +61,9 @@ var app = $.sammy('#main', function() {
 
   // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
   this.get('#/table', function(context) {
-    console.log("#/TABLE");
-    // TODO.. this is not run ://
     context.app.swap('');
+    
     var result = getBrasseries();
-
-    // TODO.. check how to get le data de getBrasseries
-    console.log("Testing");
-    console.log(result);
     
     context.$element().append('<table id="table>"');
     context.render('templates/headerTable.template').appendTo(context.$element());
@@ -109,6 +104,8 @@ var app = $.sammy('#main', function() {
       }).appendTo(context.$element());
     });
     context.$element().append("</table>");
+
+    console.log(context);
 
     $('#table').DataTable();
 
