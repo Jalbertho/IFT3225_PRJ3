@@ -66,7 +66,13 @@ var app = $.sammy('#main', function() {
     var result = getBrasseries();
     $("#main").append('<table id="talbe">');
 
+    console.log(context.$element());
+
     context.$element().append('<table id="table>"');
+
+
+    console.log(context.$element());
+    
     // context.render('<table id="table>"').appendTo(context.$element());
     context.render('templates/headerTable.template').appendTo(context.$element());
     $.each(result, function(index, elem){
