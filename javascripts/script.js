@@ -64,13 +64,13 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     
     var result = getBrasseries();
-    // $("#main").append('<table id="talbe">');
+    $("#main").append('<table id="table">');
 
     console.log(context.$element());
 
     // context.render('<table id="table>"').appendTo(context.$element());
     
-    context.render('templates/headerTable.template').appendTo("#table");
+    context.render('templates/headerTable.template').appendTo(context.$element().next());
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
       {
