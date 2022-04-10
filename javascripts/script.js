@@ -69,13 +69,12 @@ var app = $.sammy('#main', function() {
     console.log(context.$element());
 
     context.$element().append('<table id="table>"');
-    context.$element() = context.$element().firstChild();
 
 
     console.log(context.$element());
 
     // context.render('<table id="table>"').appendTo(context.$element());
-    context.render('templates/headerTable.template').appendTo(context.$element());
+    context.render('templates/headerTable.template').appendTo("#table");
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
       {
@@ -110,7 +109,7 @@ var app = $.sammy('#main', function() {
         wikidata: elem["wikidata"],
         autre: elem["autre"],
         notes: elem["notes"]
-      }).appendTo(context.$element());
+      }).appendTo("#table"); // todo.. instead of context.$element()
     });
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
