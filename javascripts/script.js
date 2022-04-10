@@ -20,9 +20,6 @@ var getBrasseries = function(){
     }
   });
 
-  console.log("Brasseries");
-  console.log(result);
-
   return result;
 }
 
@@ -105,10 +102,10 @@ var app = $.sammy('#main', function() {
         wikidata: elem["wikidata"],
         autre: elem["autre"],
         notes: elem["notes"]
-      }).appendTo("#table"); // todo.. instead of context.$element()
+      }).appendTo(context.$element().next()); // todo.. instead of context.$element()
     });
     // context.render("</table>").appendTo(context.$element());
-    // context.$element().append("</table>");
+    context.$element().append("</table>");
 
     $('#table').DataTable();
 
