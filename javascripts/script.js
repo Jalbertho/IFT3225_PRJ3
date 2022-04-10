@@ -69,6 +69,7 @@ var app = $.sammy('#main', function() {
     console.log(context.$element());
 
     context.$element().append('<table id="table>"');
+    context.$element().next();
 
 
     console.log(context.$element());
