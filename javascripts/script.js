@@ -107,7 +107,7 @@ var app = $.sammy('#main', function() {
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
 
-    $('#table').DataTable();
+    $('table').DataTable();
 
     // var result = null;
 
