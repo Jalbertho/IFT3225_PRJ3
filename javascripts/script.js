@@ -102,7 +102,7 @@ var app = $.sammy('#main', function() {
         wikidata: elem["wikidata"],
         autre: elem["autre"],
         notes: elem["notes"]
-      }).appendTo(context.$element().next()); // todo.. instead of context.$element()
+      }).appendTo("#table"); // todo.. instead of context.$element()
     });
     // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
