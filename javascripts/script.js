@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  app.run();
+  app.run("#/");
 });
 
 var getBrasseries = function(){
@@ -88,7 +88,7 @@ var app = $.sammy('#main', function() {
     });*/
   });
 
-  this.get('#/', function(context) {
+  this.get('#/add', function(context) {
     context.app.swap('');
     context.render('templates/add.template').appendTo(context.$element());
 
