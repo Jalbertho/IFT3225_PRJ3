@@ -1,8 +1,5 @@
 $(document).ready(function(){
   app.run('#/login');
-
-  login();
-
 });
 
 var getBrasseries = function(){
@@ -38,6 +35,12 @@ var app = $.sammy('#main', function() {
   this.use('Template');
   this.use('Session');
 
+  // TODO.. LOGIN
+  this.bind('login', function(e, data){
+    console.log(data);
+
+  });
+
   /*this.around(function(callback) {
     var context = this;
     console.log("AROUND");
@@ -69,13 +72,15 @@ var app = $.sammy('#main', function() {
   this.get('#/login', function(context) {
     // context.app.swap('');
 
-    // context.render('templates/login.template').appendTo(context.$element());
+    context.render('templates/login.template').appendTo(context.$element());
 
-    $("#login").click(function(){
-      console.log("ouuh!");
-      console.log($("#name").val());
-      console.log($("#pwd").val());
-    });
+    this.trigger('login', {name: $("#name").val(), pwd: "password" });
+
+    // $("#login").click(function(){
+    //   console.log("ouuh!");
+    //   console.log($("#name").val());
+    //   console.log($("#pwd").val());
+    // });
 
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
