@@ -12,6 +12,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require "./config.php";
 
 echo " ".$_GET["input"];
+echo " ".$_GET["input"]['value'];
 
 // update query
 // $query = "INSERT INTO brasseries (
