@@ -45,6 +45,12 @@ $r->add('/names/:pfx', array(), function(Route $route) {
     die();
 });
 
+$r->add('/permis/:permis', array(), function(Route $route) {
+    // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
+    run("/queries/permis.php?permis=".$route->permis);
+    die();
+});
+
 // TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/<username>/<pwd>
 $r->add('/login/:name/:pwd', array(), function(Route $route) {
     // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
