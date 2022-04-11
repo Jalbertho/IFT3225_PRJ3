@@ -51,6 +51,11 @@ $r->add('/permis/:num', array(), function(Route $route) {
     die();
 });
 
+$r->add('/add/:input', array(), function(Route $route) {
+    run("/queries/add.php?input=".$route->input);
+    die();
+});
+
 // TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/<username>/<pwd>
 $r->add('/login/:name/:pwd', array(), function(Route $route) {
     // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
