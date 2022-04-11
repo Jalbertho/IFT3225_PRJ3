@@ -8,6 +8,8 @@ if (!isset($_GET['permis']))
 
 $query = "SELECT * FROM brasseries WHERE numPermit='".$_GET['permis']."%'";
 
+echo $_GET['permis'];
+
 // Execute query
 try
 {
