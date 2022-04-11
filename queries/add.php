@@ -11,7 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-echo $_GET["input"]
+echo " ".$_GET["input"];
 
 // update query
 // $query = "INSERT INTO brasseries (
