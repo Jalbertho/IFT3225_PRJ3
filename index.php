@@ -40,8 +40,15 @@ $r->add('/names', array(), function(Route $route) {
 
 // TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/names/ho
 $r->add('/names/:pfx', array(), function(Route $route) {
-    // Query :: SELECT NAME FROM brasseries  NAME LIKE <pfx>% ;
+    // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
     run("/names.php?pfx=".$route->pfx);
+    die();
+});
+
+// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/<username>/<pwd>
+$r->add('/login/:name/:pwd', array(), function(Route $route) {
+    // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
+    run("/exists.php?name=".$route->name"&pwd=".$route->pwd);
     die();
 });
 

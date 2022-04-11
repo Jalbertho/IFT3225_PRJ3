@@ -2,22 +2,24 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Microbrasseries</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- <link rel="stylesheet" href="stylesheets/jsonstore.css" type="text/css" media="screen" charset="utf-8"/> -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" type="text/css" media="screen" charset="utf-8"/> -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-  <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
-  <!-- <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
   <div id="container">
     <div id="header">
-      <h1>Title</h1>
-      <div class="cart-info">
-        My Cart (<span class="cart-items">0</span> items)
-      </div>
+      <h1>Les Microbrasseries du Québec</h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <form id="navigation" class="form-inline">
+          <button class="btn btn-light mx-2" type="button" href="#/login">Login</button>
+          <button class="btn btn-light mx-2" type="button" href="#/table">Table</button>
+          <button class="btn btn-light mx-2" type="button" href="#/plot">Plot</button>
+          <button class="btn btn-light mx-2" type="button" href="#/doc">Documentation</button>
+        </form>
+      </nav>
     </div>
     <div id="main">
       <!-- <table>

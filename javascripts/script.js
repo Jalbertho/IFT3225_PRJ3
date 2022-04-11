@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  app.run('#/');
+  app.run('#/login');
 });
 
 var getBrasseries = function(){
@@ -48,7 +48,15 @@ var app = $.sammy('#main', function() {
   });*/
 
   this.get('#/', function(context) {
-    console.log("#/");
+    context.app.swap('');
+    /*$.each(this.items, function(i, item) {
+      context.render('templates/item.template', {id: i, item: item})
+             .appendTo(context.$element());
+    });*/
+  });
+
+  this.get('#/login', function(context) {
+    console.log("#/login");
     context.app.swap('');
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
