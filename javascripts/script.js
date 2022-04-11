@@ -37,6 +37,7 @@ var app = $.sammy('#main', function() {
 
   // TODO.. LOGIN
   this.bind('login', function(e, data){
+    console.log(e);
     console.log(data);
 
   });
@@ -70,8 +71,7 @@ var app = $.sammy('#main', function() {
   });
 
   this.get('#/login', function(context) {
-    // context.app.swap('');
-
+    context.app.swap('');
     context.render('templates/login.template').appendTo(context.$element());
 
     this.trigger('login', {name: $("#name").val(), pwd: "password" });
