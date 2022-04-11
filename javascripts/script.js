@@ -1,5 +1,8 @@
 $(document).ready(function(){
   app.run('#/login');
+
+  $(document).on('submit', '#login', login());
+
 });
 
 var getBrasseries = function(){
@@ -21,6 +24,12 @@ var getBrasseries = function(){
   });
 
   return result;
+}
+
+var login = function() {
+  console.log($("#name").val());
+  console.log($("#pwd").val());
+
 }
 
 var app = $.sammy('#main', function() {
@@ -60,9 +69,6 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
 
     context.render('templates/login.template').appendTo(context.$element());
-
-    console.log($("#name").val());
-    console.log($("#pwd").val());
 
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
