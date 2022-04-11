@@ -88,6 +88,16 @@ var app = $.sammy('#main', function() {
     });*/
   });
 
+  this.get('#/', function(context) {
+    context.app.swap('');
+    context.render('templates/add.template').appendTo(context.$element());
+
+    /*$.each(this.items, function(i, item) {
+      context.render('templates/item.template', {id: i, item: item})
+             .appendTo(context.$element());
+    });*/
+  });
+
   // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
   this.get('#/table', function(context) {
     context.app.swap('');

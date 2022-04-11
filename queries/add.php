@@ -11,69 +11,131 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-echo " ".$_GET["input"];
-echo " ".$_GET["input"]['value'];
+try {
 
-// update query
-// $query = "INSERT INTO brasseries (
-//         `name`,
-//         `legalName`,
-//         `otherName`,
-//         `address`,
-//         `city`,
-//         `postalCode`,
-//         `province`,
-//         `country`,
-//         `latitude`,
-//         `longitude`,
-//         `adminRegion`,
-//         `numPermit`,
-//         `brasseUnderPermit`,
-//         `typePermit`,
-//         `isAMBQMember`,
-//         `yearFondation`,
-//         `webSite`,
-//         `email`,
-//         `phone`,
-//         `facebook`,
-//         `ratebeer`,
-//         `untappd`,
-//         `auMenu`,
-//         `twitter`,
-//         `wikidata`,
-//         `youtube`,
-//         `instagram`,
-//         `pinterest`,
-//         `snapchat`,
-//         `autre`,
-//         `notes`
-//         )
+    // $data = json_decode(file_get_contents("php://input"))
+    echo "".$data;
+    
+    // add query
+    $query = "INSERT INTO brasseries (
+            `name`,
+            `legalName`,
+            `otherName`,
+            `address`,
+            `city`,
+            `postalCode`,
+            `province`,
+            `country`,
+            `latitude`,
+            `longitude`,
+            `adminRegion`,
+            `numPermit`,
+            `brasseUnderPermit`,
+            `typePermit`,
+            `isAMBQMember`,
+            `yearFondation`,
+            `webSite`,
+            `email`,
+            `phone`,
+            `facebook`,
+            `ratebeer`,
+            `untappd`,
+            `auMenu`,
+            `twitter`,
+            `wikidata`,
+            `youtube`,
+            `instagram`,
+            `pinterest`,
+            `snapchat`,
+            `autre`,
+            `notes`
+        )
 
-//         VALUES
+        VALUES
 
-//         (
-//             name = :name,
-//             price = :price,
-//             description = :description,
-//             category_id = :category_id
-//         )";
+        (
+            :name,
+            :legalName,
+            :otherName,
+            :address,
+            :city,
+            :postalCode,
+            :province,
+            :country,
+            :latitude,
+            :longitude,
+            :adminRegion,
+            :numPermit,
+            :brasseUnderPermit,
+            :typePermit,
+            :isAMBQMember,
+            :yearFondation,
+            :webSite,
+            :email,
+            :phone,
+            :facebook,
+            :ratebeer,
+            :untappd,
+            :auMenu,
+            :twitter,
+            :wikidata,
+            :youtube,
+            :instagram,
+            :pinterest,
+            :snapchat,
+            :autre,
+            :notes
+        )";
 
-// prepare query statement
-$res = $pdo->prepare($query);
+    // prepare query statement
+    $res = $pdo->prepare($query);
 
-// // sanitize
-// $this->name=htmlspecialchars(strip_tags($this->name));
-// $this->price=htmlspecialchars(strip_tags($this->price));
-// $this->description=htmlspecialchars(strip_tags($this->description));
-// $this->category_id=htmlspecialchars(strip_tags($this->category_id));
-// $this->id=htmlspecialchars(strip_tags($this->id));
+    // bind new values
+    $stmt->bindParam(':name', $_REQUEST['name']);
+    $stmt->bindParam(':legalName', $_REQUEST['legalName']);
+    $stmt->bindParam(':otherName', $_REQUEST['otherName']);
+    $stmt->bindParam(':address', $_REQUEST['address']);
+    $stmt->bindParam(':city', $_REQUEST['city']);
+    $stmt->bindParam(':postalCode', $_REQUEST['postalCode']);
+    $stmt->bindParam(':province', $_REQUEST['province']);
+    $stmt->bindParam(':country', $_REQUEST['country']);
+    $stmt->bindParam(':latitude', $_REQUEST['latitude']);
+    $stmt->bindParam(':longitude', $_REQUEST['longitude']);
+    $stmt->bindParam(':adminRegion', $_REQUEST['adminRegion']);
+    $stmt->bindParam(':numPermit', $_REQUEST['numPermit']);
+    $stmt->bindParam(':brasseUnderPermit', $_REQUEST['brasseUnderPermit']);
+    $stmt->bindParam(':typePermit', $_REQUEST['typePermit']);
+    $stmt->bindParam(':isAMBQMember', $_REQUEST['isAMBQMember']);
+    $stmt->bindParam(':yearFondation', $_REQUEST['yearFondation']);
+    $stmt->bindParam(':webSite', $_REQUEST['webSite']);
+    $stmt->bindParam(':email', $_REQUEST['email']);
+    $stmt->bindParam(':phone', $_REQUEST['phone']);
+    $stmt->bindParam(':facebook', $_REQUEST['facebook']);
+    $stmt->bindParam(':ratebeer', $_REQUEST['ratebeer']);
+    $stmt->bindParam(':untappd', $_REQUEST['untappd']);
+    $stmt->bindParam(':auMenu', $_REQUEST['auMenu']);
+    $stmt->bindParam(':twitter', $_REQUEST['twitter']);
+    $stmt->bindParam(':wikidata', $_REQUEST['wikidata']);
+    $stmt->bindParam(':youtube', $_REQUEST['youtube']);
+    $stmt->bindParam(':instagram', $_REQUEST['instagram']);
+    $stmt->bindParam(':pinterest', $_REQUEST['pinterest']);
+    $stmt->bindParam(':snapchat', $_REQUEST['snapchat']);
+    $stmt->bindParam(':autre', $_REQUEST['autre']);
+    $stmt->bindParam(':notes', $_REQUEST['notes']);
 
-// // bind new values
-// $stmt->bindParam(':name', $this->name);
-// $stmt->bindParam(':price', $this->price);
-// $stmt->bindParam(':description', $this->description);
-// $stmt->bindParam(':category_id', $this->category_id);
-// $stmt->bindParam(':id', $this->id);
+// execute the query
+$res->execute();
+
+}
+catch (PDOException $e)
+{
+ /* If there is a PDO exception, throw a standard exception */
+ throw new Exception('Database query error');
+}
+
+echo '{';
+    echo '"message": "Brasserie has been added."';
+echo '}';
 
 // execute the query
 if($res->execute()){
@@ -83,47 +145,3 @@ if($res->execute()){
     echo '}';
     return true;
 }
-
-// if unable to update the product, tell the user
-echo '{';
-    echo '"message": "Unable to update product."';
-echo '}';
-return false;
-
-
-
-
-
-
-
-
-
-
-
-// Execute query
-try
-{
- $res = $pdo->prepare($query);
- $res->execute();
-}
-catch (PDOException $e)
-{
- /* If there is a PDO exception, throw a standard exception */
- throw new Exception('Database query error');
-}
-echo json_encode($res->fetchAll(PDO::FETCH_ASSOC));
-
-// update the product
-if($product->update()){
-    echo '{';
-        echo '"message": "Product was updated."';
-    echo '}';
-}
- 
-// if unable to update the product, tell the user
-else{
-    echo '{';
-        echo '"message": "Unable to update product."';
-    echo '}';
-}
-?>

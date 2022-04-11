@@ -1,0 +1,131 @@
+<form action="../queries/add.php" method="post" class="container">
+  <div class="form-group">
+    <label for="name">Nom de la Brasserie</label>
+    <input id="name" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="legalName">Nom Légal de la Brasserie</label>
+    <input id="legalName" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="otherName">Autre Nom</label>
+    <input id="otherName" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="address">Adresse</label>
+    <input id="address" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="city">Ville</label>
+    <input id="city" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="postalCode">Code Postal</label>
+    <input id="postalCode" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="province">Province</label>
+    <input id="province" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="country">Pays</label>
+    <input id="country" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="latitude">Latitude</label>
+    <input id="latitude" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="longitude">Longitude</label>
+    <input id="longitude" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="adminRegion">Région Administrative</label>
+    <input id="adminRegion" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="numPermit">Numéro de Permis</label>
+    <input id="numPermit" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="brasseUnderPermit">Brasserie sous le Permis</label>
+    <input id="brasseUnderPermit" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="typePermit">Type de Permis</label>
+    <select class="form-control" id="typePermit">
+      <option>Brasseur</option>
+      <option>Sans Permis</option>
+      <option>Producteur Artisanal de Bière</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="isAMBQMember">La Brasserie est-elle membre AMBQ ?</label>
+    <input id="isAMBQMember" type="checkbox" class="form-check-input" value="true">
+  </div>
+  <div class="form-group">
+    <label for="yearFondation">Année de Fondation</label>
+    <input id="yearFondation" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="webSite">Site Internet</label>
+    <input id="webSite" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="email">Courriel</label>
+    <input id="email" type="email" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="phone">Numéro de Téléphone</label>
+    <input id="phone" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="facebook">Facebook</label>
+    <input id="facebook" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="ratebeer">Ratebeer</label>
+    <input id="ratebeer" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="untappd">Untappd</label>
+    <input id="untappd" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="auMenu">AuMenu</label>
+    <input id="auMenu" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="twitter">Twitter</label>
+    <input id="twitter" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="wikidata">WikiData</label>
+    <input id="wikidata" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="youtube">YouTube</label>
+    <input id="youtube" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="instagram">Instagram</label>
+    <input id="instagram" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="pinterest">Pinterest</label>
+    <input id="pinterest" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="snapchat">SnapChat</label>
+    <input id="snapchat" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="autre">Autre</label>
+    <input id="autre" type="text" class="form-control" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="notes">Notes</label>
+    <input id="notes" type="text" class="form-control" placeholder="">
+  </div>
+  <button id="add" type="submit" value="Submit" class="btn btn-primary">Ajoutez</button>
+</form>
