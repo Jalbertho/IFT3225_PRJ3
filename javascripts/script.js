@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  app.run('#/login');
+  app.run();
 });
 
 var getBrasseries = function(){
