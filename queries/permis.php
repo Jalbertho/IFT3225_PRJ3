@@ -3,12 +3,10 @@
 
 require "./config.php";
 
-echo ":)";
-
 // if (! (isset($_GET['permis'])))
 //   throw new Exception('Query must take an argument representing the permit number.')
 
-$query = "SELECT * FROM brasseries WHERE numPermit='".$_GET['num']."%'";
+$query = "SELECT * FROM brasseries WHERE numPermit='".$_GET['num']."'";
 
 // Execute query
 try
