@@ -58,6 +58,9 @@ var app = $.sammy('#main', function() {
   this.get('#/login', function(context) {
     console.log("#/login");
     context.app.swap('');
+
+    context.render('templates/headerTable.template').appendTo(context.$element());
+
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
              .appendTo(context.$element());
@@ -69,12 +72,8 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     
     var result = getBrasseries();
+
     $("#main").append('<table id="first">');
-
-    console.log(context.$element());
-
-    // context.render('<table id="table>"').appendTo(context.$element());
-    
     context.render('templates/headerTable.template').appendTo("table");
     $.each(result, function(index, elem){
       context.render('templates/itemTable.template', 
@@ -110,38 +109,11 @@ var app = $.sammy('#main', function() {
         wikidata: elem["wikidata"],
         autre: elem["autre"],
         notes: elem["notes"]
-      }).appendTo("table"); // todo.. instead of context.$element()
+      }).appendTo("table");
     });
-    // context.render("</table>").appendTo(context.$element());
     context.$element().append("</table>");
 
-    $('#first').DataTable();
-
-    // var result = null;
-
-    // $.ajax({
-    //   type: 'GET',
-    //   url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-    //   async: false,
-    //   dataType: "jsonp",
-    //   success: function(data){
-    //     console.log(data);
-    //     result = data;
-    //   },
-    //   error: function(XMLHttpRequest, status, err){
-    //     console.log("An Error Has Occur.");
-    //     console.log(err);
-    //     console.log(XMLHttpRequest);
-    //   }
-    // });
-
-    // TODO.. debugging
-    // $.each(result, function(index, elem){
-    //   console.log(elem);
-    // });
-
-    // TODO.. create table with data 
-
+    $('#first').DataTable(); // TODO.. review this.
   });
 
   /*this.bind('run', function() {
