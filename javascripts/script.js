@@ -1,7 +1,7 @@
 $(document).ready(function(){
   app.run('#/login');
 
-  $(document).on('submit', '#login', login());
+  $("#login").click(login());
 
 });
 
@@ -65,7 +65,6 @@ var app = $.sammy('#main', function() {
   });
 
   this.get('#/login', function(context) {
-    console.log("#/login");
     context.app.swap('');
 
     context.render('templates/login.template').appendTo(context.$element());
