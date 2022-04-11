@@ -1,5 +1,9 @@
 $(document).ready(function(){
   app.run("#/");
+
+  add();
+
+
 });
 
 var getBrasseries = function(){
@@ -28,6 +32,12 @@ var login = function() {
     console.log("click!");
     console.log($("#name").val());
     console.log($("#pwd").val());
+  });
+}
+
+var add = function() {
+  $("#add").click(function(){
+    console.log("click!");
   });
 }
 

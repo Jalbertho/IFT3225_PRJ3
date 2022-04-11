@@ -1,4 +1,4 @@
-<form action="../queries/add.php" method="post" class="container">
+<form class="container">
   <div class="form-group">
     <label for="name">Nom de la Brasserie</label>
     <input id="name" type="text" class="form-control" placeholder="">
