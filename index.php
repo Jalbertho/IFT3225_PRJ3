@@ -45,9 +45,9 @@ $r->add('/names/:pfx', array(), function(Route $route) {
     die();
 });
 
-$r->add('/permis/:permis', array(), function(Route $route) {
+$r->add('/permis/:num', array(), function(Route $route) {
     // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
-    run("/queries/permis.php?permis=".$route->permis);
+    run("/queries/permis.php?num=".$route->num);
     die();
 });
 
