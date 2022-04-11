@@ -61,6 +61,9 @@ var app = $.sammy('#main', function() {
 
     context.render('templates/login.template').appendTo(context.$element());
 
+    console.log($("#name").val());
+    console.log($("#pwd").val());
+
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
              .appendTo(context.$element());
