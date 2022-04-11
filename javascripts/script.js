@@ -59,7 +59,7 @@ var app = $.sammy('#main', function() {
     console.log("#/login");
     context.app.swap('');
 
-    context.render('templates/headerTable.template').appendTo(context.$element());
+    context.render('templates/login.template').appendTo(context.$element());
 
     /*$.each(this.items, function(i, item) {
       context.render('templates/item.template', {id: i, item: item})
