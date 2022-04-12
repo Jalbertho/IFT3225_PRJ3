@@ -1,9 +1,5 @@
 $(document).ready(function(){
   app.run("#/");
-
-  add();
-
-
 });
 
 var getBrasseries = function(){
@@ -27,34 +23,17 @@ var getBrasseries = function(){
   return result;
 }
 
-var login = function() {
+/*var login = function() {
   $("#login").click(function(){
     console.log("click!");
     console.log($("#name").val());
     console.log($("#pwd").val());
   });
-}
+}*/
 
-var add = function() {
+/*var add = function() {
   $("#add").click(function(){
     console.log("click!");
-  });
-}
-
-var app = $.sammy('#main', function() {
-  this.use('Template');
-  this.use('Session');
-
-  // TODO.. LOGIN
-  this.bind('login', function(e, data){
-    console.log(e);
-    console.log(data);
-
-  });
-
-  /*this.around(function(callback) {
-    var context = this;
-    console.log("AROUND");
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
@@ -62,7 +41,7 @@ var app = $.sammy('#main', function() {
       dataType: "json",
       success: function(data){
         console.log(data);
-        context = data;
+        result = data;
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
@@ -70,7 +49,26 @@ var app = $.sammy('#main', function() {
         console.log(XMLHttpRequest);
       }
     });
-  });*/
+  });
+}*/
+
+var app = $.sammy('#main', function() {
+  this.use('Template');
+  this.use('Session');
+
+  // TODO.. LOGIN
+  this.bind('login', data, function(){
+    console.log(data);
+
+    $("#login").click(function(){
+      console.log("click!");
+      console.log($("#name").val());
+      console.log($("#pwd").val());
+    });
+
+    this.trigger('login', {name: $("#name").val(), pwd: "password" });
+
+  });
 
   this.get('#/', function(context) {
     context.app.swap('');
@@ -84,8 +82,6 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
     context.render('templates/login.template').appendTo(context.$element());
 
-    this.trigger('login', {name: $("#name").val(), pwd: "password" });
-
     // $("#login").click(function(){
     //   console.log("ouuh!");
     //   console.log($("#name").val());
@@ -98,15 +94,10 @@ var app = $.sammy('#main', function() {
     });*/
   });
 
-  this.get('#/add', function(context) {
+  /*this.get('#/add', function(context) {
     context.app.swap('');
     context.render('templates/add.template').appendTo(context.$element());
-
-    /*$.each(this.items, function(i, item) {
-      context.render('templates/item.template', {id: i, item: item})
-             .appendTo(context.$element());
-    });*/
-  });
+  });*/
 
   // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
   this.get('#/table', function(context) {
