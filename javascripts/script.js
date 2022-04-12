@@ -25,6 +25,7 @@ $(document).ready(function(){
         } else {
           sessionStorage.clear(); // Deletes all sessionStorage.
         }
+        
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
