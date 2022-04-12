@@ -3,7 +3,12 @@ $(document).ready(function(){
 
   
   // ----------- Event Functions ----------- //
+  // TODO: onClick pour la nav (nice to have)
+
   $(document).on('click', '#login', function(){
+    // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
+    // [{'username': '<username>', 'priviledge': '<priviledge>'}].
+    // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/"+$("#name").val()+"/"+$("#pwd").val(),
@@ -15,19 +20,19 @@ $(document).ready(function(){
         // Set up session's data.
         if(data.length == 1){
           sessionStorage.setItem('username', $("#name").val());
+          // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
           sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
         } else {
-          sessionStorage.clear(); // deletes everything on the sessionStorage.
+          sessionStorage.clear(); // Deletes all sessionStorage.
         }
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
         console.log(err);
-        console.log(XMLHttpRequest);
       }
     });
 
-    // TODO.. debug.
+    // TODO.. use for debug.
     console.log(sessionStorage.getItem('username'));
     console.log(sessionStorage.getItem('priviledge'));
   });
@@ -53,51 +58,14 @@ var getBrasseries = function(){
   return result;
 }
 
-// var add = function() {
-//   $("#add").click(function(){
-//     console.log("click!");
-//     $.ajax({
-//       type: 'GET',
-//       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-//       async: false,
-//       dataType: "json",
-//       success: function(data){
-//         console.log(data);
-//         result = data;
-//       },
-//       error: function(XMLHttpRequest, status, err){
-//         console.log("An Error Has Occur.");
-//         console.log(err);
-//         console.log(XMLHttpRequest);
-//       }
-//     });
-//   });
-// }
-
 var app = $.sammy('#main', function() {
   this.use('Template');
 
-  // TODO.. LOGIN
-  /*this.bind('login', data, function(){
-    console.log(data);
-
-    $("#login").click(function(){
-      console.log("click!");
-      console.log($("#name").val());
-      console.log($("#pwd").val());
-    });
-
-    this.trigger('login', {name: $("#name").val(), pwd: "password" });
-
-  });*/
-
   // ----------- Routing ----------- //
+  // Access the site with this URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/
+
   this.get('#/', function(context) {
     context.app.swap('');
-    /*$.each(this.items, function(i, item) {
-      context.render('templates/item.template', {id: i, item: item})
-             .appendTo(context.$element());
-    });*/
   });
 
   this.get('#/login', function(context) {
@@ -105,7 +73,6 @@ var app = $.sammy('#main', function() {
     context.render('templates/login.template').appendTo(context.$element());
   });
 
-  // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
   this.get('#/table', function(context) {
     context.app.swap('');
     
@@ -149,9 +116,10 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("table");
     });
-    context.$element().append("</table>");
+    // context.$element().append("</table>");
 
-    $('#first').DataTable(); // TODO.. review this.
+    // TODO.. review DataTable.
+    $('#first').DataTable();
   });
 
   // TODO.. this is a POST.
@@ -166,9 +134,7 @@ var app = $.sammy('#main', function() {
 
   // TODO.. add un DEL.
 
-  /*this.bind('run', function() {
-    // initialize the cart display
-    this.trigger('update-cart');
-  });*/
+  // TODO.. add un Plot.
 
+  // TODO.. add un Doc.
 });
