@@ -53,26 +53,26 @@ var getBrasseries = function(){
   return result;
 }
 
-/*var add = function() {
-  $("#add").click(function(){
-    console.log("click!");
-    $.ajax({
-      type: 'GET',
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
-      async: false,
-      dataType: "json",
-      success: function(data){
-        console.log(data);
-        result = data;
-      },
-      error: function(XMLHttpRequest, status, err){
-        console.log("An Error Has Occur.");
-        console.log(err);
-        console.log(XMLHttpRequest);
-      }
-    });
-  });
-}*/
+// var add = function() {
+//   $("#add").click(function(){
+//     console.log("click!");
+//     $.ajax({
+//       type: 'GET',
+//       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+//       async: false,
+//       dataType: "json",
+//       success: function(data){
+//         console.log(data);
+//         result = data;
+//       },
+//       error: function(XMLHttpRequest, status, err){
+//         console.log("An Error Has Occur.");
+//         console.log(err);
+//         console.log(XMLHttpRequest);
+//       }
+//     });
+//   });
+// }
 
 var app = $.sammy('#main', function() {
   this.use('Template');
@@ -103,18 +103,6 @@ var app = $.sammy('#main', function() {
   this.get('#/login', function(context) {
     context.app.swap('');
     context.render('templates/login.template').appendTo(context.$element());
-    // this.partial('templates/login.template');
-
-    // $("#login").click(function(){
-    //   console.log("ouuh!");
-    //   console.log($("#name").val());
-    //   console.log($("#pwd").val());
-    // });
-
-    /*$.each(this.items, function(i, item) {
-      context.render('templates/item.template', {id: i, item: item})
-             .appendTo(context.$element());
-    });*/
   });
 
   // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
@@ -167,10 +155,14 @@ var app = $.sammy('#main', function() {
   });
 
   // TODO.. this is a POST.
-  /*this.post('#/add', function(context) {
+  this.post('#/add', function(context) {
     context.app.swap('');
-    context.render('templates/add.template').appendTo(context.$element());
-  });*/
+    if(sessionStorage.getItem('priviledge') == 'WRITE'){
+      console.log("Hurray!");
+    }else{
+      context.render('templates/forbidden.template').appendTo(context.$element());
+    }
+  });
 
   // TODO.. add un DEL.
 
