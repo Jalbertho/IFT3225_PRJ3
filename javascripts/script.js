@@ -122,7 +122,7 @@ var app = $.sammy('#main', function() {
     $('#first').DataTable();
   });
 
-  // TODO.. this is a POST.
+  // TODO..
   this.post('#/add', function(context) {
     context.app.swap('');
     if(sessionStorage.getItem('priviledge') == 'WRITE'){
