@@ -13,8 +13,12 @@ $(document).ready(function(){
         console.log(data);
 
         // Set up session's data.
-        sessionStorage.setItem('username', $("#name").val());
-        sessionStorage.setItem('priviledge', data.length == 1 ? data[0]['PRIVILEDGE'] : 'NONE');
+        if(data.length == 1){
+          sessionStorage.setItem('username', $("#name").val());
+          sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
+        } else {
+          sessionStorage.clear(); // deletes everything on the sessionStorage.
+        }
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
@@ -23,7 +27,7 @@ $(document).ready(function(){
       }
     });
 
-    // TODO.. put login info into session.
+    // TODO.. debug.
     console.log(sessionStorage.getItem('username'));
     console.log(sessionStorage.getItem('priviledge'));
   });
