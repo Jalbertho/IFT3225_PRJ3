@@ -2,11 +2,14 @@ $(document).ready(function(){
   app.run("#/");
 
   // login();
-  $("#login1").click(function(){
-    console.log("click!");
-    //console.log($("#name").val());
-    //console.log($("#pwd").val());
-  });
+  // $("#login1").click(function(){
+  //   console.log("click!");
+  //   //console.log($("#name").val());
+  //   //console.log($("#pwd").val());
+  // });
+  $(document).on('click', '#login1', function(){
+    console.log("click !");
+  })
 });
 
 var getBrasseries = function(){
