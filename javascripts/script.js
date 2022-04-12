@@ -15,8 +15,6 @@ $(document).ready(function(){
       async: false,
       dataType: "json",
       success: function(data){
-        console.log(data);
-
         // Set up session's data.
         if(data.length == 1){
           sessionStorage.setItem('username', $("#name").val());
@@ -25,7 +23,7 @@ $(document).ready(function(){
         } else {
           sessionStorage.clear(); // Deletes all sessionStorage.
         }
-        
+
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
@@ -117,7 +115,7 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("table");
     });
-    // context.$element().append("</table>");
+    context.$element().append("</table>"); // TODO.. review this.
 
     // TODO.. review DataTable.
     $('#first').DataTable();
