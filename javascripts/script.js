@@ -4,8 +4,8 @@ $(document).ready(function(){
   // login();
   $("#login1").click(function(){
     console.log("click!");
-    console.log($("#name").val());
-    console.log($("#pwd").val());
+    //console.log($("#name").val());
+    //console.log($("#pwd").val());
   });
 });
 
