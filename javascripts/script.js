@@ -1,5 +1,7 @@
 $(document).ready(function(){
   app.run("#/");
+
+  login();
 });
 
 var getBrasseries = function(){
@@ -23,13 +25,13 @@ var getBrasseries = function(){
   return result;
 }
 
-/*var login = function() {
+var login = function() {
   $("#login").click(function(){
     console.log("click!");
     console.log($("#name").val());
     console.log($("#pwd").val());
   });
-}*/
+}
 
 /*var add = function() {
   $("#add").click(function(){
@@ -57,7 +59,7 @@ var app = $.sammy('#main', function() {
   this.use('Session');
 
   // TODO.. LOGIN
-  this.bind('login', data, function(){
+  /*this.bind('login', data, function(){
     console.log(data);
 
     $("#login").click(function(){
@@ -68,7 +70,7 @@ var app = $.sammy('#main', function() {
 
     this.trigger('login', {name: $("#name").val(), pwd: "password" });
 
-  });
+  });*/
 
   this.get('#/', function(context) {
     context.app.swap('');
