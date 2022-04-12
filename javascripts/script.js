@@ -22,8 +22,6 @@ $(document).ready(function(){
     });
 
     // TODO.. put login info into session.
-
-    // return result;
   });
 });
 
@@ -97,8 +95,8 @@ var app = $.sammy('#main', function() {
 
   this.get('#/login', function(context) {
     context.app.swap('');
-    // context.render('templates/login.template').appendTo(context.$element());
-    this.partial('templates/login.template');
+    context.render('templates/login.template').appendTo(context.$element());
+    // this.partial('templates/login.template');
 
     // $("#login").click(function(){
     //   console.log("ouuh!");
