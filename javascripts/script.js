@@ -7,7 +7,7 @@ $(document).ready(function(){
   //   //console.log($("#name").val());
   //   //console.log($("#pwd").val());
   // });
-  $(document).on('click', '#login', login());
+  $(document).on('click', '#login1', login());
 });
 
 var getBrasseries = function(){
