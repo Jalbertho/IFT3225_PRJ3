@@ -24,6 +24,8 @@ $(document).ready(function(){
     });
 
     // TODO.. put login info into session.
+    console.log(sessionStorage.getItem('username'));
+    console.log(sessionStorage.getItem('priviledge'));
   });
 });
 
