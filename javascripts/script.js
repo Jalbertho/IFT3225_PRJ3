@@ -115,7 +115,7 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("table");
     });
-    context.$element().append("</table>"); // TODO.. review this.
+    // context.$element().append("</table>"); // TODO.. review this.
 
     // TODO.. review DataTable.
     $('#first').DataTable();
