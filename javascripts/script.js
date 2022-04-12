@@ -88,7 +88,7 @@ var app = $.sammy('#main', function() {
   this.get('#/login', function(context) {
     context.app.swap('');
     // context.render('templates/login.template').appendTo(context.$element());
-    this.partial('template/login.template');
+    this.partial('templates/login.template');
 
     // $("#login").click(function(){
     //   console.log("ouuh!");
