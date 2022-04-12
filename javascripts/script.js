@@ -4,7 +4,6 @@ $(document).ready(function(){
   
   // ----------- Event Functions ----------- //
   $(document).on('click', '#login', function(){
-    var result = null;
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/"+$("#name").val()+"/"+$("#pwd").val(),
@@ -12,7 +11,10 @@ $(document).ready(function(){
       dataType: "json",
       success: function(data){
         console.log(data);
-        result = data;
+
+        // Set up session's data.
+        sessionStorage.setItem('username', $("#name").val());
+        sessionStorage.setItem('priviledge', data.length() == 1 ? data[0]['PRIVILEDGE'] : 'NONE');
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
@@ -68,7 +70,6 @@ var getBrasseries = function(){
 
 var app = $.sammy('#main', function() {
   this.use('Template');
-  this.use('Session');
 
   // TODO.. LOGIN
   /*this.bind('login', data, function(){
