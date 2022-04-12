@@ -7,9 +7,7 @@ $(document).ready(function(){
   //   //console.log($("#name").val());
   //   //console.log($("#pwd").val());
   // });
-  $(document).on('click', '#login1', function(){
-    console.log("click !");
-  })
+  $(document).on('click', '#login', login());
 });
 
 var getBrasseries = function(){
@@ -34,11 +32,7 @@ var getBrasseries = function(){
 }
 
 var login = function() {
-  $("#login1").click(function(){
-    console.log("click!");
-    console.log($("#name").val());
-    console.log($("#pwd").val());
-  });
+  console.log('click !');
 }
 
 /*var add = function() {

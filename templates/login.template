@@ -7,5 +7,5 @@
     <label for="pwd">Password</label>
     <input id="pwd" type="password" class="form-control" placeholder="Password">
   </div>
-  <button id="login1" type="button" class="btn btn-primary">Login</button>
+  <button id="login" type="button" class="btn btn-primary">Login</button>
 </form>
