@@ -1,7 +1,12 @@
 $(document).ready(function(){
   app.run("#/");
 
-  login();
+  // login();
+  $("#login1").click(function(){
+    console.log("click!");
+    console.log($("#name").val());
+    console.log($("#pwd").val());
+  });
 });
 
 var getBrasseries = function(){
@@ -26,7 +31,7 @@ var getBrasseries = function(){
 }
 
 var login = function() {
-  $("#login").click(function(){
+  $("#login1").click(function(){
     console.log("click!");
     console.log($("#name").val());
     console.log($("#pwd").val());
@@ -82,7 +87,8 @@ var app = $.sammy('#main', function() {
 
   this.get('#/login', function(context) {
     context.app.swap('');
-    context.render('templates/login.template').appendTo(context.$element());
+    // context.render('templates/login.template').appendTo(context.$element());
+    this.partial('template/login.template');
 
     // $("#login").click(function(){
     //   console.log("ouuh!");
@@ -95,11 +101,6 @@ var app = $.sammy('#main', function() {
              .appendTo(context.$element());
     });*/
   });
-
-  /*this.get('#/add', function(context) {
-    context.app.swap('');
-    context.render('templates/add.template').appendTo(context.$element());
-  });*/
 
   // TODO.. https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/table
   this.get('#/table', function(context) {
@@ -149,6 +150,14 @@ var app = $.sammy('#main', function() {
 
     $('#first').DataTable(); // TODO.. review this.
   });
+
+  // TODO.. this is a POST.
+  /*this.post('#/add', function(context) {
+    context.app.swap('');
+    context.render('templates/add.template').appendTo(context.$element());
+  });*/
+
+  // TODO.. add un DEL.
 
   /*this.bind('run', function() {
     // initialize the cart display
