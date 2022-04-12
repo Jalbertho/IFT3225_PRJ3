@@ -1,0 +1,11 @@
+<form class="container">
+  <div class="form-group">
+    <label for="name">Username</label>
+    <input id="name" type="text" class="form-control" aria-describedby="username" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password</label>
+    <input id="pwd" type="password" class="form-control" placeholder="Password">
+  </div>
+  <button id="login" type="button" class="btn btn-primary">Login</button>
+</form>
