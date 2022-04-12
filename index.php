@@ -63,13 +63,5 @@ $r->add('/login/:name/:pwd', array(), function(Route $route) {
     die();
 });
 
-// $r->add('/permis/:permis', array(), function(Route $route) {
-// //    echo "permis: ".$route->dispatchValue('permis'). 
-// //         " route: ".$route->url(). "<br>";
-// //
-//     run("/brasserie2.php?permis=".$route->permis);
-//     die();
-// });
-
 $r->route($_GET['url']);
 ?>
