@@ -14,7 +14,7 @@ $(document).ready(function(){
 
         // Set up session's data.
         sessionStorage.setItem('username', $("#name").val());
-        sessionStorage.setItem('priviledge', data.length() == 1 ? data[0]['PRIVILEDGE'] : 'NONE');
+        sessionStorage.setItem('priviledge', data.length == 1 ? data[0]['PRIVILEDGE'] : 'NONE');
       },
       error: function(XMLHttpRequest, status, err){
         console.log("An Error Has Occur.");
