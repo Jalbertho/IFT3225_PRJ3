@@ -1,14 +1,29 @@
 $(document).ready(function(){
   app.run("#/");
 
-  // login();
-  // $("#login1").click(function(){
-  //   console.log("click!");
-  //   //console.log($("#name").val());
-  //   //console.log($("#pwd").val());
-  // });
-  $(document).on('click', '#login1', function(){
-    console.log("Click !");
+  
+  // ----------- Event Functions ----------- //
+  $(document).on('click', '#login', function(){
+    var result = null;
+    $.ajax({
+      type: 'GET',
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/"+$("#name").val()+"/"+$("#pwd").val(),
+      async: false,
+      dataType: "json",
+      success: function(data){
+        console.log(data);
+        result = data;
+      },
+      error: function(XMLHttpRequest, status, err){
+        console.log("An Error Has Occur.");
+        console.log(err);
+        console.log(XMLHttpRequest);
+      }
+    });
+
+    // TODO.. put login info into session.
+
+    // return result;
   });
 });
 
@@ -20,7 +35,6 @@ var getBrasseries = function(){
     async: false,
     dataType: "json",
     success: function(data){
-      console.log(data);
       result = data;
     },
     error: function(XMLHttpRequest, status, err){
@@ -72,6 +86,7 @@ var app = $.sammy('#main', function() {
 
   });*/
 
+  // ----------- Routing ----------- //
   this.get('#/', function(context) {
     context.app.swap('');
     /*$.each(this.items, function(i, item) {
