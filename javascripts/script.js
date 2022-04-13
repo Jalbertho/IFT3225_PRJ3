@@ -161,7 +161,7 @@ var app = $.sammy('#main', function() {
   this.post('#/delete', function(context) {
     var result = null;
  $.ajax({
-       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+(#name).val(),
+       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+$("#name").val(),
        type : "POST",
        dataType : 'json',
        success : function(data) {
