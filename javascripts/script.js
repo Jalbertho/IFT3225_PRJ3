@@ -5,7 +5,7 @@ $(document).ready(function(){
   // ----------- Event Functions ----------- //
   // TODO: onClick pour la nav (nice to have)
 
-  $(document).on('click', '#login', function(){
+  $(document).on('click', '#login', function() {
     // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
     // [{'username': '<username>', 'priviledge': '<priviledge>'}].
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
@@ -14,9 +14,9 @@ $(document).ready(function(){
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/"+$("#name").val()+"/"+$("#pwd").val(),
       async: false,
       dataType: "json",
-      success: function(data){
+      success: function(data) {
         // Set up session's data.
-        if(data.length == 1){
+        if(data.length == 1) {
           sessionStorage.setItem('username', $("#name").val());
           // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
           sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
@@ -25,7 +25,7 @@ $(document).ready(function(){
         }
 
       },
-      error: function(XMLHttpRequest, status, err){
+      error: function(XMLHttpRequest, status, err) {
         console.log("An Error Has Occur.");
         console.log(err);
       }
@@ -37,17 +37,17 @@ $(document).ready(function(){
   });
 });
 
-var getBrasseries = function(){
+var getBrasseries = function() {
   var result = null;
   $.ajax({
     type: 'GET',
     url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
     async: false,
     dataType: "json",
-    success: function(data){
+    success: function(data) {
       result = data;
     },
-    error: function(XMLHttpRequest, status, err){
+    error: function(XMLHttpRequest, status, err) {
       console.log("An Error Has Occur.");
       console.log(err);
       console.log(XMLHttpRequest);
@@ -56,6 +56,8 @@ var getBrasseries = function(){
 
   return result;
 }
+
+
 
 var app = $.sammy('#main', function() {
   this.use('Template');
@@ -79,7 +81,7 @@ var app = $.sammy('#main', function() {
 
     $("#main").append('<table id="first">');
     context.render('templates/headerTable.template').appendTo("table");
-    $.each(result, function(index, elem){
+    $.each(result, function(index, elem) {
       context.render('templates/itemTable.template', 
       {
         name: elem["name"],
@@ -122,7 +124,7 @@ var app = $.sammy('#main', function() {
   });
 
   // TODO..
-  this.post('#/add', function(context) {
+  this.get('#/add', function(context) {
     context.app.swap('');
     if(sessionStorage.getItem('priviledge') == 'WRITE'){
       console.log("Hurray!");
@@ -130,10 +132,50 @@ var app = $.sammy('#main', function() {
       context.render('templates/forbidden.template').appendTo(context.$element());
     }
   });
+  this.post('#/add', function(context) {
+    var result = null;
+ $.ajax({
+       // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/add/...
+       type : "POST",
+       dataType : 'json',
+       success : function(data) {
+        result = data;
+       },
+       error: function(xhr, resp, text) {
+       console.log(xhr, resp, text);
+       }
+     }); // ajax
+ return result;// result
+
+ });
 
   // TODO.. add un DEL.
+  this.get('#/delete',function(context) {
+    if (sessionStorage.getItem('priviledge') == 'WRITE') {
+      console.log("you're in");
+    }else{
+      context.render('templates/forbidden.template').appendTo(context.$element());
+    }
+
+  });
+  this.post('#/delete', function(context) {
+    var result = null;
+ $.ajax({
+       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+(#name).val(),
+       type : "POST",
+       dataType : 'json',
+       success : function(data) {
+        result = data;
+       },
+       error: function(xhr, resp, text) {
+       console.log(xhr, resp, text);
+       }
+     }); // ajax
+ return result;
+  // result
+
+ });
 
   // TODO.. add un Plot.
 
   // TODO.. add un Doc.
-});

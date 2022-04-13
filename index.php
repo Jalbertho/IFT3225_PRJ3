@@ -63,5 +63,10 @@ $r->add('/login/:name/:pwd', array(), function(Route $route) {
     die();
 });
 
+$r->add('/delete/:name', array(), function(Route $route) {
+    run("/queries/delete.php?name=".$route->name);
+    die();
+})
+
 $r->route($_GET['url']);
 ?>
