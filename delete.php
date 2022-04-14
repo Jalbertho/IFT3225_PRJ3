@@ -12,7 +12,7 @@
 // include database and object files
 require "./config.php";
 
-$query = "DELETE FROM brasseries WHERE name=':name'";
+$query = "DELETE FROM brasseries WHERE name='MOLSON CANADA'";
 
 try {
     $name = str_replace('_', ' ', $_GET['name']);
