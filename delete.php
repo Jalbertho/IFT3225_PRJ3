@@ -21,8 +21,8 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
-// execute the query
-$res->execute();
+    // execute the query
+    $res->execute();
 
 }
 catch (PDOException $e)
@@ -31,36 +31,38 @@ catch (PDOException $e)
  throw new Exception('Database query error');
 }
 
-echo '{';
-    echo '"message": "Brasserie has been removed."';
-echo '}';
+echo json_encode(array("message" => "Brasserie has been removed."));
 
-// execute the query
-// if($res->execute()){
-//     // update the product
-//     echo '{';
-//         echo '"message": "Product was updated."';
-//     echo '}';
-//     return true;
+// echo '{';
+//     echo '"message": "Brasserie has been removed."';
+// echo '}';
+
+// // execute the query
+// // if($res->execute()){
+// //     // update the product
+// //     echo '{';
+// //         echo '"message": "Product was updated."';
+// //     echo '}';
+// //     return true;
+// // }
+// if($product->execute()){
+  
+//     // set response code - 200 ok
+//     http_response_code(200);
+  
+//     // tell the user
+//     echo json_encode(array("message" => "Product was deleted."));
 // }
-if($product->execute()){
   
-    // set response code - 200 ok
-    http_response_code(200);
+// // if unable to delete the product
+// else{
   
-    // tell the user
-    echo json_encode(array("message" => "Product was deleted."));
-}
+//     // set response code - 503 service unavailable
+//     http_response_code(503);
   
-// if unable to delete the product
-else{
-  
-    // set response code - 503 service unavailable
-    http_response_code(503);
-  
-    // tell the user
-    echo json_encode(array("message" => "Unable to delete product."));
-}
+//     // tell the user
+//     echo json_encode(array("message" => "Unable to delete product."));
+// }
 
 
 
