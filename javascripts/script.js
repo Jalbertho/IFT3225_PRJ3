@@ -5,7 +5,7 @@ $(document).ready(function(){
   // ----------- Event Functions ----------- //
   // TODO: onClick pour la nav (nice to have)
 
-  /*$(document).on('click', '#login', function() {
+  /*$(document).on('click', '#btnlogin', function() {
     // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
     // [{'username': '<username>', 'priviledge': '<priviledge>'}].
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
@@ -76,9 +76,10 @@ var app = $.sammy('#main', function() {
     context.render('templates/login.template').appendTo(context.$element());
   });
 
-  this.post('#/login', function(context){
-    context.app.swap('');
-    $("#main").append('<p>Bienvenue ' + this.params['name'] + '</p>');
+  this.post('#/login', function(){
+    console.log("hello " + this.params['name']);
+    // context.app.swap('');
+    // $("#main").append('<p>Bienvenue ' + this.params['name'] + '</p>');
   });
 
   this.get('#/table', function(context) {
