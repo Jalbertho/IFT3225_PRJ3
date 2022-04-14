@@ -40,19 +40,19 @@ $r->add('/names', array(), function(Route $route) {
     die();
 });
 
-// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
-// $r->add('/names/:pfx', array(), function(Route $route) {
-//     // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
-//     run("/names.php?pfx=".$route->pfx);
-//     die();
-// });
+// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
+$r->add('/names/:pfx', array(), function(Route $route) {
+    // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
+    run("/names.php?pfx=".$route->pfx);
+    die();
+});
 
-// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<num>
-// $r->add('/permis/:num', array(), function(Route $route) {
-//     // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
-//     run("/permis.php?num=".$route->num);
-//     die();
-// });
+// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<num>
+$r->add('/permis/:num', array(), function(Route $route) {
+    // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
+    run("/permis.php?num=".$route->num);
+    die();
+});
 
 // // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<input>
 // $r->add('/add/:input', array(), function(Route $route) {
