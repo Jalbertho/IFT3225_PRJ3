@@ -101,12 +101,13 @@ var app = $.sammy('#main', function() {
     if(result.length == 1) {
       sessionStorage.setItem('username', this.params['username']);
       // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
-      sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
+      sessionStorage.setItem('priviledge', result[0]['PRIVILEDGE']);
 
-      // TODO.. add a popup ?
+      alert("Bienvenue " + this.params['username'] + "!");
 
     } else {
       sessionStorage.clear(); // Deletes all sessionStorage.
+      alert("Mauvaises informations d'identification, veuillez vous reconnecter");
     }
 
   });
