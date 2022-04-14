@@ -9,6 +9,7 @@ $r = new Router;
 
 // if you see this: you are good (no more .htaccess to fix): -)
 echo 'router url: '.$_GET['url'].'<br>';
+echo 'server name: '.$_SERVER[SERVER_NAME].'<br>';
 
 // note: en theorie, on peut seuelemnt faire un require_once du script php qui fait la job
 //       mais comme mes scripts lisent $_GET, il me faut passer les arguments à $_GET pour que le script l'obtienne  
@@ -32,45 +33,45 @@ $r->add('/all', array(), function(Route $route) {
     die();
 });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names
-$r->add('/names', array(), function(Route $route) {
-    // Query :: SELECT NAME FROM brasseries;
-    run("/names.php".$route->pfx);
-    die();
-});
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names
+// $r->add('/names', array(), function(Route $route) {
+//     // Query :: SELECT NAME FROM brasseries;
+//     run("/names.php".$route->pfx);
+//     die();
+// });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
-$r->add('/names/:pfx', array(), function(Route $route) {
-    // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
-    run("/names.php?pfx=".$route->pfx);
-    die();
-});
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
+// $r->add('/names/:pfx', array(), function(Route $route) {
+//     // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
+//     run("/names.php?pfx=".$route->pfx);
+//     die();
+// });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<num>
-$r->add('/permis/:num', array(), function(Route $route) {
-    // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
-    run("/permis.php?num=".$route->num);
-    die();
-});
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<num>
+// $r->add('/permis/:num', array(), function(Route $route) {
+//     // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
+//     run("/permis.php?num=".$route->num);
+//     die();
+// });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<input>
-$r->add('/add/:input', array(), function(Route $route) {
-    run("/add.php?input=".$route->input);
-    die();
-});
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<input>
+// $r->add('/add/:input', array(), function(Route $route) {
+//     run("/add.php?input=".$route->input);
+//     die();
+// });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/login/<username>/<pwd>
-$r->add('/login/:name/:pwd', array(), function(Route $route) {
-    // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
-    run("/queries/exists.php?name=".$route->name."&pwd=".$route->pwd);
-    die();
-});
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/login/<username>/<pwd>
+// $r->add('/login/:name/:pwd', array(), function(Route $route) {
+//     // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
+//     run("/queries/exists.php?name=".$route->name."&pwd=".$route->pwd);
+//     die();
+// });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/delete/<name>
-$r->add('/delete/:name', array(), function(Route $route) {
-    run("/delete.php?name=".$route->name);
-    die();
-})
+// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/delete/<name>
+// $r->add('/delete/:name', array(), function(Route $route) {
+//     run("/delete.php?name=".$route->name);
+//     die();
+// })
 
 $r->route($_GET['url']);
 ?>
