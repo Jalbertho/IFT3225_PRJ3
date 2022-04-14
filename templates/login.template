@@ -1,11 +1,11 @@
 <form action="#/login" method="post" class="container">
   <div class="form-group">
     <label for="name">Username</label>
-    <input id="name" type="text" class="form-control" aria-describedby="username" placeholder="Enter username">
+    <input id="name" type="text" name="username" class="form-control" aria-describedby="username" placeholder="Enter username">
   </div>
   <div class="form-group">
     <label for="pwd">Password</label>
-    <input id="pwd" type="password" class="form-control" placeholder="Password">
+    <input id="pwd" type="password" name="pwd" class="form-control" placeholder="Password">
   </div>
-  <input id="btnlogin" type="submit" class="btn btn-primary">Login</input>
+  <input id="btn-login" type="submit" value="Login" class="btn btn-primary">
 </form>
