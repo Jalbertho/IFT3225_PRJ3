@@ -14,13 +14,12 @@ require "./config.php";
 
 echo "name: ".$_GET['name']."<br>";
 
-$name = $_GET['name'];
-$query = "DELETE FORM brasseries WHERE name=:name";
+$query = "DELETE FORM brasseries WHERE name=':name'";
 
 try {
 
     $res = $pdo->prepare($query);
-    $res->bindParam(":name", $name);
+    $res->bindParam(":name", $_GET['name']);
 
     if($res->execute()){
         echo json_encode(array("message" => "Brasserie has been removed."));
