@@ -132,7 +132,7 @@ var app = $.sammy('#main', function() {
       context.render('templates/forbidden.template').appendTo(context.$element());
     }
   });
-  
+
   this.post('#/add', function(context) {
     var result = null;
     $.ajax({
@@ -179,4 +179,4 @@ var app = $.sammy('#main', function() {
   // TODO.. add un Plot.
 
   // TODO.. add un Doc.
-}
+});
