@@ -81,7 +81,7 @@ var app = $.sammy('#main', function() {
 
     $.ajax({
       type: 'GET',
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+this.params['username']+"/"+this.params['pwd']),
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+this.params['username']+"/"+this.params['pwd'],
       async: false,
       dataType: "json",
       success: function(data) {
