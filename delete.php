@@ -15,11 +15,13 @@ require "./config.php";
 $query = "DELETE FROM brasseries WHERE name=':name'";
 
 try {
+    $name = str_replace('_', ' ', $_GET['name']);
 
     $res = $pdo->prepare($query);
-    $res->bindParam(":name", str_replace('_', ' ', $_GET['name']));
+    $res->bindParam(":name", $name);
 
     echo "".$_GET['name'];
+    echo "".$name;
 
     $res->execute();
 
