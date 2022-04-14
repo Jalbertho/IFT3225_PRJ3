@@ -1,5 +1,6 @@
 <?php
 // Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
+// et de la page https://phpdelusions.net/pdo_examples/delete
 
 // required headers
 header("Access-Control-Allow-Origin: *");
@@ -13,14 +14,18 @@ require "./config.php";
 
 echo "name: ".$_GET['name']."<br>";
 
-
-
 $query = "DELETE FORM brasseries WHERE name= '".$_GET['name']."'";
 
 try {
 
     $res = $pdo->prepare($query);
-    $res->execute($_GET['name']);
+
+    if($res->execute($_GET['name'])){
+        echo json_encode(array("message" => "Brasserie has been removed."));
+
+    }else{
+        echo json_encode(array("message" => "Brasserie doesn't exist."));
+    }
 
 }
 catch (PDOException $e)
@@ -28,39 +33,3 @@ catch (PDOException $e)
     /* If there is a PDO exception, throw a standard exception */
     throw new Exception('Database query error');
 }
-
-echo json_encode(array("message" => "Brasserie has been removed."));
-
-// echo '{';
-//     echo '"message": "Brasserie has been removed."';
-// echo '}';
-
-// // execute the query
-// // if($res->execute()){
-// //     // update the product
-// //     echo '{';
-// //         echo '"message": "Product was updated."';
-// //     echo '}';
-// //     return true;
-// // }
-// if($product->execute()){
-  
-//     // set response code - 200 ok
-//     http_response_code(200);
-  
-//     // tell the user
-//     echo json_encode(array("message" => "Product was deleted."));
-// }
-  
-// // if unable to delete the product
-// else{
-  
-//     // set response code - 503 service unavailable
-//     http_response_code(503);
-  
-//     // tell the user
-//     echo json_encode(array("message" => "Unable to delete product."));
-// }
-
-
-
