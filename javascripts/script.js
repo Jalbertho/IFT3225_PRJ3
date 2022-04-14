@@ -207,7 +207,7 @@ var app = $.sammy('#main', function() {
       type : "POST",
       dataType : 'json',
       success : function(response) {
-        console.log(response);
+        alert(response["message"]);
       },
       error: function(xhr, resp, text) {
         console.log(xhr, resp, text);
