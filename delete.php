@@ -11,24 +11,22 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
+echo "name: ".$_GET['name']."<br>";
+
+
+
+$query = "DELETE FORM brasseries WHERE name= '".$_GET['name']."'";
+
 try {
 
-    // $data = json_decode(file_get_contents("php://input"))
-    
-    // add query
-    $query = "DELETE FORM brasseries WHERE name= '".$_GET['name']."'";
-
-    // prepare query statement
     $res = $pdo->prepare($query);
-
-    // execute the query
-    $res->execute();
+    $res->execute($_GET['name']);
 
 }
 catch (PDOException $e)
 {
- /* If there is a PDO exception, throw a standard exception */
- throw new Exception('Database query error');
+    /* If there is a PDO exception, throw a standard exception */
+    throw new Exception('Database query error');
 }
 
 echo json_encode(array("message" => "Brasserie has been removed."));
