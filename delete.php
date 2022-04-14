@@ -14,12 +14,12 @@ require "./config.php";
 
 echo "name: ".$_GET['name']."<br>";
 
-$query = "DELETE FROM brasseries WHERE name='SIBOIRE'";
+$query = "DELETE FROM brasseries WHERE name=':name'";
 
 try {
 
     $res = $pdo->prepare($query);
-    // $res->bindParam(":name", $_GET['name']);
+    $res->bindParam(":name", $_GET['name']);
     // $res->execute();
 
     if($res->execute()){
