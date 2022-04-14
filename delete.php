@@ -16,6 +16,8 @@ $query = "DELETE FROM brasseries WHERE name=':name'";
 
 try {
 
+    echo " ".$_GET['name'];
+
     $res = $pdo->prepare($query);
     $res->bindParam(":name", $_GET['name']);
     $res->execute();
