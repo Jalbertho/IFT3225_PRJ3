@@ -20,9 +20,6 @@ try {
 
     $res = $pdo->prepare($query);
     $res->bindParam(":name", $_GET['name']);
-    $answer = $res->execute();
-
-    echo " ".$answer;
 
     if($res->execute()){
         echo json_encode(array("message" => "Brasserie has been removed."));
@@ -30,6 +27,8 @@ try {
     }else{
         echo json_encode(array("message" => "Brasserie doesn't exist."));
     }
+
+    echo " ".$res->rowCount();
 
 }
 catch (PDOException $e)
