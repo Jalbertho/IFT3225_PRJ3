@@ -15,6 +15,7 @@ require "./config.php";
 echo "name: ".$_GET['name']."<br>";
 
 $query = "DELETE FORM brasseries WHERE name=':name'";
+echo ":P";
 
 try {
 
@@ -22,9 +23,11 @@ try {
     $res->bindParam(":name", $_GET['name']);
 
     if($res->execute()){
+        echo ":)";
         echo json_encode(array("message" => "Brasserie has been removed."));
 
     }else{
+        echo ":(";
         echo json_encode(array("message" => "Brasserie doesn't exist."));
     }
 
