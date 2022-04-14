@@ -190,8 +190,12 @@ var app = $.sammy('#main', function() {
 
   // TODO.. add un DEL.
   this.get('#/delete',function(context) {
+    context.app.swap('');
+
     if (sessionStorage.getItem('priviledge') == 'WRITE') {
       console.log("you're in");
+      context.render('templates/delete.template').appendTo(context.$element());
+
     }else{
       context.render('templates/forbidden.template').appendTo(context.$element());
     }

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="text-center">Suppression d'une Brasserie</h1>
+  <form action="#/delete" method="post" class="container">
+    <div class="form-group">
+      <label for="name">Nom de la brasserie</label>
+      <input id="name" type="text" name="name" class="form-control">
+    </div>
+    <input id="btn-delete" type="submit" value="Delete" class="btn btn-primary">
+  </form>
+</div>
