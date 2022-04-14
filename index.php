@@ -68,8 +68,9 @@ $r->add('/add/:input', array(), function(Route $route) {
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/<name>
 $r->add('/delete/:name', array(), function(Route $route) {
-    run("/delete.php?name='".$route->name."'");
-    die();
+    echo " ".$route->name;
+    // run("/delete.php?name=".$route->name);
+    // die();
 });
 
 $r->route($_GET['url']);
