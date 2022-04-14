@@ -50,7 +50,6 @@ var getBrasseries = function() {
     error: function(XMLHttpRequest, status, err) {
       console.log("An Error Has Occur.");
       console.log(err);
-      console.log(XMLHttpRequest);
     }
   });
 
@@ -63,7 +62,7 @@ var app = $.sammy('#main', function() {
   this.use('Template');
 
   // ----------- Routing ----------- //
-  // Access the site with this URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/tmp/index.html#/
+  // Access the site with this URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/
 
   this.get('#/', function(context) {
     context.app.swap('');
@@ -133,10 +132,10 @@ var app = $.sammy('#main', function() {
     }
   });
 
-  this.post('#/add', function(context) {
+  /*this.post('#/add', function(context) {
     var result = null;
     $.ajax({
-      // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/tmp/add/...
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add"
       type : "POST",
       dataType : 'json',
       success : function(data) {
@@ -148,7 +147,7 @@ var app = $.sammy('#main', function() {
     }); // ajax
     
     return result;// result
- });
+ });*/
 
   // TODO.. add un DEL.
   this.get('#/delete',function(context) {
