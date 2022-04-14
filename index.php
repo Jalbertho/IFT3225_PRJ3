@@ -42,7 +42,7 @@ $r->add('/names', array(), function(Route $route) {
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/ho
 $r->add('/names/:pfx', array(), function(Route $route) {
     // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
-    run("/names.php?pfx="..str_replace(' ', '_', $route->pfx));
+    run("/names.php?pfx=".str_replace(' ', '_', $route->pfx));
     die();
 });
 
