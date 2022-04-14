@@ -12,16 +12,14 @@
 // include database and object files
 require "./config.php";
 
-$query = "DELETE FROM brasseries WHERE name='MOLSON CANADA'";
+$query = "DELETE FROM brasseries WHERE name='".str_replace('_', ' ', $_GET['name'])."'";
 
 try {
-    $name = str_replace('_', ' ', $_GET['name']);
 
     $res = $pdo->prepare($query);
-    $res->bindParam(":name", $name);
+    // $res->bindParam(":name", $name);
 
     echo "".$_GET['name'];
-    echo "".$name;
 
     $res->execute();
 
