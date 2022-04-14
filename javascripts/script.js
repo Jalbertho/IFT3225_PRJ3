@@ -11,7 +11,7 @@ $(document).ready(function(){
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
     $.ajax({
       type: 'GET',
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/"+$("#name").val()+"/"+$("#pwd").val(),
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+$("#name").val()+"/"+$("#pwd").val(),
       async: false,
       dataType: "json",
       success: function(data) {
@@ -41,7 +41,7 @@ var getBrasseries = function() {
   var result = null;
   $.ajax({
     type: 'GET',
-    url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/all",
+    url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
     async: false,
     dataType: "json",
     success: function(data) {
@@ -63,7 +63,7 @@ var app = $.sammy('#main', function() {
   this.use('Template');
 
   // ----------- Routing ----------- //
-  // Access the site with this URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/index.html#/
+  // Access the site with this URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/tmp/index.html#/
 
   this.get('#/', function(context) {
     context.app.swap('');
@@ -136,7 +136,7 @@ var app = $.sammy('#main', function() {
   this.post('#/add', function(context) {
     var result = null;
     $.ajax({
-      // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/add/...
+      // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/tmp/add/...
       type : "POST",
       dataType : 'json',
       success : function(data) {
@@ -163,7 +163,7 @@ var app = $.sammy('#main', function() {
   this.post('#/delete', function(context) {
     var result = null;
     $.ajax({
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+$("#name").val(),
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/"+$("#name").val(),
       type : "POST",
       dataType : 'json',
       success : function(data) {

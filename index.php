@@ -15,7 +15,7 @@ $r = new Router;
 //       faire appel à curl fait la job, il y a peut-etre plus simple (ca depend aussi de l'environnement php)
 
 function run ($p) {
-    $local = $_SERVER[SERVER_NAME]."/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/";
+    $local = $_SERVER[SERVER_NAME]."/~jalbertk/fyWdSJ8v/PRJ3/App/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $local.$p);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -31,14 +31,14 @@ $r->add('/all', array(), function(Route $route) {
     die();
 });
 
-// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/names
+// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names
 $r->add('/names', array(), function(Route $route) {
     // Query :: SELECT NAME FROM brasseries;
     run("/queries/names.php".$route->pfx);
     die();
 });
 
-// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/names/ho
+// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/ho
 $r->add('/names/:pfx', array(), function(Route $route) {
     // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
     run("/queries/names.php?pfx=".$route->pfx);
@@ -56,7 +56,7 @@ $r->add('/add/:input', array(), function(Route $route) {
     die();
 });
 
-// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/login/<username>/<pwd>
+// TODO : try https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/<username>/<pwd>
 $r->add('/login/:name/:pwd', array(), function(Route $route) {
     // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
     run("/queries/exists.php?name=".$route->name."&pwd=".$route->pwd);
