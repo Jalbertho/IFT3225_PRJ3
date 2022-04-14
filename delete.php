@@ -12,23 +12,20 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-echo "name: ".$_GET['name']."<br>";
-
 $query = "DELETE FROM brasseries WHERE name=':name'";
 
 try {
 
     $res = $pdo->prepare($query);
     $res->bindParam(":name", $_GET['name']);
+    $res->execute();
 
-    if($res->execute()){
+    if($res->rowCount()){
         echo json_encode(array("message" => "Brasserie has been removed."));
 
     }else{
         echo json_encode(array("message" => "Brasserie doesn't exist."));
     }
-
-    echo " ".$res->rowCount();
 
 }
 catch (PDOException $e)
