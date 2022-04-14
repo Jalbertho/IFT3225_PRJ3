@@ -18,6 +18,9 @@ try {
 
     $res = $pdo->prepare($query);
     $res->bindParam(":name", str_replace('_', ' ', $_GET['name']));
+
+    echo "".$_GET['name'];
+
     $res->execute();
 
     if($res->rowCount()){
