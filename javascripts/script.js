@@ -79,6 +79,8 @@ var app = $.sammy('#main', function() {
   this.post('#/login', function(){
     console.log("LOGIN::POST");
 
+    console.log(this.params);
+
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+this.params['username']+"/"+this.params['pwd'],
