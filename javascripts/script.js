@@ -103,8 +103,8 @@ var drawPlot = function() {
         .selectAll("circle")
         .data(data)
         .join("circle")
-        .attr("cx", d => x(d.x))
-        .attr("cy", d => y(d.y))
+        .attr("cx", d => x(d.longitude))
+        .attr("cy", d => y(d.latitude))
         .attr("r", 3);
 
 
@@ -115,8 +115,8 @@ var drawPlot = function() {
         .data(data)
         .join("text")
         .attr("dy", "0.35em")
-        .attr("x", d => x(d.x) + 7)
-        .attr("y", d => y(d.y))
+        .attr("x", d => x(d.longitude) + 7)
+        .attr("y", d => y(d.latitude))
         .text(d => d.name);
 }
 
