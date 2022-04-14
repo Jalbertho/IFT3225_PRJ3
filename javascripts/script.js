@@ -149,7 +149,6 @@ var app = $.sammy('#main', function() {
     return result;// result
  });*/
 
-  // TODO.. add un DEL.
   this.get('#/delete',function(context) {
     context.app.swap('');
 
@@ -176,7 +175,6 @@ var app = $.sammy('#main', function() {
     });
  });
 
-  // TODO.. add un Plot.
   this.get("#/plot", function(context){
     context.app.swap('');
 
