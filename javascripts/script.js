@@ -193,7 +193,6 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
 
     if (sessionStorage.getItem('priviledge') == 'WRITE') {
-      console.log("you're in");
       context.render('templates/delete.template').appendTo(context.$element());
 
     }else{
@@ -205,17 +204,17 @@ var app = $.sammy('#main', function() {
   this.post('#/delete', function(context) {
     var result = null;
     $.ajax({
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/"+$("#name").val(),
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/"+this.params['name'],
       type : "POST",
       dataType : 'json',
       success : function(data) {
-      result = data;
+        result = data;
       },
       error: function(xhr, resp, text) {
-      console.log(xhr, resp, text);
+        console.log(xhr, resp, text);
       }
-    }); // ajax
-    return result;
+    });
+    console.log(data);
  });
 
   // TODO.. add un Plot.
