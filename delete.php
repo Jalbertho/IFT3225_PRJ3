@@ -15,9 +15,10 @@ require "./config.php";
 echo "name: ".$_GET['name']."<br>";
 
 $query = "DELETE FORM brasseries WHERE name=':name'";
-echo ":P";
 
 try {
+
+    echo ":O";
 
     $res = $pdo->prepare($query);
     $res->bindParam(":name", $_GET['name']);
