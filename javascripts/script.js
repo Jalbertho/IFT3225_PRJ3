@@ -5,7 +5,7 @@ $(document).ready(function(){
   // ----------- Event Functions ----------- //
   // TODO: onClick pour la nav (nice to have)
 
-  /*$(document).on('click', '#btn-login', function() {
+  $(document).on('click', '#btn-login', function() {
     // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
     // [{'username': '<username>', 'priviledge': '<priviledge>'}].
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
@@ -37,7 +37,7 @@ $(document).ready(function(){
     // TODO.. use for debug.
     console.log(sessionStorage.getItem('username'));
     console.log(sessionStorage.getItem('priviledge'));
-  });*/
+  });
 });
 
 var getBrasseries = function() {
@@ -77,9 +77,33 @@ var app = $.sammy('#main', function() {
   });
 
   this.post('#/login', function(){
-    console.log("hello " + this.params['username']);
-    // context.app.swap('');
-    // $("#main").append('<p>Bienvenue ' + this.params['name'] + '</p>');
+    console.log("LOGIN::POST");
+
+    $.ajax({
+      type: 'GET',
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+this.params['username'])+"/"+this.params['pwd']),
+      async: false,
+      dataType: "json",
+      success: function(data) {
+        console.log("hello " + this.params['username']);
+
+        // Set up session's data.
+        if(data.length == 1) {
+          sessionStorage.setItem('username', this.params['username']);
+          // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
+          sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
+        } else {
+          sessionStorage.clear(); // Deletes all sessionStorage.
+        }
+
+        // TODO.. add a popup ?
+
+      },
+      error: function(XMLHttpRequest, status, err) {
+        console.log("An Error Has Occur.");
+        console.log(err);
+      }
+    });
   });
 
   this.get('#/table', function(context) {
