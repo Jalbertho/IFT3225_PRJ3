@@ -22,6 +22,7 @@ try {
 
     echo "".$_GET['name'];
     echo "".$name;
+    echo "".$res;
 
     $res->execute();
 
