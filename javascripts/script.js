@@ -132,21 +132,22 @@ var app = $.sammy('#main', function() {
       context.render('templates/forbidden.template').appendTo(context.$element());
     }
   });
+  
   this.post('#/add', function(context) {
     var result = null;
- $.ajax({
-       // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/add/...
-       type : "POST",
-       dataType : 'json',
-       success : function(data) {
-        result = data;
-       },
-       error: function(xhr, resp, text) {
-       console.log(xhr, resp, text);
-       }
-     }); // ajax
- return result;// result
-
+    $.ajax({
+      // url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/add/...
+      type : "POST",
+      dataType : 'json',
+      success : function(data) {
+      result = data;
+      },
+      error: function(xhr, resp, text) {
+      console.log(xhr, resp, text);
+      }
+    }); // ajax
+    
+    return result;// result
  });
 
   // TODO.. add un DEL.
@@ -158,24 +159,24 @@ var app = $.sammy('#main', function() {
     }
 
   });
+
   this.post('#/delete', function(context) {
     var result = null;
- $.ajax({
-       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+$("#name").val(),
-       type : "POST",
-       dataType : 'json',
-       success : function(data) {
-        result = data;
-       },
-       error: function(xhr, resp, text) {
-       console.log(xhr, resp, text);
-       }
-     }); // ajax
- return result;
-  // result
-
+    $.ajax({
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/IFT3225_PRJ3/delete/"+$("#name").val(),
+      type : "POST",
+      dataType : 'json',
+      success : function(data) {
+      result = data;
+      },
+      error: function(xhr, resp, text) {
+      console.log(xhr, resp, text);
+      }
+    }); // ajax
+    return result;
  });
 
   // TODO.. add un Plot.
 
   // TODO.. add un Doc.
+}
