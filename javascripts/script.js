@@ -176,13 +176,15 @@ var app = $.sammy('#main', function() {
  });
 
   this.get("#/plot", function(context){
+    // Le code ci-dessous a été pris du tutoriel scatter.html des notes de cours de IFT3225-H22 (D3.pdf)
     context.app.swap('');
 
     if (sessionStorage.getItem('priviledge')) {
-      alert("Yaaas queen");
+      var result = getBrasseries();
+      alert("Yaaas");
 
     }else{
-      alert("loser");
+      alert("no");
     }
 
   });
