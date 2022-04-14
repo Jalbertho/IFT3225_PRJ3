@@ -5,7 +5,7 @@ $(document).ready(function(){
   // ----------- Event Functions ----------- //
   // TODO: onClick pour la nav (nice to have)
 
-  $(document).on('click', '#login', function() {
+  /*$(document).on('click', '#login', function() {
     // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
     // [{'username': '<username>', 'priviledge': '<priviledge>'}].
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
@@ -25,6 +25,8 @@ $(document).ready(function(){
           sessionStorage.clear(); // Deletes all sessionStorage.
         }
 
+        // TODO.. add a popup ?
+
       },
       error: function(XMLHttpRequest, status, err) {
         console.log("An Error Has Occur.");
@@ -35,7 +37,7 @@ $(document).ready(function(){
     // TODO.. use for debug.
     console.log(sessionStorage.getItem('username'));
     console.log(sessionStorage.getItem('priviledge'));
-  });
+  });*/
 });
 
 var getBrasseries = function() {
@@ -72,6 +74,11 @@ var app = $.sammy('#main', function() {
   this.get('#/login', function(context) {
     context.app.swap('');
     context.render('templates/login.template').appendTo(context.$element());
+  });
+
+  this.post('#/login', function(context){
+    context.app.swap('');
+    $("#main").append('<p>Bienvenue ' + this.params['name'] + '</p>');
   });
 
   this.get('#/table', function(context) {
