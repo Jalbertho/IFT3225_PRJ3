@@ -10,9 +10,6 @@ $(document).ready(function(){
     // [{'username': '<username>', 'priviledge': '<priviledge>'}].
     // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
 
-    console.log($("#name").val());
-    console.log($("#pwd").val());
-
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+$("#name").val()+"/"+$("#pwd").val(),
