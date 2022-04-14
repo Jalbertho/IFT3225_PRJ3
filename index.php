@@ -33,12 +33,12 @@ $r->add('/all', array(), function(Route $route) {
     die();
 });
 
-// // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names
-// $r->add('/names', array(), function(Route $route) {
-//     // Query :: SELECT NAME FROM brasseries;
-//     run("/names.php".$route->pfx);
-//     die();
-// });
+// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names
+$r->add('/names', array(), function(Route $route) {
+    // Query :: SELECT NAME FROM brasseries;
+    run("/names.php".$route->pfx);
+    die();
+});
 
 // // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
 // $r->add('/names/:pfx', array(), function(Route $route) {
