@@ -78,8 +78,8 @@ var app = $.sammy('#main', function() {
 
   this.post('#/login', function(){
     console.log("LOGIN::POST");
-
-    console.log(this.params);
+    
+    var result = null;
 
     $.ajax({
       type: 'GET',
@@ -87,25 +87,28 @@ var app = $.sammy('#main', function() {
       async: false,
       dataType: "json",
       success: function(data) {
-        console.log("hello " + this.params['username']);
-
-        // Set up session's data.
-        if(data.length == 1) {
-          sessionStorage.setItem('username', this.params['username']);
-          // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
-          sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
-        } else {
-          sessionStorage.clear(); // Deletes all sessionStorage.
-        }
-
-        // TODO.. add a popup ?
-
+        result = data;
       },
       error: function(XMLHttpRequest, status, err) {
         console.log("An Error Has Occur.");
         console.log(err);
+
+        // TODO.. add a popup ?
       }
     });
+
+    // Set up session's data.
+    if(result.length == 1) {
+      sessionStorage.setItem('username', this.params['username']);
+      // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
+      sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
+
+      // TODO.. add a popup ?
+
+    } else {
+      sessionStorage.clear(); // Deletes all sessionStorage.
+    }
+
   });
 
   this.get('#/table', function(context) {
