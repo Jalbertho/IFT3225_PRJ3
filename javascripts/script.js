@@ -177,6 +177,17 @@ var app = $.sammy('#main', function() {
  });
 
   // TODO.. add un Plot.
+  this.get("#/plot", function(context){
+    context.app.swap('');
+
+    if (sessionStorage.getItem('priviledge')) {
+      alert("Yaaas queen");
+
+    }else{
+      alert("loser");
+    }
+
+  });
 
   // TODO.. add un Doc.
 });
