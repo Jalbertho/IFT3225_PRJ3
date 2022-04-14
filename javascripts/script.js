@@ -33,9 +33,7 @@ var drawPlot = function() {
   };
 
   var data = getBrasseries();
-  data.splice(50); // TODO.. to many data otherwise ?
-
-  console.log(data);
+  // data.splice(50); // TODO.. to many data otherwise ?
 
   var x = d3.scaleLinear()
               .domain(d3.extent(data, d => d.longitude)).nice()
@@ -279,12 +277,9 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
 
     if (sessionStorage.getItem('priviledge')) {
-      alert("Yaaas");
       drawPlot();
-
-
     }else{
-      alert("no");
+      context.render('templates/forbidden.template').appendTo(context.$element());
     }
 
   });
