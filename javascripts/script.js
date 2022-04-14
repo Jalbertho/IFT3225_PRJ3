@@ -214,7 +214,7 @@ var app = $.sammy('#main', function() {
         console.log(xhr, resp, text);
       }
     });
-    console.log(data);
+    console.log(result);
  });
 
   // TODO.. add un Plot.
