@@ -87,7 +87,7 @@ var drawPlot = function() {
                                         .attr("x1", margin.left)
                                         .attr("x2", width - margin.right));
 
-   var svg = d3.select("#viz")
+   var svg = d3.select("#main")
                 .append("svg")
                 .attr("width", width)
                 .attr("height", height);
