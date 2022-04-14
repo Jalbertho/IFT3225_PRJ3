@@ -202,19 +202,17 @@ var app = $.sammy('#main', function() {
   });
 
   this.post('#/delete', function(context) {
-    var result = null;
     $.ajax({
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/"+this.params['name'],
       type : "POST",
       dataType : 'json',
-      success : function(data) {
-        result = data;
+      success : function(response) {
+        console.log(response);
       },
       error: function(xhr, resp, text) {
         console.log(xhr, resp, text);
       }
     });
-    console.log(result);
  });
 
   // TODO.. add un Plot.
