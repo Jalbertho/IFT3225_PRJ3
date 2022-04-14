@@ -15,7 +15,7 @@ echo 'router url: '.$_GET['url'].'<br>';
 //       faire appel à curl fait la job, il y a peut-etre plus simple (ca depend aussi de l'environnement php)
 
 function run ($p) {
-    $local = $_SERVER[SERVER_NAME]."/~jalbertk/fyWdSJ8v/PRJ3/App/queries";
+    $local = $_SERVER[SERVER_NAME]."/~jalbertk/fyWdSJ8v/PRJ3/App/";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $local.$p);
     curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -28,34 +28,34 @@ function run ($p) {
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/all
 $r->add('/all', array(), function(Route $route) {
     // Query :: SELECT * FROM brasseries;
-    run("/queries/all.php");
+    run("/all.php");
     die();
 });
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names
 $r->add('/names', array(), function(Route $route) {
     // Query :: SELECT NAME FROM brasseries;
-    run("/queries/names.php".$route->pfx);
+    run("/names.php".$route->pfx);
     die();
 });
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/names/ho
 $r->add('/names/:pfx', array(), function(Route $route) {
     // Query :: SELECT NAME FROM brasseries NAME LIKE <pfx>% ;
-    run("/queries/names.php?pfx=".$route->pfx);
+    run("/names.php?pfx=".$route->pfx);
     die();
 });
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<num>
 $r->add('/permis/:num', array(), function(Route $route) {
     // Query :: SELECT * FROM brasseries WHERE numPermit=<numPermit> ;
-    run("/queries/permis.php?num=".$route->num);
+    run("/permis.php?num=".$route->num);
     die();
 });
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/permis/<input>
 $r->add('/add/:input', array(), function(Route $route) {
-    run("/queries/add.php?input=".$route->input);
+    run("/add.php?input=".$route->input);
     die();
 });
 
@@ -68,7 +68,7 @@ $r->add('/login/:name/:pwd', array(), function(Route $route) {
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/queries/delete/<name>
 $r->add('/delete/:name', array(), function(Route $route) {
-    run("/queries/delete.php?name=".$route->name);
+    run("/delete.php?name=".$route->name);
     die();
 })
 
