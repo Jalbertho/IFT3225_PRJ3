@@ -21,6 +21,13 @@ var getBrasseries = function() {
   return result;
 }
 
+var drawCircle = function() {
+  var width = 500;
+  var height = 500;
+
+  var svg = d3.select("body").append("#main").append("svg").attr("width", width).attr("height", height);
+}
+
 var app = $.sammy('#main', function() {
   this.use('Template');
 
@@ -173,7 +180,7 @@ var app = $.sammy('#main', function() {
         console.log(xhr, resp, text);
       }
     });
- });
+  });
 
   this.get("#/plot", function(context){
     // Le code ci-dessous a été pris du tutoriel scatter.html des notes de cours de IFT3225-H22 (D3.pdf)
@@ -181,6 +188,7 @@ var app = $.sammy('#main', function() {
 
     if (sessionStorage.getItem('priviledge')) {
       var result = getBrasseries();
+
       alert("Yaaas");
 
     }else{
