@@ -5,7 +5,7 @@ require "./config.php";
 
 $pfx = "";
 if (isset($_GET['pfx']))
-  $pfx = $_GET["pfx"];
+  $pfx = str_replace('_', ' ', $_GET['pfx']); //$_GET["pfx"];
 
 $query = "SELECT NAME FROM brasseries WHERE NAME LIKE '".$pfx."%'";
 

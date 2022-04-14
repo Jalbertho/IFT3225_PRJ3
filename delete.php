@@ -17,10 +17,6 @@ $query = "DELETE FROM brasseries WHERE name='".str_replace('_', ' ', $_GET['name
 try {
 
     $res = $pdo->prepare($query);
-    // $res->bindParam(":name", $name);
-
-    echo "".$_GET['name'];
-
     $res->execute();
 
     if($res->rowCount()){
