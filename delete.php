@@ -14,14 +14,14 @@ require "./config.php";
 
 echo "name: ".$_GET['name']."<br>";
 
-$query = "DELETE FORM brasseries WHERE name=':name'";
+$query = "DELETE FORM brasseries WHERE name='SIBOIRE'";
 
 try {
 
     echo ":O";
 
     $res = $pdo->prepare($query);
-    $res->bindParam(":name", $_GET['name']);
+    // $res->bindParam(":name", $_GET['name']);
     $res->execute();
 
     echo ":)";
