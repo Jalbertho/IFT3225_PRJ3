@@ -14,26 +14,22 @@ require "./config.php";
 
 echo "name: ".$_GET['name']."<br>";
 
-$query = "DELETE FORM brasseries WHERE name='SIBOIRE'";
+$query = "DELETE FROM brasseries WHERE name='SIBOIRE'";
 
 try {
 
-    echo ":O";
-
     $res = $pdo->prepare($query);
     // $res->bindParam(":name", $_GET['name']);
-    $res->execute();
+    // $res->execute();
 
-    echo ":)";
+    if($res->execute()){
+        echo ":)";
+        echo json_encode(array("message" => "Brasserie has been removed."));
 
-    // if($res->execute()){
-    //     echo ":)";
-    //     echo json_encode(array("message" => "Brasserie has been removed."));
-
-    // }else{
-    //     echo ":(";
-    //     echo json_encode(array("message" => "Brasserie doesn't exist."));
-    // }
+    }else{
+        echo ":(";
+        echo json_encode(array("message" => "Brasserie doesn't exist."));
+    }
 
 }
 catch (PDOException $e)
