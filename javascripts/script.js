@@ -21,7 +21,10 @@ var getBrasseries = function() {
   return result;
 }
 
+// Le code de la fonction drawPlot provient des notes de cours de IFT3225-H22 (D3.pdf)
+// en lien avec le tutoriel scatter.html.
 var drawPlot = function() {
+
   var width = 800;
   var height = 600;
 
@@ -33,8 +36,9 @@ var drawPlot = function() {
   };
 
   var data = getBrasseries();
-  data.splice(25); // TODO.. to many data otherwise ?
+  data.splice(50);
 
+  // TODO.. review le d3.extent pour qu'on puisse voir plus épurément les données
   var x = d3.scaleLinear()
               .domain(d3.extent(data, d => d.longitude)).nice()
               .range([margin.left, width - margin.right]);
@@ -273,7 +277,6 @@ var app = $.sammy('#main', function() {
   });
 
   this.get("#/plot", function(context){
-    // Le code ci-dessous a été pris du tutoriel scatter.html des notes de cours de IFT3225-H22 (D3.pdf)
     context.app.swap('');
 
     if (sessionStorage.getItem('priviledge')) {
