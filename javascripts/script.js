@@ -227,7 +227,7 @@ var app = $.sammy('#main', function() {
   this.get('#/add', function(context) {
     context.app.swap('');
     if(sessionStorage.getItem('priviledge') == 'WRITE'){
-      console.log("Hurray!");
+      context.render('templates/add.template').appendTo(context.$element());
     }else{
       context.render('templates/forbidden.template').appendTo(context.$element());
     }
