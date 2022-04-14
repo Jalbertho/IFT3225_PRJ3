@@ -16,18 +16,16 @@ $query = "DELETE FROM brasseries WHERE name=':name'";
 
 try {
 
-    echo " ".$_GET['name'];
+    $res = $pdo->prepare($query);
+    $res->bindParam(":name", str_replace('_', ' ', $_GET['name']));
+    $res->execute();
 
-    // $res = $pdo->prepare($query);
-    // $res->bindParam(":name", $_GET['name']);
-    // $res->execute();
+    if($res->rowCount()){
+        echo json_encode(array("message" => "Brasserie has been removed."));
 
-    // if($res->rowCount()){
-    //     echo json_encode(array("message" => "Brasserie has been removed."));
-
-    // }else{
-    //     echo json_encode(array("message" => "Brasserie doesn't exist."));
-    // }
+    }else{
+        echo json_encode(array("message" => "Brasserie doesn't exist."));
+    }
 
 }
 catch (PDOException $e)
