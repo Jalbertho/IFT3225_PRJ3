@@ -33,7 +33,7 @@ var drawPlot = function() {
   };
 
   var data = getBrasseries();
-  // data.splice(50); // TODO.. to many data otherwise ?
+  data.splice(25); // TODO.. to many data otherwise ?
 
   var x = d3.scaleLinear()
               .domain(d3.extent(data, d => d.longitude)).nice()
