@@ -21,15 +21,18 @@ try {
 
     $res = $pdo->prepare($query);
     $res->bindParam(":name", $_GET['name']);
+    $res->execute();
 
-    if($res->execute()){
-        echo ":)";
-        echo json_encode(array("message" => "Brasserie has been removed."));
+    echo ":)";
 
-    }else{
-        echo ":(";
-        echo json_encode(array("message" => "Brasserie doesn't exist."));
-    }
+    // if($res->execute()){
+    //     echo ":)";
+    //     echo json_encode(array("message" => "Brasserie has been removed."));
+
+    // }else{
+    //     echo ":(";
+    //     echo json_encode(array("message" => "Brasserie doesn't exist."));
+    // }
 
 }
 catch (PDOException $e)
