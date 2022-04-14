@@ -54,16 +54,16 @@ $r->add('/permis/:num', array(), function(Route $route) {
     die();
 });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/<input>
-$r->add('/add/:input', array(), function(Route $route) {
-    run("/add.php?input=".$route->input);
-    die();
-});
-
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/<username>/<pwd>
 $r->add('/login/:name/:pwd', array(), function(Route $route) {
     // Query :: SELECT PRIVILEDGE FROM account WHERE name='<name>' AND pwd='<pwd>' ;
     run("/exists.php?name=".$route->name."&pwd=".$route->pwd);
+    die();
+});
+
+// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/<input>
+$r->add('/add/:input', array(), function(Route $route) {
+    run("/add.php?input=".$route->input);
     die();
 });
 
