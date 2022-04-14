@@ -1,43 +1,5 @@
 $(document).ready(function(){
   app.run("#/");
-
-  
-  // ----------- Event Functions ----------- //
-  // TODO: onClick pour la nav (nice to have)
-
-  $(document).on('click', '#btn-login', function() {
-    // Récupère le privilège du username et l'enregistre dans le sessionStorage sous la forme de
-    // [{'username': '<username>', 'priviledge': '<priviledge>'}].
-    // Si le mot de passe et/ou le username n'est pas bon, le sessionStorage est supprimé.
-
-    $.ajax({
-      type: 'GET',
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+$("#name").val()+"/"+$("#pwd").val(),
-      async: false,
-      dataType: "json",
-      success: function(data) {
-        // Set up session's data.
-        if(data.length == 1) {
-          sessionStorage.setItem('username', $("#name").val());
-          // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
-          sessionStorage.setItem('priviledge', data[0]['PRIVILEDGE']);
-        } else {
-          sessionStorage.clear(); // Deletes all sessionStorage.
-        }
-
-        // TODO.. add a popup ?
-
-      },
-      error: function(XMLHttpRequest, status, err) {
-        console.log("An Error Has Occur.");
-        console.log(err);
-      }
-    });
-
-    // TODO.. use for debug.
-    console.log(sessionStorage.getItem('username'));
-    console.log(sessionStorage.getItem('priviledge'));
-  });
 });
 
 var getBrasseries = function() {
@@ -58,8 +20,6 @@ var getBrasseries = function() {
 
   return result;
 }
-
-
 
 var app = $.sammy('#main', function() {
   this.use('Template');
@@ -92,8 +52,6 @@ var app = $.sammy('#main', function() {
       error: function(XMLHttpRequest, status, err) {
         console.log("An Error Has Occur.");
         console.log(err);
-
-        // TODO.. add a popup ?
       }
     });
 
@@ -103,10 +61,13 @@ var app = $.sammy('#main', function() {
       // le privilège READ est pour un simple utilisateur et WRITE pour l'admin.
       sessionStorage.setItem('priviledge', result[0]['PRIVILEDGE']);
 
+      // Popup.
       alert("Bienvenue " + this.params['username'] + "!");
 
     } else {
       sessionStorage.clear(); // Deletes all sessionStorage.
+
+      // Popup.
       alert("Mauvaises informations d'identification, veuillez vous reconnecter");
     }
 
