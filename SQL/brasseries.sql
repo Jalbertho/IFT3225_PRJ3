@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `brasseries` (
   `yearFondation`VARCHAR(4),
   `webSite` VARCHAR(255),
   `email` VARCHAR(255),
-  `phone` VARCHAR(12) NOT NULL DEFAULT '?',
+  `phone` VARCHAR(12) DEFAULT '?',
   `facebook` VARCHAR(255),
   `ratebeer` VARCHAR(255),
   `untappd` VARCHAR(255),
