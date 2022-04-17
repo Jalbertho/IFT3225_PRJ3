@@ -96,10 +96,14 @@ try {
             :notes
         )";
 
-    // {"name":"chantale","address":"64avenuenorthmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
+    // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
     $res = $pdo->prepare($query);
+
+    if($json->twitter){
+        echo "sup :)";
+    }
 
     // bind new values
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
