@@ -14,14 +14,14 @@ require "./config.php";
 echo "REQUEST :: ADD <br>";
 echo "".$_GET['input'];
 echo "<br>";
-$input = json_decode(file_get_contents("php://input"));
-// $obj = json_decode($_GET['input']);
+// $input = json_decode(file_get_contents("php://input"));
+$obj = json_decode($_GET['input']);
 // echo "DATA : ".$input. "<br>";
 // echo "OBJ : ".$obj."<br>";
 // echo "".$obj["name"];
-// echo "".$obj->name;
+echo "".$obj->name;
 // echo "".$input["name"];
-echo "".$input->name;
+// echo "".$input->name;
 
 /*try {
 
