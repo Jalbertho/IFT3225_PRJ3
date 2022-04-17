@@ -17,17 +17,6 @@ $json = json_decode(str_replace('_', ' ', $_GET['input']));
 $fields = '';
 $values = '';
 
-// echo "hello <br>";
-// $name = "L'Hydromel";
-// $name = substr_replace($name, "'", strpos($name, "'"), 0);
-// // echo "".substr_replace($name, "'", $strpos($name, "'"));
-// echo "".$name;
-
-// $val = ((strpos("L'Hydromel", "'") !== false) ? substr_replace("L'Hydromel", "'", $strpos("L'Hydromel", "'")) : "L'Hydromel" );
-// echo "".$val;
-
-echo "hello <br>";
-
 foreach($json as $key => $val){
     $fields = $fields.", `".$key."`";
     $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", strpos($val, "'"), 0) : $val)."'";
@@ -39,25 +28,22 @@ try {
     
     // add query
     $query = "INSERT INTO brasseries ($fields) VALUES ($values)";
-    echo "".$query."<br>";
 
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-66.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
-    // $res = $pdo->prepare($query);
-    // $res->execute();
+    $res = $pdo->prepare($query);
+    $res->execute();
 }
 catch (PDOException $e)
 {
- echo "ERROR:: PDOException ".$e;
+    echo "ERROR:: PDOException ".$e;
 
- // If there is a PDO exception, throw a standard exception
- throw new Exception('Database query error');
+    // If there is a PDO exception, throw a standard exception
+    throw new Exception('Database query error');
 }
 
-// // $json->name is brasserie's ID.
-// echo '{';
-//     echo '"message": "Brasserie '.$json->name.' has been added."';
-// echo '}';
-
-// return $json->name;
+// $json->name is brasserie's ID.
+echo '{';
+    echo '"message": "Brasserie '.$json->name.' has been added."';
+echo '}';
