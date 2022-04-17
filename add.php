@@ -24,31 +24,18 @@ foreach($json as $key => $val){
 $fields = trim($fields, ",");
 $values = trim($values, ",");
 
+echo "".$fields;
+echo "".$values;
+
 try {
     
     // add query
-    $query = "INSERT INTO brasseries (".$fields.") VALUES (".$values.")";
+    $query = "INSERT INTO brasseries ($fields) VALUES ($values)";
 
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
     $res = $pdo->prepare($query);
-
-    /*if($json->name){
-        echo ":)";
-    }
-
-    if(isset($json->name)){
-        echo ":D";
-    }
-
-    if(isset($json->otherName)){
-        echo ":P";
-    }
-
-    if(!$json->otherName){
-        echo ":O";
-    }*/
 
     // bind new values
     // $res->bindParam(':name', $json->name, PDO::PARAM_STR);
