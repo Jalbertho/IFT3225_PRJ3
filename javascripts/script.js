@@ -112,7 +112,7 @@ var drawPlot = function() {
 
    svg.append("g")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 22)
+        .attr("font-size", 5)
         .selectAll("text")
         .data(data)
         .join("text")
