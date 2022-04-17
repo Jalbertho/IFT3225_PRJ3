@@ -21,6 +21,7 @@ echo "OBJ : ".$obj."<br>";
 echo "".$obj["name"];
 echo "".$obj->name;
 echo "".$input["name"];
+echo "".$input->name;
 
 /*try {
 
