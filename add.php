@@ -17,12 +17,14 @@ $json = json_decode(str_replace('_', ' ', $_GET['input']));
 $fields = '';
 $values = '';
 
-foreach($json as $key => $val){
-    $fields = $fields.", `".$key."`";
-    $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )."'";
-}
-$fields = substr($fields, 1);
-$values = substr($values, 1);
+echo "".(strpos("L'Hydromel", "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )
+
+// foreach($json as $key => $val){
+//     $fields = $fields.", `".$key."`";
+//     $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )."'";
+// }
+// $fields = substr($fields, 1);
+// $values = substr($values, 1);
 
 try {
     
@@ -33,8 +35,8 @@ try {
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-66.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
-    $res = $pdo->prepare($query);
-    $res->execute();
+    // $res = $pdo->prepare($query);
+    // $res->execute();
 }
 catch (PDOException $e)
 {
