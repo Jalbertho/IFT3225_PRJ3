@@ -14,9 +14,10 @@ require "./config.php";
 try {
 
     // $data = json_decode(file_get_contents("php://input"))
-    echo "".$_GET["input"];
-    echo "".$_GET["input"]["name"];
-    echo "".$_GET["input"]["city"];
+    $data = json_decode($_GET["input"]);
+    echo "".$data;
+    echo "".$data["name"];
+    echo "".$data["city"];
     
     // add query
     $query = "INSERT INTO brasseries (
