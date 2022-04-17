@@ -105,7 +105,7 @@ try {
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
     $res->bindParam(':address', $json->address, PDO::PARAM_STR);
     echo ":)";
-    $res->bindParam(':legalName', ($json->legalName ? $json->legalName : "" ), PDO::PARAM_STR);
+    $res->bindParam(':legalName', (isset($json->legalName) ? $json->legalName : "" ), PDO::PARAM_STR);
     echo ":)";
     $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
     $res->bindParam(':city', $json->city, PDO::PARAM_STR);
