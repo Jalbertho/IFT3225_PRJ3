@@ -20,7 +20,8 @@ $values = '';
 echo "hello <br>";
 
 echo "".strpos("L'Hydromel", "'");
-echo "".(strpos("L'Hydromel", "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val );
+$val = (strpos("L'Hydromel", "'") !== false ? substr_replace("L'Hydromel", "'", $strpos("L'Hydromel", "'")) : "L'Hydromel" );
+echo "".$val;
 
 echo "hello <br>";
 
