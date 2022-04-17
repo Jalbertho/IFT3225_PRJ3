@@ -101,6 +101,8 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
+    echo ":P";
+
     if($json->name){
         echo ":)";
     }
