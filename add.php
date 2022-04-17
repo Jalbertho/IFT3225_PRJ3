@@ -18,8 +18,8 @@ $fields = '';
 $values = '';
 
 foreach($json as $key => $val){
-    $fields = $key.",";
-    $values = $val.",";
+    $fields = $fields.",".$key;
+    $values = $values.",".$val;
 }
 // $fields = trim($fields, ",");
 // $values = trim($values, ",");
