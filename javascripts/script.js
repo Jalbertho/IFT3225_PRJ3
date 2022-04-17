@@ -40,11 +40,11 @@ var drawPlot = function() {
 
   // TODO.. review le d3.extent pour qu'on puisse voir plus épurément les données
   var x = d3.scaleLinear()
-              .domain(d3.extent(data, d => d.longitude)).nice()
+              .domain(d3.extent(data, d => d.longitude + 5)).nice()
               .range([margin.left, width - margin.right]);
 
   var y = d3.scaleLinear()
-              .domain(d3.extent(data, d => d.latitude)).nice()
+              .domain(d3.extent(data, d => d.latitude + 5)).nice()
               .range([height - margin.bottom, margin.top]);
 
   var xAxis = g => g
@@ -121,6 +121,13 @@ var drawPlot = function() {
         .attr("y", d => y(d.latitude))
         .text(d => d.name);
 }
+// function onMouseEvent() {
+// d3.select(this).attr("text", "bold");
+// d3.select(this).transition().duration(400).style("")
+// }
+// function offMouseEvent() {
+
+// }
 
 var app = $.sammy('#main', function() {
   this.use('Template');
