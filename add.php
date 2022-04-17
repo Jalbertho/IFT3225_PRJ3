@@ -29,8 +29,6 @@ try {
     // add query
     $query = "INSERT INTO brasseries ($fields) VALUES ($values)";
 
-    // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-66.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
-
     // prepare query statement
     $res = $pdo->prepare($query);
     $res->execute();
