@@ -19,18 +19,16 @@ $values = '';
 
 foreach($json as $key => $val){
     $fields = $fields.", `".$key."`";
-    $values = $values.", ".$val;
+    $values = $values.", '".$val."'";
 }
 $fields = substr($fields, 1);
 $values = substr($values, 1);
-
-echo "".$fields;
-echo "".$values;
 
 try {
     
     // add query
     $query = "INSERT INTO brasseries ($fields) VALUES ($values)";
+    echo "".$query;
 
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-66.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
