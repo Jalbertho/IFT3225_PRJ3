@@ -11,9 +11,11 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
+echo "".$_GET['input'];
 $data = json_decode(file_get_contents("php://input"))
 $obj = json_decode($data);
 echo "".$data;
+echo "".$obj;
 echo "".$data["name"];
 echo "".$data["city"];
 
