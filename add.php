@@ -101,86 +101,94 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
-    // bind new values
-    $res->bindParam(':name', $json->name, PDO::PARAM_STR);
-    $res->bindParam(':address', $json->address, PDO::PARAM_STR);
-    echo ":)";
-    $res->bindParam(':legalName', (isset($json->legalName) ? $json->legalName : "" ), PDO::PARAM_STR);
-    echo ":)";
-    $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
-    $res->bindParam(':city', $json->city, PDO::PARAM_STR);
-    $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
-    $res->bindParam(':province', $json->province, PDO::PARAM_STR);
-    $res->bindParam(':country', $json->country, PDO::PARAM_STR);
-    $res->bindParam(':latitude', $json->latitude, PDO::PARAM_INT);
-    $res->bindParam(':longitude', $json->longitude, PDO::PARAM_INT);
-    $res->bindParam(':adminRegion', $json->adminRegion, PDO::PARAM_INT);
-    $res->bindParam(':numPermit', $json->numPermit, PDO::PARAM_STR);
-    $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit, PDO::PARAM_STR);
-    $res->bindParam(':typePermit', $json->typePermit, PDO::PARAM_STR);
-    $res->bindParam(':isAMBQMember', $json->isAMBQMember, PDO::PARAM_INT);
-    $res->bindParam(':yearFondation', $json->yearFondation, PDO::PARAM_STR);
-    $res->bindParam(':webSite', $json->webSite, PDO::PARAM_STR);
-    $res->bindParam(':email', $json->email, PDO::PARAM_STR);
-    $res->bindParam(':phone', $json->phone, PDO::PARAM_STR);
-    $res->bindParam(':facebook', $json->facebook, PDO::PARAM_STR);
-    $res->bindParam(':ratebeer', $json->ratebeer, PDO::PARAM_STR);
-    $res->bindParam(':untappd', $json->untappd, PDO::PARAM_STR);
-    $res->bindParam(':auMenu', $json->auMenu, PDO::PARAM_STR);
-    $res->bindParam(':twitter', $json->twitter, PDO::PARAM_STR);
-    $res->bindParam(':wikidata', $json->wikidata, PDO::PARAM_STR);
-    $res->bindParam(':youtube', $json->youtube, PDO::PARAM_STR);
-    $res->bindParam(':instagram', $json->instagram, PDO::PARAM_STR);
-    $res->bindParam(':pinterest', $json->pinterest, PDO::PARAM_STR);
-    $res->bindParam(':snapchat', $json->snapchat, PDO::PARAM_STR);
-    $res->bindParam(':autre', $json->autre, PDO::PARAM_STR);
-    $res->bindParam(':notes', $json->notes, PDO::PARAM_STR);
-    // $res->bindParam(':name', $_REQUEST['name']);
-    // $res->bindParam(':legalName', $_REQUEST['legalName']);
-    // $res->bindParam(':otherName', $_REQUEST['otherName']);
-    // $res->bindParam(':address', $_REQUEST['address']);
-    // $res->bindParam(':city', $_REQUEST['city']);
-    // $res->bindParam(':postalCode', $_REQUEST['postalCode']);
-    // $res->bindParam(':province', $_REQUEST['province']);
-    // $res->bindParam(':country', $_REQUEST['country']);
-    // $res->bindParam(':latitude', $_REQUEST['latitude']);
-    // $res->bindParam(':longitude', $_REQUEST['longitude']);
-    // $res->bindParam(':adminRegion', $_REQUEST['adminRegion']);
-    // $res->bindParam(':numPermit', $_REQUEST['numPermit']);
-    // $res->bindParam(':brasseUnderPermit', $_REQUEST['brasseUnderPermit']);
-    // $res->bindParam(':typePermit', $_REQUEST['typePermit']);
-    // $res->bindParam(':isAMBQMember', $_REQUEST['isAMBQMember']);
-    // $res->bindParam(':yearFondation', $_REQUEST['yearFondation']);
-    // $res->bindParam(':webSite', $_REQUEST['webSite']);
-    // $res->bindParam(':email', $_REQUEST['email']);
-    // $res->bindParam(':phone', $_REQUEST['phone']);
-    // $res->bindParam(':facebook', $_REQUEST['facebook']);
-    // $res->bindParam(':ratebeer', $_REQUEST['ratebeer']);
-    // $res->bindParam(':untappd', $_REQUEST['untappd']);
-    // $res->bindParam(':auMenu', $_REQUEST['auMenu']);
-    // $res->bindParam(':twitter', $_REQUEST['twitter']);
-    // $res->bindParam(':wikidata', $_REQUEST['wikidata']);
-    // $res->bindParam(':youtube', $_REQUEST['youtube']);
-    // $res->bindParam(':instagram', $_REQUEST['instagram']);
-    // $res->bindParam(':pinterest', $_REQUEST['pinterest']);
-    // $res->bindParam(':snapchat', $_REQUEST['snapchat']);
-    // $res->bindParam(':autre', $_REQUEST['autre']);
-    // $res->bindParam(':notes', $_REQUEST['notes']);
+    if(isset($json->name)){
+        echo ":)";
+    }
 
-    // execute the query
-    $res->execute();
-}
-catch (PDOException $e)
-{
- echo "ERROR:: PDOException ".$e;
+    if(isset($json->otherName)){
+        echo ":O";
+    }
 
- // If there is a PDO exception, throw a standard exception
- throw new Exception('Database query error');
-}
+//     // bind new values
+//     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
+//     $res->bindParam(':address', $json->address, PDO::PARAM_STR);
+//     echo ":)";
+//     $res->bindParam(':legalName', (isset($json->legalName) ? $json->legalName : "" ), PDO::PARAM_STR);
+//     echo ":)";
+//     $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
+//     $res->bindParam(':city', $json->city, PDO::PARAM_STR);
+//     $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
+//     $res->bindParam(':province', $json->province, PDO::PARAM_STR);
+//     $res->bindParam(':country', $json->country, PDO::PARAM_STR);
+//     $res->bindParam(':latitude', $json->latitude, PDO::PARAM_INT);
+//     $res->bindParam(':longitude', $json->longitude, PDO::PARAM_INT);
+//     $res->bindParam(':adminRegion', $json->adminRegion, PDO::PARAM_INT);
+//     $res->bindParam(':numPermit', $json->numPermit, PDO::PARAM_STR);
+//     $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit, PDO::PARAM_STR);
+//     $res->bindParam(':typePermit', $json->typePermit, PDO::PARAM_STR);
+//     $res->bindParam(':isAMBQMember', $json->isAMBQMember, PDO::PARAM_INT);
+//     $res->bindParam(':yearFondation', $json->yearFondation, PDO::PARAM_STR);
+//     $res->bindParam(':webSite', $json->webSite, PDO::PARAM_STR);
+//     $res->bindParam(':email', $json->email, PDO::PARAM_STR);
+//     $res->bindParam(':phone', $json->phone, PDO::PARAM_STR);
+//     $res->bindParam(':facebook', $json->facebook, PDO::PARAM_STR);
+//     $res->bindParam(':ratebeer', $json->ratebeer, PDO::PARAM_STR);
+//     $res->bindParam(':untappd', $json->untappd, PDO::PARAM_STR);
+//     $res->bindParam(':auMenu', $json->auMenu, PDO::PARAM_STR);
+//     $res->bindParam(':twitter', $json->twitter, PDO::PARAM_STR);
+//     $res->bindParam(':wikidata', $json->wikidata, PDO::PARAM_STR);
+//     $res->bindParam(':youtube', $json->youtube, PDO::PARAM_STR);
+//     $res->bindParam(':instagram', $json->instagram, PDO::PARAM_STR);
+//     $res->bindParam(':pinterest', $json->pinterest, PDO::PARAM_STR);
+//     $res->bindParam(':snapchat', $json->snapchat, PDO::PARAM_STR);
+//     $res->bindParam(':autre', $json->autre, PDO::PARAM_STR);
+//     $res->bindParam(':notes', $json->notes, PDO::PARAM_STR);
+//     // $res->bindParam(':name', $_REQUEST['name']);
+//     // $res->bindParam(':legalName', $_REQUEST['legalName']);
+//     // $res->bindParam(':otherName', $_REQUEST['otherName']);
+//     // $res->bindParam(':address', $_REQUEST['address']);
+//     // $res->bindParam(':city', $_REQUEST['city']);
+//     // $res->bindParam(':postalCode', $_REQUEST['postalCode']);
+//     // $res->bindParam(':province', $_REQUEST['province']);
+//     // $res->bindParam(':country', $_REQUEST['country']);
+//     // $res->bindParam(':latitude', $_REQUEST['latitude']);
+//     // $res->bindParam(':longitude', $_REQUEST['longitude']);
+//     // $res->bindParam(':adminRegion', $_REQUEST['adminRegion']);
+//     // $res->bindParam(':numPermit', $_REQUEST['numPermit']);
+//     // $res->bindParam(':brasseUnderPermit', $_REQUEST['brasseUnderPermit']);
+//     // $res->bindParam(':typePermit', $_REQUEST['typePermit']);
+//     // $res->bindParam(':isAMBQMember', $_REQUEST['isAMBQMember']);
+//     // $res->bindParam(':yearFondation', $_REQUEST['yearFondation']);
+//     // $res->bindParam(':webSite', $_REQUEST['webSite']);
+//     // $res->bindParam(':email', $_REQUEST['email']);
+//     // $res->bindParam(':phone', $_REQUEST['phone']);
+//     // $res->bindParam(':facebook', $_REQUEST['facebook']);
+//     // $res->bindParam(':ratebeer', $_REQUEST['ratebeer']);
+//     // $res->bindParam(':untappd', $_REQUEST['untappd']);
+//     // $res->bindParam(':auMenu', $_REQUEST['auMenu']);
+//     // $res->bindParam(':twitter', $_REQUEST['twitter']);
+//     // $res->bindParam(':wikidata', $_REQUEST['wikidata']);
+//     // $res->bindParam(':youtube', $_REQUEST['youtube']);
+//     // $res->bindParam(':instagram', $_REQUEST['instagram']);
+//     // $res->bindParam(':pinterest', $_REQUEST['pinterest']);
+//     // $res->bindParam(':snapchat', $_REQUEST['snapchat']);
+//     // $res->bindParam(':autre', $_REQUEST['autre']);
+//     // $res->bindParam(':notes', $_REQUEST['notes']);
 
-// $json->name is brasserie's ID.
-echo '{';
-    echo '"message": "Brasserie '.$json->name.' has been added."';
-echo '}';
+//     // execute the query
+//     $res->execute();
+// }
+// catch (PDOException $e)
+// {
+//  echo "ERROR:: PDOException ".$e;
 
-return $json->name;
+//  // If there is a PDO exception, throw a standard exception
+//  throw new Exception('Database query error');
+// }
+
+// // $json->name is brasserie's ID.
+// echo '{';
+//     echo '"message": "Brasserie '.$json->name.' has been added."';
+// echo '}';
+
+// return $json->name;
