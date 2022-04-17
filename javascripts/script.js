@@ -84,8 +84,8 @@ var drawPlot = function() {
                                         .selectAll("line")
                                         .data(y.ticks())
                                         .join("line")
-                                        .attr("y1", d => 5 + y(d))
-                                        .attr("y2", d => 5 + y(d))
+                                        .attr("y1", d => 0.5 + y(d))
+                                        .attr("y2", d => 0.5 + y(d))
                                         .attr("x1", margin.left)
                                         .attr("x2", width - margin.right));
 
@@ -112,7 +112,7 @@ var drawPlot = function() {
 
    svg.append("g")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 10)
+        .attr("font-size", 22)
         .selectAll("text")
         .data(data)
         .join("text")
