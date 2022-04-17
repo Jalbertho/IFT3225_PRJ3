@@ -99,7 +99,7 @@ try {
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
-    $res = $pdo->prepare($query);
+    // $res = $pdo->prepare($query);
 
     echo ":P";
 
@@ -179,14 +179,14 @@ try {
 
 //     // execute the query
 //     $res->execute();
-// }
-// catch (PDOException $e)
-// {
-//  echo "ERROR:: PDOException ".$e;
+}
+catch (PDOException $e)
+{
+ echo "ERROR:: PDOException ".$e;
 
-//  // If there is a PDO exception, throw a standard exception
-//  throw new Exception('Database query error');
-// }
+ // If there is a PDO exception, throw a standard exception
+ throw new Exception('Database query error');
+}
 
 // // $json->name is brasserie's ID.
 // echo '{';
