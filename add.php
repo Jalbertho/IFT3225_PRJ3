@@ -113,7 +113,7 @@ try {
         echo ":P";
     }
 
-    if(not $json->otherName){
+    if(!$json->otherName){
         echo ":O";
     }
 
