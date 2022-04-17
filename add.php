@@ -96,7 +96,7 @@ try {
             :notes
         )";
 
-    // {"name":"chantale","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1}
+    // {"name":"chantale","address":"64avenuenorthmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1}
 
     // prepare query statement
     $res = $pdo->prepare($query);
@@ -104,6 +104,8 @@ try {
     echo "".$json->name;
     echo "".$json->city;
     echo "".$json->name;
+    echo "".$json->twitter;
+
 
     // bind new values
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
@@ -169,12 +171,14 @@ try {
     // $res->bindParam(':autre', $_REQUEST['autre']);
     // $res->bindParam(':notes', $_REQUEST['notes']);
 
-// execute the query
-$res->execute();
-
+    // execute the query
+    $res->execute();
+    echo "Here :)";
 }
 catch (PDOException $e)
 {
+ echo "Here :(";
+
  // If there is a PDO exception, throw a standard exception
  throw new Exception('Database query error');
 }
