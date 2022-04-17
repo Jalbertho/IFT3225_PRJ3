@@ -14,7 +14,7 @@ require "./config.php";
 try {
 
     // $data = json_decode(file_get_contents("php://input"))
-    $data = json_encode($_GET["input"]);
+    $data = json_decode($_GET["input"]);
     echo "".$data;
     echo "".$data["name"];
     echo "".$data["city"];
