@@ -15,21 +15,15 @@ echo "REQUEST :: ADD <br>";
 echo "".$_GET['input'];
 echo "<br>";
 // $input = json_decode(file_get_contents("php://input"));
-$obj = json_decode($_GET['input']);
+$json = json_decode($_GET['input']);
 // echo "DATA : ".$input. "<br>";
 // echo "OBJ : ".$obj."<br>";
 // echo "".$obj["name"];
-echo "".$obj->name;
+// echo "".$obj->name;
 // echo "".$input["name"];
 // echo "".$input->name;
 
-/*try {
-
-    $data = json_decode(file_get_contents("php://input"))
-    $obj = json_decode($data);
-    echo "".$data;
-    echo "".$data["name"];
-    echo "".$data["city"];
+try {
     
     // add query
     $query = "INSERT INTO brasseries (
@@ -106,37 +100,68 @@ echo "".$obj->name;
     $res = $pdo->prepare($query);
 
     // bind new values
-    $stmt->bindParam(':name', $_REQUEST['name']);
-    $stmt->bindParam(':legalName', $_REQUEST['legalName']);
-    $stmt->bindParam(':otherName', $_REQUEST['otherName']);
-    $stmt->bindParam(':address', $_REQUEST['address']);
-    $stmt->bindParam(':city', $_REQUEST['city']);
-    $stmt->bindParam(':postalCode', $_REQUEST['postalCode']);
-    $stmt->bindParam(':province', $_REQUEST['province']);
-    $stmt->bindParam(':country', $_REQUEST['country']);
-    $stmt->bindParam(':latitude', $_REQUEST['latitude']);
-    $stmt->bindParam(':longitude', $_REQUEST['longitude']);
-    $stmt->bindParam(':adminRegion', $_REQUEST['adminRegion']);
-    $stmt->bindParam(':numPermit', $_REQUEST['numPermit']);
-    $stmt->bindParam(':brasseUnderPermit', $_REQUEST['brasseUnderPermit']);
-    $stmt->bindParam(':typePermit', $_REQUEST['typePermit']);
-    $stmt->bindParam(':isAMBQMember', $_REQUEST['isAMBQMember']);
-    $stmt->bindParam(':yearFondation', $_REQUEST['yearFondation']);
-    $stmt->bindParam(':webSite', $_REQUEST['webSite']);
-    $stmt->bindParam(':email', $_REQUEST['email']);
-    $stmt->bindParam(':phone', $_REQUEST['phone']);
-    $stmt->bindParam(':facebook', $_REQUEST['facebook']);
-    $stmt->bindParam(':ratebeer', $_REQUEST['ratebeer']);
-    $stmt->bindParam(':untappd', $_REQUEST['untappd']);
-    $stmt->bindParam(':auMenu', $_REQUEST['auMenu']);
-    $stmt->bindParam(':twitter', $_REQUEST['twitter']);
-    $stmt->bindParam(':wikidata', $_REQUEST['wikidata']);
-    $stmt->bindParam(':youtube', $_REQUEST['youtube']);
-    $stmt->bindParam(':instagram', $_REQUEST['instagram']);
-    $stmt->bindParam(':pinterest', $_REQUEST['pinterest']);
-    $stmt->bindParam(':snapchat', $_REQUEST['snapchat']);
-    $stmt->bindParam(':autre', $_REQUEST['autre']);
-    $stmt->bindParam(':notes', $_REQUEST['notes']);
+    $res->bindParam(':name', $json->name);
+    $res->bindParam(':legalName', $json->legalName);
+    $res->bindParam(':otherName', $json->otherName);
+    $res->bindParam(':address', $json->address);
+    $res->bindParam(':city', $json->city);
+    $res->bindParam(':postalCode', $json->postalCode);
+    $res->bindParam(':province', $json->province);
+    $res->bindParam(':country', $json->country);
+    $res->bindParam(':latitude', $json->latitude);
+    $res->bindParam(':longitude', $json->longitude);
+    $res->bindParam(':adminRegion', $json->adminRegion);
+    $res->bindParam(':numPermit', $json->numPermit);
+    $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit);
+    $res->bindParam(':typePermit', $json->typePermit);
+    $res->bindParam(':isAMBQMember', $json->isAMBQMember);
+    $res->bindParam(':yearFondation', $json->yearFondation);
+    $res->bindParam(':webSite', $json->webSite);
+    $res->bindParam(':email', $json->email);
+    $res->bindParam(':phone', $json->phone);
+    $res->bindParam(':facebook', $json->facebook);
+    $res->bindParam(':ratebeer', $json->ratebeer);
+    $res->bindParam(':untappd', $json->untappd);
+    $res->bindParam(':auMenu', $json->auMenu);
+    $res->bindParam(':twitter', $json->twitter);
+    $res->bindParam(':wikidata', $json->wikidata);
+    $res->bindParam(':youtube', $json->youtube);
+    $res->bindParam(':instagram', $json->instagram);
+    $res->bindParam(':pinterest', $json->pinterest);
+    $res->bindParam(':snapchat', $json->snapchat);
+    $res->bindParam(':autre', $json->autre);
+    $res->bindParam(':notes', $json->notes);
+    // $res->bindParam(':name', $_REQUEST['name']);
+    // $res->bindParam(':legalName', $_REQUEST['legalName']);
+    // $res->bindParam(':otherName', $_REQUEST['otherName']);
+    // $res->bindParam(':address', $_REQUEST['address']);
+    // $res->bindParam(':city', $_REQUEST['city']);
+    // $res->bindParam(':postalCode', $_REQUEST['postalCode']);
+    // $res->bindParam(':province', $_REQUEST['province']);
+    // $res->bindParam(':country', $_REQUEST['country']);
+    // $res->bindParam(':latitude', $_REQUEST['latitude']);
+    // $res->bindParam(':longitude', $_REQUEST['longitude']);
+    // $res->bindParam(':adminRegion', $_REQUEST['adminRegion']);
+    // $res->bindParam(':numPermit', $_REQUEST['numPermit']);
+    // $res->bindParam(':brasseUnderPermit', $_REQUEST['brasseUnderPermit']);
+    // $res->bindParam(':typePermit', $_REQUEST['typePermit']);
+    // $res->bindParam(':isAMBQMember', $_REQUEST['isAMBQMember']);
+    // $res->bindParam(':yearFondation', $_REQUEST['yearFondation']);
+    // $res->bindParam(':webSite', $_REQUEST['webSite']);
+    // $res->bindParam(':email', $_REQUEST['email']);
+    // $res->bindParam(':phone', $_REQUEST['phone']);
+    // $res->bindParam(':facebook', $_REQUEST['facebook']);
+    // $res->bindParam(':ratebeer', $_REQUEST['ratebeer']);
+    // $res->bindParam(':untappd', $_REQUEST['untappd']);
+    // $res->bindParam(':auMenu', $_REQUEST['auMenu']);
+    // $res->bindParam(':twitter', $_REQUEST['twitter']);
+    // $res->bindParam(':wikidata', $_REQUEST['wikidata']);
+    // $res->bindParam(':youtube', $_REQUEST['youtube']);
+    // $res->bindParam(':instagram', $_REQUEST['instagram']);
+    // $res->bindParam(':pinterest', $_REQUEST['pinterest']);
+    // $res->bindParam(':snapchat', $_REQUEST['snapchat']);
+    // $res->bindParam(':autre', $_REQUEST['autre']);
+    // $res->bindParam(':notes', $_REQUEST['notes']);
 
 // execute the query
 $res->execute();
@@ -148,9 +173,11 @@ catch (PDOException $e)
  throw new Exception('Database query error');
 }
 
-echo '{';
-    echo '"message": "Brasserie has been added."';
-echo '}';*/
+return $pdo->lastInsertId();
+
+// echo '{';
+//     echo '"message": "Brasserie has been added."';
+// echo '}';
 
 // // execute the query
 // if($res->execute()){
