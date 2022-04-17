@@ -21,8 +21,8 @@ foreach($json as $key => $val){
     $fields = $key.",";
     $values = $val.",";
 }
-$fields = trim($fields, ",");
-$values = trim($values, ",");
+// $fields = trim($fields, ",");
+// $values = trim($values, ",");
 
 echo "".$fields;
 echo "".$values;
