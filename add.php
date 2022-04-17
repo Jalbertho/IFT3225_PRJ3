@@ -104,12 +104,9 @@ try {
     // bind new values
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
     $res->bindParam(':address', $json->address, PDO::PARAM_STR);
-    if($json->twitter){
-        echo "sup :)";
-    }
-
-    // bind new values
+    echo ":)";
     $res->bindParam(':legalName', ($json->legalName ? $json->legalName : "" ), PDO::PARAM_STR);
+    echo ":)";
     $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
     $res->bindParam(':city', $json->city, PDO::PARAM_STR);
     $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
