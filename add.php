@@ -15,7 +15,7 @@ echo "REQUEST :: ADD <br>";
 echo "".$_GET['input'];
 echo "<br>";
 $input = json_decode(file_get_contents("php://input"));
-$obj = json_decode($input);
+$obj = json_decode($_GET['input']);
 echo "DATA : ".$input. "<br>";
 echo "OBJ : ".$obj."<br>";
 echo "".$obj["name"];
