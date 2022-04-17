@@ -11,15 +11,15 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-echo "REQUEST :: ADD";
+echo "REQUEST :: ADD <br>";
 echo "".$_GET['input'];
 echo "<br>";
-$data = json_decode(file_get_contents("php://input"));
-$obj = json_decode($data);
-echo "DATA : ".$data. "<br>";
+$input = json_decode(file_get_contents("php://input"));
+$obj = json_decode($input);
+echo "DATA : ".$input. "<br>";
 echo "OBJ : ".$obj."<br>";
-echo "".$data["name"];
-echo "".$data["city"];
+echo "".$obj["name"];
+echo "".$input["name"];
 
 /*try {
 
