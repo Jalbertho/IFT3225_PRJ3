@@ -101,11 +101,11 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
-    if(isset($json->name)){
+    if($json->name){
         echo ":)";
     }
 
-    if(isset($json->otherName)){
+    if($json->otherName == "null"){
         echo ":O";
     }
 
