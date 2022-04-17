@@ -11,7 +11,13 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-try {
+$data = json_decode(file_get_contents("php://input"))
+$obj = json_decode($data);
+echo "".$data;
+echo "".$data["name"];
+echo "".$data["city"];
+
+/*try {
 
     $data = json_decode(file_get_contents("php://input"))
     $obj = json_decode($data);
@@ -132,19 +138,19 @@ $res->execute();
 }
 catch (PDOException $e)
 {
- /* If there is a PDO exception, throw a standard exception */
+ // If there is a PDO exception, throw a standard exception
  throw new Exception('Database query error');
 }
 
 echo '{';
     echo '"message": "Brasserie has been added."';
-echo '}';
+echo '}';*/
 
-// execute the query
-if($res->execute()){
-    // update the product
-    echo '{';
-        echo '"message": "Product was updated."';
-    echo '}';
-    return true;
-}
+// // execute the query
+// if($res->execute()){
+//     // update the product
+//     echo '{';
+//         echo '"message": "Product was updated."';
+//     echo '}';
+//     return true;
+// }
