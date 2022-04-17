@@ -62,7 +62,7 @@ $r->add('/login/:name/:pwd', array(), function(Route $route) {
 
 // URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/<input>
 $r->add('/add/:input', array(), function(Route $route) {
-    run("/add.php?input=".$route->input);
+    run("/add.php?input=".str_replace(' ', '_', $route->input));
     die();
 });
 

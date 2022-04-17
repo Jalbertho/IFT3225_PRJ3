@@ -15,7 +15,7 @@ require "./config.php";
 // echo "".$_GET['input'];
 // echo "<br>";
 // $input = json_decode(file_get_contents("php://input"));
-$json = json_decode($_GET['input']);
+$json = json_decode(str_replace('_', ' ', $_GET['input']));
 // echo "DATA : ".$input. "<br>";
 // echo "OBJ : ".$obj."<br>";
 // echo "".$obj["name"];
