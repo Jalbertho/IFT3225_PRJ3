@@ -104,6 +104,13 @@ try {
     // bind new values
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
     $res->bindParam(':address', $json->address, PDO::PARAM_STR);
+    if($json->twitter){
+        echo "sup :)";
+    }
+
+    // bind new values
+    $res->bindParam(':legalName', ($json->legalName ? $json->legalName : "" ), PDO::PARAM_STR);
+    $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
     $res->bindParam(':city', $json->city, PDO::PARAM_STR);
     $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
     $res->bindParam(':province', $json->province, PDO::PARAM_STR);
@@ -111,70 +118,13 @@ try {
     $res->bindParam(':latitude', $json->latitude, PDO::PARAM_INT);
     $res->bindParam(':longitude', $json->longitude, PDO::PARAM_INT);
     $res->bindParam(':adminRegion', $json->adminRegion, PDO::PARAM_INT);
+    $res->bindParam(':numPermit', $json->numPermit, PDO::PARAM_STR);
+    $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit, PDO::PARAM_STR);
     $res->bindParam(':typePermit', $json->typePermit, PDO::PARAM_STR);
     $res->bindParam(':isAMBQMember', $json->isAMBQMember, PDO::PARAM_INT);
-    if($json->legalName){
-        $res->bindParam(':legalName', $json->legalName, PDO::PARAM_STR);
-    }
-    if($json->otherName){
-        $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
-    }
-    if($json->numPermit){
-        $res->bindParam(':numPermit', $json->numPermit, PDO::PARAM_STR);
-    }
-    if($json->brasseUnderPermit){
-        $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit, PDO::PARAM_STR);
-    }
-    if($json->yearFondation){
-        $res->bindParam(':yearFondation', $json->yearFondation, PDO::PARAM_STR);
-    }
-    if($json->webSite){
-        $res->bindParam(':webSite', $json->webSite, PDO::PARAM_STR);
-    }
-    if($json->email){
-        $res->bindParam(':email', $json->email, PDO::PARAM_STR);
-    }
-    if($json->phone){
-        $res->bindParam(':phone', $json->phone, PDO::PARAM_STR);
-    }
-    /*if($json->facebook){
-        
-    }
-    if($json->ratebeer){
-        
-    }
-    if($json->untappd){
-        
-    }
-    if($json->auMenu){
-        
-    }
-    if($json->twitter){
-        
-    }
-    if($json->wikidata){
-        
-    }
-    if($json->youtube){
-        
-    }
-    if($json->instagram){
-        
-    }
-    if($json->pinterest){
-        
-    }
-    if($json->snapchat){
-        
-    }
-    if($json->autre){
-        
-    }
-    if($json->notes){
-        
-    }*/
-
-    // bind new values
+    $res->bindParam(':yearFondation', $json->yearFondation, PDO::PARAM_STR);
+    $res->bindParam(':webSite', $json->webSite, PDO::PARAM_STR);
+    $res->bindParam(':email', $json->email, PDO::PARAM_STR);
     $res->bindParam(':phone', $json->phone, PDO::PARAM_STR);
     $res->bindParam(':facebook', $json->facebook, PDO::PARAM_STR);
     $res->bindParam(':ratebeer', $json->ratebeer, PDO::PARAM_STR);
