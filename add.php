@@ -17,7 +17,12 @@ $json = json_decode(str_replace('_', ' ', $_GET['input']));
 $fields = '';
 $values = '';
 
+echo "hello <br>";
+
+echo "".strpos("L'Hydromel", "'");
 echo "".(strpos("L'Hydromel", "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )
+
+echo "hello <br>";
 
 // foreach($json as $key => $val){
 //     $fields = $fields.", `".$key."`";
