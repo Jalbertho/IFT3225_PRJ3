@@ -137,11 +137,8 @@ var app = $.sammy('#main', function() {
     context.render('templates/login.template').appendTo(context.$element());
   });
 
-  this.post('#/login', function(){
-    console.log("LOGIN::POST");
-    
+  this.post('#/login', function(){    
     var result = null;
-
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/"+this.params['username']+"/"+this.params['pwd'],
@@ -233,7 +230,7 @@ var app = $.sammy('#main', function() {
     }
   });
 
-  /*this.post('#/add', function(context) {
+  this.post('#/add', function(context) {
     var result = null;
     $.ajax({
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add"
@@ -248,7 +245,7 @@ var app = $.sammy('#main', function() {
     }); // ajax
     
     return result;// result
- });*/
+ });
 
   this.get('#/delete',function(context) {
     context.app.swap('');

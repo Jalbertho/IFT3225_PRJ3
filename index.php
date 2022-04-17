@@ -60,7 +60,7 @@ $r->add('/login/:name/:pwd', array(), function(Route $route) {
     die();
 });
 
-// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/<input>
+// URL : https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/<input>
 $r->add('/add/:input', array(), function(Route $route) {
     run("/add.php?input=".$route->input);
     die();
