@@ -35,7 +35,7 @@ try {
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
-    $res = $pdo->prepare($query);
+    // $res = $pdo->prepare($query);
 
     // bind new values
     // $res->bindParam(':name', $json->name, PDO::PARAM_STR);
@@ -102,7 +102,7 @@ try {
 //     // $res->bindParam(':notes', $_REQUEST['notes']);
 
 //     // execute the query
-    $res->execute();
+    // $res->execute();
 }
 catch (PDOException $e)
 {
