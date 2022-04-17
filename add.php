@@ -13,10 +13,11 @@ require "./config.php";
 
 echo "REQUEST :: ADD";
 echo "".$_GET['input'];
+echo "<br>";
 $data = json_decode(file_get_contents("php://input"));
 $obj = json_decode($data);
-echo "".$data;
-echo "".$obj;
+echo "DATA : ".$data. "<br>";
+echo "OBJ : ".$obj."<br>";
 echo "".$data["name"];
 echo "".$data["city"];
 
