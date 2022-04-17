@@ -14,7 +14,7 @@ require "./config.php";
 try {
 
     // $data = json_decode(file_get_contents("php://input"))
-    echo "".$data;
+    echo "".$_GET["input"];
     
     // add query
     $query = "INSERT INTO brasseries (
