@@ -232,17 +232,17 @@ var app = $.sammy('#main', function() {
 
   this.post('#/add', function(context) {
     var result = null;
-    $.ajax({
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add"
-      type : "POST",
-      dataType : 'json',
-      success : function(data) {
-      result = data;
-      },
-      error: function(xhr, resp, text) {
-      console.log(xhr, resp, text);
-      }
-    }); // ajax
+    // $.ajax({
+    //   url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add"
+    //   type : "POST",
+    //   dataType : 'json',
+    //   success : function(data) {
+    //   result = data;
+    //   },
+    //   error: function(xhr, resp, text) {
+    //   console.log(xhr, resp, text);
+    //   }
+    // }); // ajax
     
     return result;// result
  });

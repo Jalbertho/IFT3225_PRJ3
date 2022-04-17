@@ -96,7 +96,7 @@ try {
             :notes
         )";
 
-    // {"name":"chantale","address":"64avenuenorthmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1}
+    // {"name":"chantale","address":"64avenuenorthmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
     $res = $pdo->prepare($query);
@@ -176,20 +176,9 @@ catch (PDOException $e)
  throw new Exception('Database query error');
 }
 
+// $json->name is brasserie's ID.
 echo '{';
-    echo '"message": "Brasserie '.$pdo->lastInsertId().' has been added."';
+    echo '"message": "Brasserie '.$json->name.' has been added."';
 echo '}';
-return $pdo->lastInsertId();
 
-// echo '{';
-//     echo '"message": "Brasserie has been added."';
-// echo '}';
-
-// // execute the query
-// if($res->execute()){
-//     // update the product
-//     echo '{';
-//         echo '"message": "Product was updated."';
-//     echo '}';
-//     return true;
-// }
+return $json->name;
