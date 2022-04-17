@@ -11,18 +11,18 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-// Setup columns and values (from https://stackoverflow.com/questions/20325726/how-to-insert-dynamic-value-into-mysql-database)
+// Setup columns and values.
 $json = json_decode(str_replace('_', ' ', $_GET['input']));
 
 $fields = '';
 $values = '';
 
 foreach($json as $key => $val){
-    $fields = $fields.",".$key;
-    $values = $values.",".$val;
+    $fields = $fields.", `".$key."`";
+    $values = $values.", ".$val;
 }
-// $fields = trim($fields, ",");
-// $values = trim($values, ",");
+$fields = substr($fields, 1);
+$values = substr($values, 1);
 
 echo "".$fields;
 echo "".$values;
