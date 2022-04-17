@@ -101,12 +101,6 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
-    echo "".$json->name;
-    echo "".$json->city;
-    echo "".$json->name;
-    echo "".$json->twitter;
-
-
     // bind new values
     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
     $res->bindParam(':legalName', $json->legalName, PDO::PARAM_STR);
@@ -173,11 +167,10 @@ try {
 
     // execute the query
     $res->execute();
-    echo "Here :)";
 }
 catch (PDOException $e)
 {
- echo "Here :(";
+ echo "ERROR:: PDOException ".$e;
 
  // If there is a PDO exception, throw a standard exception
  throw new Exception('Database query error');
