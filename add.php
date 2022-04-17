@@ -19,6 +19,7 @@ $obj = json_decode($input);
 echo "DATA : ".$input. "<br>";
 echo "OBJ : ".$obj."<br>";
 echo "".$obj["name"];
+echo "".$obj->name;
 echo "".$input["name"];
 
 /*try {
