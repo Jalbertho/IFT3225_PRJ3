@@ -11,9 +11,9 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-echo "REQUEST :: ADD <br>";
-echo "".$_GET['input'];
-echo "<br>";
+// echo "REQUEST :: ADD <br>";
+// echo "".$_GET['input'];
+// echo "<br>";
 // $input = json_decode(file_get_contents("php://input"));
 $json = json_decode($_GET['input']);
 // echo "DATA : ".$input. "<br>";
@@ -173,6 +173,9 @@ catch (PDOException $e)
  throw new Exception('Database query error');
 }
 
+echo '{';
+    echo '"message": "Brasserie '.$pdo->lastInsertId().' has been added."';
+echo '}';
 return $pdo->lastInsertId();
 
 // echo '{';
