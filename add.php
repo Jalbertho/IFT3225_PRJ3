@@ -96,6 +96,8 @@ try {
             :notes
         )";
 
+    // {"name":"chantale","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":46.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1}
+
     // prepare query statement
     $res = $pdo->prepare($query);
 
@@ -104,37 +106,37 @@ try {
     echo "".$json->name;
 
     // bind new values
-    $res->bindParam(':name', $json->name);
-    $res->bindParam(':legalName', $json->legalName);
-    $res->bindParam(':otherName', $json->otherName);
-    $res->bindParam(':address', $json->address);
-    $res->bindParam(':city', $json->city);
-    $res->bindParam(':postalCode', $json->postalCode);
-    $res->bindParam(':province', $json->province);
-    $res->bindParam(':country', $json->country);
-    $res->bindParam(':latitude', $json->latitude);
-    $res->bindParam(':longitude', $json->longitude);
-    $res->bindParam(':adminRegion', $json->adminRegion);
-    $res->bindParam(':numPermit', $json->numPermit);
-    $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit);
-    $res->bindParam(':typePermit', $json->typePermit);
-    $res->bindParam(':isAMBQMember', $json->isAMBQMember);
-    $res->bindParam(':yearFondation', $json->yearFondation);
-    $res->bindParam(':webSite', $json->webSite);
-    $res->bindParam(':email', $json->email);
-    $res->bindParam(':phone', $json->phone);
-    $res->bindParam(':facebook', $json->facebook);
-    $res->bindParam(':ratebeer', $json->ratebeer);
-    $res->bindParam(':untappd', $json->untappd);
-    $res->bindParam(':auMenu', $json->auMenu);
-    $res->bindParam(':twitter', $json->twitter);
-    $res->bindParam(':wikidata', $json->wikidata);
-    $res->bindParam(':youtube', $json->youtube);
-    $res->bindParam(':instagram', $json->instagram);
-    $res->bindParam(':pinterest', $json->pinterest);
-    $res->bindParam(':snapchat', $json->snapchat);
-    $res->bindParam(':autre', $json->autre);
-    $res->bindParam(':notes', $json->notes);
+    $res->bindParam(':name', $json->name, PDO::PARAM_STR);
+    $res->bindParam(':legalName', $json->legalName, PDO::PARAM_STR);
+    $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
+    $res->bindParam(':address', $json->address, PDO::PARAM_STR);
+    $res->bindParam(':city', $json->city, PDO::PARAM_STR);
+    $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
+    $res->bindParam(':province', $json->province, PDO::PARAM_STR);
+    $res->bindParam(':country', $json->country, PDO::PARAM_STR);
+    $res->bindParam(':latitude', $json->latitude, PDO::PARAM_INT);
+    $res->bindParam(':longitude', $json->longitude, PDO::PARAM_INT);
+    $res->bindParam(':adminRegion', $json->adminRegion, PDO::PARAM_INT);
+    $res->bindParam(':numPermit', $json->numPermit, PDO::PARAM_STR);
+    $res->bindParam(':brasseUnderPermit', $json->brasseUnderPermit, PDO::PARAM_STR);
+    $res->bindParam(':typePermit', $json->typePermit, PDO::PARAM_STR);
+    $res->bindParam(':isAMBQMember', $json->isAMBQMember, PDO::PARAM_INT);
+    $res->bindParam(':yearFondation', $json->yearFondation, PDO::PARAM_STR);
+    $res->bindParam(':webSite', $json->webSite, PDO::PARAM_STR);
+    $res->bindParam(':email', $json->email, PDO::PARAM_STR);
+    $res->bindParam(':phone', $json->phone, PDO::PARAM_STR);
+    $res->bindParam(':facebook', $json->facebook, PDO::PARAM_STR);
+    $res->bindParam(':ratebeer', $json->ratebeer, PDO::PARAM_STR);
+    $res->bindParam(':untappd', $json->untappd, PDO::PARAM_STR);
+    $res->bindParam(':auMenu', $json->auMenu, PDO::PARAM_STR);
+    $res->bindParam(':twitter', $json->twitter, PDO::PARAM_STR);
+    $res->bindParam(':wikidata', $json->wikidata, PDO::PARAM_STR);
+    $res->bindParam(':youtube', $json->youtube, PDO::PARAM_STR);
+    $res->bindParam(':instagram', $json->instagram, PDO::PARAM_STR);
+    $res->bindParam(':pinterest', $json->pinterest, PDO::PARAM_STR);
+    $res->bindParam(':snapchat', $json->snapchat, PDO::PARAM_STR);
+    $res->bindParam(':autre', $json->autre, PDO::PARAM_STR);
+    $res->bindParam(':notes', $json->notes, PDO::PARAM_STR);
     // $res->bindParam(':name', $_REQUEST['name']);
     // $res->bindParam(':legalName', $_REQUEST['legalName']);
     // $res->bindParam(':otherName', $_REQUEST['otherName']);
