@@ -99,6 +99,10 @@ try {
     // prepare query statement
     $res = $pdo->prepare($query);
 
+    echo "".$json->name;
+    echo "".$json->city;
+    echo "".$json->name;
+
     // bind new values
     $res->bindParam(':name', $json->name);
     $res->bindParam(':legalName', $json->legalName);
