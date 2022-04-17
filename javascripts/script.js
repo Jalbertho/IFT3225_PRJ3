@@ -57,7 +57,7 @@ var drawPlot = function() {
                             .attr("fill", "#000")
                             .attr("font-weight", "bold")
                             .attr("text-anchor", "end")
-                            .text('Longitude'));
+                            .text('Longitude',100));
 
   var yAxis = g => g
                 .attr("transform", `translate(${margin.left},0)`)
@@ -67,7 +67,7 @@ var drawPlot = function() {
                             .attr("x", 4)
                             .attr("text-anchor", "start")
                             .attr("font-weight", "bold")
-                            .text('Latitude'));
+                            .text('Latitude',100));
 
   var grid = g => g
                 .attr("stroke", "currentColor")
@@ -91,8 +91,8 @@ var drawPlot = function() {
 
    var svg = d3.select("#main")
                 .append("svg")
-                .attr("width", width + 40)
-                .attr("height", height + 40);
+                .attr("width", width )
+                .attr("height", height);
 
    svg.append("g").call(xAxis);
    svg.append("g").call(yAxis);
