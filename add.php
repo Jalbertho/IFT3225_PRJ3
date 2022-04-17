@@ -19,7 +19,7 @@ $values = '';
 
 foreach($json as $key => $val){
     $fields = $fields.", `".$key."`";
-    $values = $values.", `".$val."`";
+    $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )."'";
 }
 $fields = substr($fields, 1);
 $values = substr($values, 1);
