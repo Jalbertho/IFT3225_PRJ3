@@ -78,16 +78,16 @@ var drawPlot = function() {
                             .join("line")
                             .attr("x1", d => 0.5 + x(d))
                             .attr("x2", d => 0.5 + x(d))
-                            .attr("y1", margin.top)
-                            .attr("y2", height - margin.bottom))
+                            .attr("y1", margin.top + 20)
+                            .attr("y2", height - margin.bottom +20))
                             .call(g => g.append("g")
                                         .selectAll("line")
                                         .data(y.ticks())
                                         .join("line")
                                         .attr("y1", d => 0.5 + y(d))
                                         .attr("y2", d => 0.5 + y(d))
-                                        .attr("x1", margin.left)
-                                        .attr("x2", width - margin.right));
+                                        .attr("x1", margin.left +20)
+                                        .attr("x2", width - margin.right+20));
 
    var svg = d3.select("#main")
                 .append("svg")
