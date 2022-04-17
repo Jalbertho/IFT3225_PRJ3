@@ -40,11 +40,11 @@ var drawPlot = function() {
 
   // TODO.. review le d3.extent pour qu'on puisse voir plus épurément les données
   var x = d3.scaleLinear()
-              .domain(d3.extent(data, d => d.longitude + 100)).nice()
+              .domain(d3.extent(data, d => d.longitude )).nice()
               .range([margin.left, width - margin.right]);
 
   var y = d3.scaleLinear()
-              .domain(d3.extent(data, d => d.latitude + 100)).nice()
+              .domain(d3.extent(data, d => d.latitude )).nice()
               .range([height - margin.bottom, margin.top]);
 
   var xAxis = g => g
@@ -76,16 +76,16 @@ var drawPlot = function() {
                             .selectAll("line")
                             .data(x.ticks())
                             .join("line")
-                            .attr("x1", d => 20 + x(d))
-                            .attr("x2", d => 20 + x(d))
+                            .attr("x1", d => 0.5 + x(d))
+                            .attr("x2", d => 0.5 + x(d))
                             .attr("y1", margin.top)
                             .attr("y2", height - margin.bottom))
                             .call(g => g.append("g")
                                         .selectAll("line")
                                         .data(y.ticks())
                                         .join("line")
-                                        .attr("y1", d => 20 + y(d))
-                                        .attr("y2", d => 20 + y(d))
+                                        .attr("y1", d => 0.5 + y(d))
+                                        .attr("y2", d => 0.5 + y(d))
                                         .attr("x1", margin.left)
                                         .attr("x2", width - margin.right));
 
