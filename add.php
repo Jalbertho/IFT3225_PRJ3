@@ -11,97 +11,30 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // include database and object files
 require "./config.php";
 
-// echo "REQUEST :: ADD <br>";
-// echo "".$_GET['input'];
-// echo "<br>";
-// $input = json_decode(file_get_contents("php://input"));
+// Setup columns and values (from https://stackoverflow.com/questions/20325726/how-to-insert-dynamic-value-into-mysql-database)
 $json = json_decode(str_replace('_', ' ', $_GET['input']));
-// echo "DATA : ".$input. "<br>";
-// echo "OBJ : ".$obj."<br>";
-// echo "".$obj["name"];
-// echo "".$obj->name;
-// echo "".$input["name"];
-// echo "".$input->name;
+
+$fields = '';
+$values = '';
+
+foreach($json as $key => $val){
+    $fields = $key.",";
+    $values = $val.",";
+}
+$fields = trim($fields, ",");
+$values = trim($values, ",");
 
 try {
     
     // add query
-    $query = "INSERT INTO brasseries (
-            `name`,
-            `legalName`,
-            `otherName`,
-            `address`,
-            `city`,
-            `postalCode`,
-            `province`,
-            `country`,
-            `latitude`,
-            `longitude`,
-            `adminRegion`,
-            `numPermit`,
-            `brasseUnderPermit`,
-            `typePermit`,
-            `isAMBQMember`,
-            `yearFondation`,
-            `webSite`,
-            `email`,
-            `phone`,
-            `facebook`,
-            `ratebeer`,
-            `untappd`,
-            `auMenu`,
-            `twitter`,
-            `wikidata`,
-            `youtube`,
-            `instagram`,
-            `pinterest`,
-            `snapchat`,
-            `autre`,
-            `notes`
-        )
-
-        VALUES
-
-        (
-            :name,
-            :legalName,
-            :otherName,
-            :address,
-            :city,
-            :postalCode,
-            :province,
-            :country,
-            :latitude,
-            :longitude,
-            :adminRegion,
-            :numPermit,
-            :brasseUnderPermit,
-            :typePermit,
-            :isAMBQMember,
-            :yearFondation,
-            :webSite,
-            :email,
-            :phone,
-            :facebook,
-            :ratebeer,
-            :untappd,
-            :auMenu,
-            :twitter,
-            :wikidata,
-            :youtube,
-            :instagram,
-            :pinterest,
-            :snapchat,
-            :autre,
-            :notes
-        )";
+    $query = "INSERT INTO brasseries (".$fields.") VALUES (".$values.")";
 
     // {"name":"Brasserie L'Hydromel","address":"64 avenue northmount","city":"montreal","postalCode":"J1P2T3","province":"Québec","country":"Canada","latitude":48.0,"longitude":-64.00,"adminRegion":6,"isAMBQMember":1,"typePermit":"Brasseur","phone":"51478945665"}
 
     // prepare query statement
-    // $res = $pdo->prepare($query);
+    $res = $pdo->prepare($query);
 
-    if($json->name){
+    /*if($json->name){
         echo ":)";
     }
 
@@ -115,16 +48,14 @@ try {
 
     if(!$json->otherName){
         echo ":O";
-    }
+    }*/
 
-//     // bind new values
-//     $res->bindParam(':name', $json->name, PDO::PARAM_STR);
-//     $res->bindParam(':address', $json->address, PDO::PARAM_STR);
-//     echo ":)";
-//     $res->bindParam(':legalName', (isset($json->legalName) ? $json->legalName : "" ), PDO::PARAM_STR);
-//     echo ":)";
-//     $res->bindParam(':otherName', $json->otherName, PDO::PARAM_STR, PDO::PARAM_STR);
-//     $res->bindParam(':city', $json->city, PDO::PARAM_STR);
+    // bind new values
+    // $res->bindParam(':name', $json->name, PDO::PARAM_STR);
+    // $res->bindParam(':address', $json->address, PDO::PARAM_STR);
+    // $res->bindParam(':legalName', (isset($json->legalName) ? $json->legalName : ""), PDO::PARAM_STR);
+    // $res->bindParam(':otherName', (isset($json->otherName) ? $json->otherName : ""), PDO::PARAM_STR, PDO::PARAM_STR);
+    // $res->bindParam(':city', (isset($json->city) ? $json->city : "")$json->city, PDO::PARAM_STR);
 //     $res->bindParam(':postalCode', $json->postalCode, PDO::PARAM_STR);
 //     $res->bindParam(':province', $json->province, PDO::PARAM_STR);
 //     $res->bindParam(':country', $json->country, PDO::PARAM_STR);
@@ -184,7 +115,7 @@ try {
 //     // $res->bindParam(':notes', $_REQUEST['notes']);
 
 //     // execute the query
-//     $res->execute();
+    $res->execute();
 }
 catch (PDOException $e)
 {
