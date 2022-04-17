@@ -17,23 +17,23 @@ $json = json_decode(str_replace('_', ' ', $_GET['input']));
 $fields = '';
 $values = '';
 
-echo "hello <br>";
-$name = "L'Hydromel";
-$name = substr_replace($name, "'", strpos($name, "'"), 0);
-// echo "".substr_replace($name, "'", $strpos($name, "'"));
-echo "".$name;
+// echo "hello <br>";
+// $name = "L'Hydromel";
+// $name = substr_replace($name, "'", strpos($name, "'"), 0);
+// // echo "".substr_replace($name, "'", $strpos($name, "'"));
+// echo "".$name;
 
 // $val = ((strpos("L'Hydromel", "'") !== false) ? substr_replace("L'Hydromel", "'", $strpos("L'Hydromel", "'")) : "L'Hydromel" );
 // echo "".$val;
 
 echo "hello <br>";
 
-// foreach($json as $key => $val){
-//     $fields = $fields.", `".$key."`";
-//     $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", $strpos($val, "'")) : $val )."'";
-// }
-// $fields = substr($fields, 1);
-// $values = substr($values, 1);
+foreach($json as $key => $val){
+    $fields = $fields.", `".$key."`";
+    $values = $values.", '".(strpos($val, "'") !== false ? substr_replace($val, "'", strpos($val, "'"), 0) : $val)."'";
+}
+$fields = substr($fields, 1);
+$values = substr($values, 1);
 
 try {
     
