@@ -15,6 +15,8 @@ try {
 
     // $data = json_decode(file_get_contents("php://input"))
     echo "".$_GET["input"];
+    echo "".$_GET["input"]["name"];
+    echo "".$_GET["input"]["city"];
     
     // add query
     $query = "INSERT INTO brasseries (
