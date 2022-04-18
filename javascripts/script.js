@@ -109,10 +109,10 @@ var drawPlot = function() {
         .attr("cy", d => y(d.latitude))
         .attr("r", 3);
 
-
    svg.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 5)
+        .on("mouseover", function(){d3.select(this).style("font-weight", "bold");}) // TODO.. try something
         .selectAll("text")
         .data(data)
         .join("text")
@@ -246,6 +246,7 @@ var app = $.sammy('#main', function() {
         alert(response["message"]);
       },
       error: function(xhr, resp, text) {
+        alert("Brasserie "+this.params["name"]+" has not been added.");
         console.log(xhr, resp, text);
       }
     });
@@ -272,6 +273,8 @@ var app = $.sammy('#main', function() {
         alert(response["message"]);
       },
       error: function(xhr, resp, text) {
+        alert("Brasserie "+this.params["name"]+" could not have been deleted.");
+        alert(response["message"]);
         console.log(xhr, resp, text);
       }
     });
