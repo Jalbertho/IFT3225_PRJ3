@@ -121,12 +121,12 @@ var drawPlot = function() {
         .text(d => d.name)
         .on("mouseover", function(){
             d3.select(this)
-              .style("fill", "dark");
+              .style("fill", "dark")
               .style("font-weight", "bold");
           })
         .on("mouseout", function(){
             d3.select(this)
-              .style("fill", "none");
+              .style("fill", "none")
               .style("font-weight", "none");
           });
 }
