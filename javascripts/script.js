@@ -133,13 +133,6 @@ var drawPlot = function() {
               .style("font-size", "5");
           });
 }
-// function onMouseEvent() {
-// d3.select(this).attr("text", "bold");
-// d3.select(this).transition().duration(400).style("")
-// }
-// function offMouseEvent() {
-
-// }
 
 var app = $.sammy('#main', function() {
   this.use('Template');
