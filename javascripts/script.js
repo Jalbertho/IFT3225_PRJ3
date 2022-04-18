@@ -197,53 +197,56 @@ var app = $.sammy('#main', function() {
   });
 
   this.get('#/table', function(context) {
-    context.app.swap('templates/table.template');
-    
-    var result = getBrasseries();
-
-    // $("#main").append('<table id="first" class="display">');
-    console.log(context.$element());
-    // context.render('templates/table.template').appendTo("#main");
-
-    // $("#first").append('<tbody>');
-    $.each(result, function(index, elem) {
-      context.render('templates/itemTable.template', 
-      {
-        name: elem["name"],
-        legalName: elem["legalName"],
-        otherName: elem["otherName"],
-        address: elem["address"],
-        city: elem["city"],
-        postalCode: elem["postalCode"],
-        province: elem["province"],
-        country: elem["country"],
-        longitude: elem["longitude"],
-        latitude: elem["latitude"],
-        phone: elem["phone"],
-        email: elem["email"],
-        yearFondation: elem["yearFondation"],
-        adminRegion: elem["adminRegion"],
-        isAMBQMember: elem["isAMBQMember"],
-        numPermit: elem["numPermit"],
-        brasseUnderPermit: elem["brasseUnderPermit"],
-        typePermit: elem["typePermit"],
-        webSite: elem["webSite"],
-        facebook: elem["facebook"],
-        instagram: elem["instagram"],
-        ratebeer: elem["ratebeer"],
-        auMenu: elem["auMenu"],
-        untappd: elem["untappd"],
-        pinterest: elem["pinterest"],
-        snapchat: elem["snapchat"], 
-        twitter: elem["twitter"],
-        youtube: elem["youtube"],
-        wikidata: elem["wikidata"],
-        autre: elem["autre"],
-        notes: elem["notes"]
-      }).appendTo("tbody");
+    context.app.swap('');
+    context.render('templates/table.template').appendTo("#main");
+    $("#first").DataTable({
+      ajax: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all"
     });
+    
+    // var result = getBrasseries();
+
+    // // $("#main").append('<table id="first" class="display">');
+    // console.log(context.$element());
+
+    // // $("#first").append('<tbody>');
+    // $.each(result, function(index, elem) {
+    //   context.render('templates/itemTable.template', 
+    //   {
+    //     name: elem["name"],
+    //     legalName: elem["legalName"],
+    //     otherName: elem["otherName"],
+    //     address: elem["address"],
+    //     city: elem["city"],
+    //     postalCode: elem["postalCode"],
+    //     province: elem["province"],
+    //     country: elem["country"],
+    //     longitude: elem["longitude"],
+    //     latitude: elem["latitude"],
+    //     phone: elem["phone"],
+    //     email: elem["email"],
+    //     yearFondation: elem["yearFondation"],
+    //     adminRegion: elem["adminRegion"],
+    //     isAMBQMember: elem["isAMBQMember"],
+    //     numPermit: elem["numPermit"],
+    //     brasseUnderPermit: elem["brasseUnderPermit"],
+    //     typePermit: elem["typePermit"],
+    //     webSite: elem["webSite"],
+    //     facebook: elem["facebook"],
+    //     instagram: elem["instagram"],
+    //     ratebeer: elem["ratebeer"],
+    //     auMenu: elem["auMenu"],
+    //     untappd: elem["untappd"],
+    //     pinterest: elem["pinterest"],
+    //     snapchat: elem["snapchat"], 
+    //     twitter: elem["twitter"],
+    //     youtube: elem["youtube"],
+    //     wikidata: elem["wikidata"],
+    //     autre: elem["autre"],
+    //     notes: elem["notes"]
+    //   }).appendTo("tbody");
+    // });
     // $('#second').DataTable({fixedHeader: true});
-    $('#first').DataTable({fixedHeader: true});
+    // $('#first').DataTable({fixedHeader: true});
 
     // context.app.swap('');
     
