@@ -201,27 +201,50 @@ var app = $.sammy('#main', function() {
   // https://stackoverflow.com/questions/39693168/populate-datatable-from-ajax-json#39693818
   this.get('#/table', function(context) {
     context.app.swap('');
-    context.render('templates/table.template').appendTo("#main");
-
+    // context.render('templates/table.template').appendTo("#main");
+    $("#main").append('<table id="first" class="display">');
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
       async: false,
       dataType: "json",
       success: function(data) {
-        console.log("table is build.")
+        console.log(data);
+
         $("#first").DataTable({
             "aaData": data,
             "columns": [
               {"data": 'name'},
+              {"data": 'legalName'},
+              {"data": 'otherName'},
               {"data": 'address'},
               {"data": 'city'},
-              {"data": 'province'},
               {"data": 'postalCode'},
-              {"data": 'phone'},
-              {"data": 'latitude'},
+              {"data": 'province'},
+              {"data": 'country'},
               {"data": 'longitude'},
+              {"data": 'latitude'},
+              {"data": 'phone'},
+              {"data": 'email'},
+              {"data": 'yearFondation'},
+              {"data": 'adminRegion'},
+              {"data": 'isAMBQMenber'},
+              {"data": 'numPermit'},
+              {"data": 'brasseUnderPermit'},
+              {"data": 'typePermit'},
               {"data": 'webSite'}
+              {"data": 'facebook'},
+              {"data": 'instagram'},
+              {"data": 'ratebeer'},
+              {"data": 'auMenu'},
+              {"data": 'untappd'},
+              {"data": 'pinterest'},
+              {"data": 'snapchat'},
+              {"data": 'twitter'},
+              {"data": 'youtube'},
+              {"data": 'wikidata'},
+              {"data": 'autre'},
+              {"data": 'notes'}
             ]
           });
       },
