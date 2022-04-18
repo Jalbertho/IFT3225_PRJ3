@@ -123,12 +123,11 @@ var drawPlot = function() {
         .on("mouseover", function(){
             console.log(this);
             d3.select(this)
-              .style("visibility", "visible")
               .style("font-weight", "bold");
           })
         .on("mouseout", function(){
             d3.select(this)
-              .style("visibility", "hidden");
+              .style("font-weight", "none");
           });
 }
 // function onMouseEvent() {
