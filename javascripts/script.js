@@ -201,9 +201,9 @@ var app = $.sammy('#main', function() {
     
     var result = getBrasseries();
 
-    $("#main").append('<table id="first" class="display">');
-    $("#first").append('<tbody>');
-    context.render('templates/headerTable.template').appendTo("#first");
+    // $("#main").append('<table id="first" class="display">');
+    context.render('templates/table.template').appendTo(context.$element());
+    // $("#first").append('<tbody>');
     $.each(result, function(index, elem) {
       context.render('templates/itemTable.template', 
       {
@@ -240,10 +240,54 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("tbody");
     });
-    // context.$element().append("</table>"); // TODO.. review this.
 
-    // // TODO.. review DataTable.
     $('#first').DataTable({fixedHeader: true});
+
+    // context.app.swap('');
+    
+    // var result = getBrasseries();
+
+    // $("#main").append('<table id="first" class="display">');
+    // context.render('templates/headerTable.template').appendTo("#first");
+    // $("#first").append('<tbody>');
+    // $.each(result, function(index, elem) {
+    //   context.render('templates/itemTable.template', 
+    //   {
+    //     name: elem["name"],
+    //     legalName: elem["legalName"],
+    //     otherName: elem["otherName"],
+    //     address: elem["address"],
+    //     city: elem["city"],
+    //     postalCode: elem["postalCode"],
+    //     province: elem["province"],
+    //     country: elem["country"],
+    //     longitude: elem["longitude"],
+    //     latitude: elem["latitude"],
+    //     phone: elem["phone"],
+    //     email: elem["email"],
+    //     yearFondation: elem["yearFondation"],
+    //     adminRegion: elem["adminRegion"],
+    //     isAMBQMember: elem["isAMBQMember"],
+    //     numPermit: elem["numPermit"],
+    //     brasseUnderPermit: elem["brasseUnderPermit"],
+    //     typePermit: elem["typePermit"],
+    //     webSite: elem["webSite"],
+    //     facebook: elem["facebook"],
+    //     instagram: elem["instagram"],
+    //     ratebeer: elem["ratebeer"],
+    //     auMenu: elem["auMenu"],
+    //     untappd: elem["untappd"],
+    //     pinterest: elem["pinterest"],
+    //     snapchat: elem["snapchat"], 
+    //     twitter: elem["twitter"],
+    //     youtube: elem["youtube"],
+    //     wikidata: elem["wikidata"],
+    //     autre: elem["autre"],
+    //     notes: elem["notes"]
+    //   }).appendTo("tbody");
+    // });
+
+    // $('#first').DataTable({fixedHeader: true});
     // $('#second').DataTable({fixedHeader: true});
   });
 
