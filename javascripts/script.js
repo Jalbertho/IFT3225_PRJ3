@@ -119,7 +119,16 @@ var drawPlot = function() {
         .attr("x", d => x(d.longitude) + 7)
         .attr("y", d => y(d.latitude))
         .text(d => d.name)
-        .on("mouseover", function(){d3.select(this).style("font-weight", "bold");}); // TODO.. try something
+        .on("mouseover", function(){
+            d3.select(this)
+              .style("fill", "dark");
+              .style("font-weight", "bold");
+          })
+        .on("mouseout", function(){
+            d3.select(this)
+              .style("fill", "none");
+              .style("font-weight", "none");
+          });
 }
 // function onMouseEvent() {
 // d3.select(this).attr("text", "bold");
