@@ -112,7 +112,7 @@ var drawPlot = function() {
    svg.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 5)
-        .attr("visibility", "hidden")
+        // .attr("visibility", "hidden")
         .selectAll("text")
         .data(data)
         .join("text")
@@ -121,6 +121,7 @@ var drawPlot = function() {
         .attr("y", d => y(d.latitude))
         .text(d => d.name)
         .on("mouseover", function(){
+            console.log(this);
             d3.select(this)
               .style("visibility", "visible")
               .style("font-weight", "bold");
