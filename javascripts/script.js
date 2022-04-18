@@ -112,6 +112,7 @@ var drawPlot = function() {
    svg.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 5)
+        .attr("fill", "steelblue")
         .selectAll("text")
         .data(data)
         .join("text")
@@ -122,13 +123,13 @@ var drawPlot = function() {
         .on("mouseover", function(){
             d3.select(this)
               .style("font-weight", "bold")
-              .style("fill", "steelblue")
+              .style("fill", "black")
               .style("font-size", "10");
           })
         .on("mouseout", function(){
             d3.select(this)
               .style("font-weight", "normal")
-              .style("fill", "black")
+              .style("fill", "steelblue")
               .style("font-size", "5");
           });
 }
