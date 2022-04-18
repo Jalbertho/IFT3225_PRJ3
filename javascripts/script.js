@@ -1,6 +1,19 @@
 $(document).ready(function(){
   app.run("#/");
+
+  // ---------- Events Handler ---------- //
+  onClick("login");
+  onClick("table");
+  onClick("plot");
+  onClick("doc");
+
 });
+
+var onClick = function(page){
+  $("#nav-"+page).click({
+    window.location.replace("https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/"+page);
+  });
+}
 
 var getBrasseries = function() {
   var result = null;
