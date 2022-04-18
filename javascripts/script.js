@@ -238,12 +238,8 @@ var app = $.sammy('#main', function() {
   });
 
   this.post('#/add', function(context) {
-    var json = {};
-
-    console.log(this.params);
-
-    /*$.ajax({
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/" + json;
+    $.ajax({
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/" + this.params;
       type : "POST",
       dataType : 'json',
       success : function(response) {
@@ -252,7 +248,7 @@ var app = $.sammy('#main', function() {
       error: function(xhr, resp, text) {
         console.log(xhr, resp, text);
       }
-    });*/
+    });
  });
 
   this.get('#/delete',function(context) {
