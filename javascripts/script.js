@@ -200,6 +200,10 @@ var app = $.sammy('#main', function() {
   this.get('#/table', function(context) {
     context.app.swap('');
     context.render('templates/table.template').appendTo("#main");
+
+    var data = getBrasseries();
+    console.log(data);
+
     $("#first").DataTable({
       "ajax": {
         "url": "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
