@@ -202,7 +202,9 @@ var app = $.sammy('#main', function() {
     var result = getBrasseries();
 
     // $("#main").append('<table id="first" class="display">');
-    context.render('templates/table.template').appendTo(context.$element());
+    console.log(context.$element());
+    context.render('templates/table.template').appendTo("#main");
+
     // $("#first").append('<tbody>');
     $.each(result, function(index, elem) {
       context.render('templates/itemTable.template', 
