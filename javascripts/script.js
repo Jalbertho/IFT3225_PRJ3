@@ -242,7 +242,7 @@ var app = $.sammy('#main', function() {
     console.log("https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/"+this.params);
 
     $.ajax({
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/"+this.params;
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/"+this.params,
       type : "POST",
       dataType : 'json',
       success : function(response) {
