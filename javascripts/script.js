@@ -196,24 +196,25 @@ var app = $.sammy('#main', function() {
 
   });
 
+  // https://datatables.net/examples/ajax/objects.html
   this.get('#/table', function(context) {
     context.app.swap('');
     context.render('templates/table.template').appendTo("#main");
     $("#first").DataTable({
-      ajax: {
-        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
-        dataSrc: ''
+      "ajax": {
+        "url": "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
+        "dataSrc": ''
       },
-      columns: [
-        {data: 'name'},
-        {data: 'address'},
-        {data: 'city'},
-        {data: 'province'},
-        {data: 'postalCode'},
-        {data: 'phone'},
-        {data: 'latitude'},
-        {data: 'longitude'},
-        {data: 'webSite'}
+      "columns": [
+        {"data": 'name'},
+        {"data": 'address'},
+        {"data": 'city'},
+        {"data": 'province'},
+        {"data": 'postalCode'},
+        {"data": 'phone'},
+        {"data": 'latitude'},
+        {"data": 'longitude'},
+        {"data": 'webSite'}
       ]
     });
     
