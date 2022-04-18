@@ -122,12 +122,12 @@ var drawPlot = function() {
         .on("mouseover", function(){
             console.log(this);
             d3.select(this)
-              .style("font-weight", "bold");
+              .style("font-weight", "bold")
               .style("font-size", "15");
           })
         .on("mouseout", function(){
             d3.select(this)
-              .style("font-weight", "normal");
+              .style("font-weight", "normal")
               .style("font-size", "5");
           });
 }
