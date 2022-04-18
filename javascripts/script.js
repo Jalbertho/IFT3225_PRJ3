@@ -112,7 +112,6 @@ var drawPlot = function() {
    svg.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 5)
-        // .attr("visibility", "hidden")
         .selectAll("text")
         .data(data)
         .join("text")
@@ -124,10 +123,12 @@ var drawPlot = function() {
             console.log(this);
             d3.select(this)
               .style("font-weight", "bold");
+              .style("font-size", "15");
           })
         .on("mouseout", function(){
             d3.select(this)
-              .style("font-weight", "none");
+              .style("font-weight", "normal");
+              .style("font-size", "5");
           });
 }
 // function onMouseEvent() {
