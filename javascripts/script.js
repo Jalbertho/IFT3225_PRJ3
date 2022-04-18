@@ -197,27 +197,40 @@ var app = $.sammy('#main', function() {
   });
 
   // https://datatables.net/examples/ajax/objects.html
+  // https://datatables.net/examples/data_sources/js_array.html
+  // https://stackoverflow.com/questions/39693168/populate-datatable-from-ajax-json#39693818
   this.get('#/table', function(context) {
     context.app.swap('');
     context.render('templates/table.template').appendTo("#main");
 
-    var data = getBrasseries();
-    console.log(data);
-
-    $("#first").DataTable({
-      "data": data,
-      "columns": [
-        {"data": 'name'},
-        {"data": 'address'},
-        {"data": 'city'},
-        {"data": 'province'},
-        {"data": 'postalCode'},
-        {"data": 'phone'},
-        {"data": 'latitude'},
-        {"data": 'longitude'},
-        {"data": 'webSite'}
-      ]
+    $.ajax({
+      type: 'GET',
+      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
+      async: false,
+      dataType: "json",
+      success: function(data) {
+        console.log("table is build.")
+        $("#first").DataTable({
+            "aaData": data,
+            "columns": [
+              {"data": 'name'},
+              {"data": 'address'},
+              {"data": 'city'},
+              {"data": 'province'},
+              {"data": 'postalCode'},
+              {"data": 'phone'},
+              {"data": 'latitude'},
+              {"data": 'longitude'},
+              {"data": 'webSite'}
+            ]
+          });
+      },
+      error: function(XMLHttpRequest, status, err) {
+        console.log("An Error Has Occur.");
+        console.log(err);
+      }
     });
+
     
     // var result = getBrasseries();
 
