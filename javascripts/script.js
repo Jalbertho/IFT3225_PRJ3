@@ -112,14 +112,14 @@ var drawPlot = function() {
    svg.append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 5)
-        .on("mouseover", function(){d3.select(this).style("font-weight", "bold");}) // TODO.. try something
         .selectAll("text")
         .data(data)
         .join("text")
         .attr("dy", "0.35em")
         .attr("x", d => x(d.longitude) + 7)
         .attr("y", d => y(d.latitude))
-        .text(d => d.name);
+        .text(d => d.name)
+        .on("mouseover", function(){d3.select(this).style("font-weight", "bold");}); // TODO.. try something
 }
 // function onMouseEvent() {
 // d3.select(this).attr("text", "bold");
