@@ -120,14 +120,15 @@ var drawPlot = function() {
         .attr("y", d => y(d.latitude))
         .text(d => d.name)
         .on("mouseover", function(){
-            console.log(this);
             d3.select(this)
               .style("font-weight", "bold")
-              .style("font-size", "15");
+              .style("fill", "steelblue")
+              .style("font-size", "10");
           })
         .on("mouseout", function(){
             d3.select(this)
               .style("font-weight", "normal")
+              .style("fill", "black")
               .style("font-size", "5");
           });
 }
