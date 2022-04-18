@@ -10,7 +10,7 @@ $(document).ready(function(){
 });
 
 var onClick = function(page){
-  $("#nav-"+page).click({
+  $("#nav-"+page).click(function(){
     window.location.replace("https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/"+page);
   });
 }
