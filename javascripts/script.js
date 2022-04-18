@@ -205,10 +205,7 @@ var app = $.sammy('#main', function() {
     console.log(data);
 
     $("#first").DataTable({
-      "ajax": {
-        "url": "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
-        "dataSrc": ''
-      },
+      "data": data,
       "columns": [
         {"data": 'name'},
         {"data": 'address'},
