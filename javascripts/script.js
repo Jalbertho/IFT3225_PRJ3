@@ -197,13 +197,13 @@ var app = $.sammy('#main', function() {
   });
 
   this.get('#/table', function(context) {
-    context.app.swap('');
+    context.app.swap('templates/table.template');
     
     var result = getBrasseries();
 
     // $("#main").append('<table id="first" class="display">');
     console.log(context.$element());
-    context.render('templates/table.template').appendTo("#main");
+    // context.render('templates/table.template').appendTo("#main");
 
     // $("#first").append('<tbody>');
     $.each(result, function(index, elem) {
@@ -242,7 +242,7 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("tbody");
     });
-    $('#second').DataTable({fixedHeader: true});
+    // $('#second').DataTable({fixedHeader: true});
     $('#first').DataTable({fixedHeader: true});
 
     // context.app.swap('');
