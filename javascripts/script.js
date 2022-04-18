@@ -242,7 +242,7 @@ var app = $.sammy('#main', function() {
         notes: elem["notes"]
       }).appendTo("tbody");
     });
-
+    $('#second').DataTable({fixedHeader: true});
     $('#first').DataTable({fixedHeader: true});
 
     // context.app.swap('');
