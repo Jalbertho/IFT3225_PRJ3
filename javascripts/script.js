@@ -243,9 +243,9 @@ var app = $.sammy('#main', function() {
 
     // TODO.. review DataTable.
     $('#first').DataTable();
+    $('#tmp').DataTable();
   });
 
-  // TODO..
   this.get('#/add', function(context) {
     context.app.swap('');
     if(sessionStorage.getItem('priviledge') == 'WRITE'){
@@ -310,4 +310,8 @@ var app = $.sammy('#main', function() {
   });
 
   // TODO.. add un Doc.
+  this.get("#/doc", function(context){
+    context.app.swap('');
+  });
+
 });
