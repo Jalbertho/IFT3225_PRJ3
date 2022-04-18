@@ -243,7 +243,7 @@ var app = $.sammy('#main', function() {
 
     // // TODO.. review DataTable.
     // $('#first').DataTable();
-    $('#tmp').DataTable();
+    $('#second').DataTable();
   });
 
   this.get('#/add', function(context) {
