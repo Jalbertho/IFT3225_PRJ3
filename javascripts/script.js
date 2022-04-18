@@ -232,7 +232,7 @@ var app = $.sammy('#main', function() {
               {"data": 'numPermit'},
               {"data": 'brasseUnderPermit'},
               {"data": 'typePermit'},
-              {"data": 'webSite'}
+              {"data": 'webSite'},
               {"data": 'facebook'},
               {"data": 'instagram'},
               {"data": 'ratebeer'},
