@@ -228,7 +228,7 @@ var app = $.sammy('#main', function() {
               {"data": 'email'},
               {"data": 'yearFondation'},
               {"data": 'adminRegion'},
-              {"data": 'isAMBQMenber'},
+              {"data": 'isAMBQMember'},
               {"data": 'numPermit'},
               {"data": 'brasseUnderPermit'},
               {"data": 'typePermit'},
