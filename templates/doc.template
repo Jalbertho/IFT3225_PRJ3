@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col">
+    <div class="row justify-content-center mx-4">
+      <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3. 
+        Une description plus exhaustive de chacun des services se trouve dans le rapport.
+    </div>
+    <div class="row justify-content-center">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</li>
+        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</li>
+        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/&lt;pfx&gt;</li>
+        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/&lt;permis&gt;</li>
+        <li class="list-group-item">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/&lt;input&gt;</li>
+        <li class="list-group-item">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/&lt;name&gt;</li>
+        <li class="list-group-item"></li>
+        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/&lt;username&gt;/&lt;password&gt;</li>
+      </ul>
+    </div>
+    <div class="row justify-content-center mx-4 mt-4">
+      <p>
+        Les routes de l'application Web sont décrites ci-dessous. L'usager doit être connecté s'il veut visualisé plus que les pages #/login et #/doc.
+        Seul l'usager détenant les droits d'administrateur peut accéder aux pages #/add et #/delete.
+      </p>
+    </div>
+    <div class="row justify-content-center">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/login</li>
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/table</li>
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/add</li>
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/delete</li>
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/plot</li>
+        <li class="list-group-item">https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/index.html#/doc</li>
+      </ul>
+    </div>
+  </div>
+</div>
