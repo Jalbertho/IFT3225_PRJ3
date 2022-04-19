@@ -357,6 +357,7 @@ var app = $.sammy('#main', function() {
 
   this.get("#/doc", function(context){
     context.app.swap('');
+    context.render('templates/doc.template').appendTo(context.$element());
   });
 
 });
