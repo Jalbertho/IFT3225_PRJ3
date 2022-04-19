@@ -198,93 +198,97 @@ var app = $.sammy('#main', function() {
 
   this.get('#/table', function(context) {
     context.app.swap('');
-    $("#main").append('<table id="first" class="display">\
-      <thead>\
-        <tr>\
-          <th>Nom de la brasserie</th>\
-          <th>Nom légal</th>\
-          <th>Autre nom</th>\
-          <th>Adresse</th>\
-          <th>Ville</th>\
-          <th>Code Postal</th>\
-          <th>Province</th>\
-          <th>Pays</th>\
-          <th>Longitude</th>\
-          <th>Latitude</th>\
-          <th>Numéro de Téléphone</th>\
-          <th>Courriel</th>\
-          <th>Année de Fondation</th>\
-          <th>Région Administrative</th>\
-          <th>Membre AMBQ</th>\
-          <th>Numéro de Permis</th>\
-          <th>Brasse sous le Permis</th>\
-          <th>Type de Permis</th>\
-          <th>Site Internet</th>\
-          <th>Facebook</th>\
-          <th>Instagram</th>\
-          <th>RateBeer</th>\
-          <th>AuMenu</th>\
-          <th>Untappd</th>\
-          <th>Pinterest</th>\
-          <th>Snapchat</th>\
-          <th>Twitter</th>\
-          <th>Youtube</th>\
-          <th>Wikidata</th>\
-          <th>Autre</th>\
-          <th>Notes</th>\
-        </tr>\
-      </thead>\
-    </table>');
+    if (sessionStorage.getItem('priviledge')) {
+      $("#main").append('<table id="first" class="display">\
+        <thead>\
+          <tr>\
+            <th>Nom de la brasserie</th>\
+            <th>Nom légal</th>\
+            <th>Autre nom</th>\
+            <th>Adresse</th>\
+            <th>Ville</th>\
+            <th>Code Postal</th>\
+            <th>Province</th>\
+            <th>Pays</th>\
+            <th>Longitude</th>\
+            <th>Latitude</th>\
+            <th>Numéro de Téléphone</th>\
+            <th>Courriel</th>\
+            <th>Année de Fondation</th>\
+            <th>Région Administrative</th>\
+            <th>Membre AMBQ</th>\
+            <th>Numéro de Permis</th>\
+            <th>Brasse sous le Permis</th>\
+            <th>Type de Permis</th>\
+            <th>Site Internet</th>\
+            <th>Facebook</th>\
+            <th>Instagram</th>\
+            <th>RateBeer</th>\
+            <th>AuMenu</th>\
+            <th>Untappd</th>\
+            <th>Pinterest</th>\
+            <th>Snapchat</th>\
+            <th>Twitter</th>\
+            <th>Youtube</th>\
+            <th>Wikidata</th>\
+            <th>Autre</th>\
+            <th>Notes</th>\
+          </tr>\
+        </thead>\
+      </table>');
 
-    $.ajax({
-      type: 'GET',
-      url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
-      async: false,
-      dataType: "json",
-      success: function(data) {
-        $("#first").DataTable({
-            "autoWidth": false,
-            "aaData": data,
-            "columns": [
-              {"data": 'name'},
-              {"data": 'legalName'},
-              {"data": 'otherName'},
-              {"data": 'address'},
-              {"data": 'city'},
-              {"data": 'postalCode'},
-              {"data": 'province'},
-              {"data": 'country'},
-              {"data": 'longitude'},
-              {"data": 'latitude'},
-              {"data": 'phone'},
-              {"data": 'email'},
-              {"data": 'yearFondation'},
-              {"data": 'adminRegion'},
-              {"data": 'isAMBQMember'},
-              {"data": 'numPermit'},
-              {"data": 'brasseUnderPermit'},
-              {"data": 'typePermit'},
-              {"data": 'webSite'},
-              {"data": 'facebook'},
-              {"data": 'instagram'},
-              {"data": 'ratebeer'},
-              {"data": 'auMenu'},
-              {"data": 'untappd'},
-              {"data": 'pinterest'},
-              {"data": 'snapchat'},
-              {"data": 'twitter'},
-              {"data": 'youtube'},
-              {"data": 'wikidata'},
-              {"data": 'autre'},
-              {"data": 'notes'}
-            ]
-          });
-      },
-      error: function(XMLHttpRequest, status, err) {
-        console.log("An Error Has Occur.");
-        console.log(err);
-      }
-    });
+      $.ajax({
+        type: 'GET',
+        url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
+        async: false,
+        dataType: "json",
+        success: function(data) {
+          $("#first").DataTable({
+              "autoWidth": false,
+              "aaData": data,
+              "columns": [
+                {"data": 'name'},
+                {"data": 'legalName'},
+                {"data": 'otherName'},
+                {"data": 'address'},
+                {"data": 'city'},
+                {"data": 'postalCode'},
+                {"data": 'province'},
+                {"data": 'country'},
+                {"data": 'longitude'},
+                {"data": 'latitude'},
+                {"data": 'phone'},
+                {"data": 'email'},
+                {"data": 'yearFondation'},
+                {"data": 'adminRegion'},
+                {"data": 'isAMBQMember'},
+                {"data": 'numPermit'},
+                {"data": 'brasseUnderPermit'},
+                {"data": 'typePermit'},
+                {"data": 'webSite'},
+                {"data": 'facebook'},
+                {"data": 'instagram'},
+                {"data": 'ratebeer'},
+                {"data": 'auMenu'},
+                {"data": 'untappd'},
+                {"data": 'pinterest'},
+                {"data": 'snapchat'},
+                {"data": 'twitter'},
+                {"data": 'youtube'},
+                {"data": 'wikidata'},
+                {"data": 'autre'},
+                {"data": 'notes'}
+              ]
+            });
+        },
+        error: function(XMLHttpRequest, status, err) {
+          console.log("An Error Has Occur.");
+          console.log(err);
+        }
+      });
+    }else{
+      context.render('templates/forbidden.template').appendTo(context.$element());
+    }
   });
 
   this.get('#/add', function(context) {
