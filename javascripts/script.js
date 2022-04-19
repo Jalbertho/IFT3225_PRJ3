@@ -201,8 +201,45 @@ var app = $.sammy('#main', function() {
   // https://stackoverflow.com/questions/39693168/populate-datatable-from-ajax-json#39693818
   this.get('#/table', function(context) {
     context.app.swap('');
-    context.render('templates/table.template').appendTo("#main");
-    // $("#main").append('<table id="first" class="display">');
+    // context.render('templates/table.template').appendTo("#main");
+    $("#main").append('<table id="first" class="display">\
+      <thead>\
+        <tr>\
+          <th>Nom de la brasserie</th>\
+          <th>Nom légal</th>\
+          <th>Autre nom</th>\
+          <th>Adresse</th>\
+          <th>Ville</th>\
+          <th>Code Postal</th>\
+          <th>Province</th>\
+          <th>Pays</th>\
+          <th>Longitude</th>\
+          <th>Latitude</th>\
+          <th>Numéro de Téléphone</th>\
+          <th>Courriel</th>\
+          <th>Année de Fondation</th>\
+          <th>Région Administrative</th>\
+          <th>Membre AMBQ</th>\
+          <th>Numéro de Permis</th>\
+          <th>Brasse sous le Permis</th>\
+          <th>Type de Permis</th>\
+          <th>Site Internet</th>\
+          <th>Facebook</th>\
+          <th>Instagram</th>\
+          <th>RateBeer</th>\
+          <th>AuMenu</th>\
+          <th>Untappd</th>\
+          <th>Pinterest</th>\
+          <th>Snapchat</th>\
+          <th>Twitter</th>\
+          <th>Youtube</th>\
+          <th>Wikidata</th>\
+          <th>Autre</th>\
+          <th>Notes</th>\
+        </tr>\
+      </thead>\
+    </table>');
+
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
