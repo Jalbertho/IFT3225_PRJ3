@@ -202,7 +202,7 @@ var app = $.sammy('#main', function() {
   this.get('#/table', function(context) {
     context.app.swap('');
     // context.render('templates/table.template').appendTo("#main");
-    $("#main").append('<table id="first" class="display">\
+    $("#main").append('<table id="first" class="display my-4">\
       <thead>\
         <tr>\
           <th>Nom de la brasserie</th>\
