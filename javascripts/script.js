@@ -201,8 +201,8 @@ var app = $.sammy('#main', function() {
   // https://stackoverflow.com/questions/39693168/populate-datatable-from-ajax-json#39693818
   this.get('#/table', function(context) {
     context.app.swap('');
-    // context.render('templates/table.template').appendTo("#main");
-    $("#main").append('<table id="first" class="display">');
+    context.render('templates/table.template').appendTo("#main");
+    // $("#main").append('<table id="first" class="display">');
     $.ajax({
       type: 'GET',
       url: "https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all",
