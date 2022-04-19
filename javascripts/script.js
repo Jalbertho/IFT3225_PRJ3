@@ -102,7 +102,7 @@ var drawPlot = function() {
                                         .attr("x1", margin.left )
                                         .attr("x2", width - margin.right));
 
-   var svg = d3.select("#main")
+   var svg = d3.select("#plot")
                 .append("svg")
                 .attr("width", width )
                 .attr("height", height);
@@ -196,12 +196,8 @@ var app = $.sammy('#main', function() {
 
   });
 
-  // https://datatables.net/examples/ajax/objects.html
-  // https://datatables.net/examples/data_sources/js_array.html
-  // https://stackoverflow.com/questions/39693168/populate-datatable-from-ajax-json#39693818
   this.get('#/table', function(context) {
     context.app.swap('');
-    // context.render('templates/table.template').appendTo("#main");
     $("#main").append('<table id="first" class="display">\
       <thead>\
         <tr>\
@@ -246,8 +242,6 @@ var app = $.sammy('#main', function() {
       async: false,
       dataType: "json",
       success: function(data) {
-        console.log(data);
-
         $("#first").DataTable({
             "aaData": data,
             "columns": [
@@ -290,99 +284,6 @@ var app = $.sammy('#main', function() {
         console.log(err);
       }
     });
-
-    
-    // var result = getBrasseries();
-
-    // // $("#main").append('<table id="first" class="display">');
-    // console.log(context.$element());
-
-    // // $("#first").append('<tbody>');
-    // $.each(result, function(index, elem) {
-    //   context.render('templates/itemTable.template', 
-    //   {
-    //     name: elem["name"],
-    //     legalName: elem["legalName"],
-    //     otherName: elem["otherName"],
-    //     address: elem["address"],
-    //     city: elem["city"],
-    //     postalCode: elem["postalCode"],
-    //     province: elem["province"],
-    //     country: elem["country"],
-    //     longitude: elem["longitude"],
-    //     latitude: elem["latitude"],
-    //     phone: elem["phone"],
-    //     email: elem["email"],
-    //     yearFondation: elem["yearFondation"],
-    //     adminRegion: elem["adminRegion"],
-    //     isAMBQMember: elem["isAMBQMember"],
-    //     numPermit: elem["numPermit"],
-    //     brasseUnderPermit: elem["brasseUnderPermit"],
-    //     typePermit: elem["typePermit"],
-    //     webSite: elem["webSite"],
-    //     facebook: elem["facebook"],
-    //     instagram: elem["instagram"],
-    //     ratebeer: elem["ratebeer"],
-    //     auMenu: elem["auMenu"],
-    //     untappd: elem["untappd"],
-    //     pinterest: elem["pinterest"],
-    //     snapchat: elem["snapchat"], 
-    //     twitter: elem["twitter"],
-    //     youtube: elem["youtube"],
-    //     wikidata: elem["wikidata"],
-    //     autre: elem["autre"],
-    //     notes: elem["notes"]
-    //   }).appendTo("tbody");
-    // });
-    // $('#second').DataTable({fixedHeader: true});
-    // $('#first').DataTable({fixedHeader: true});
-
-    // context.app.swap('');
-    
-    // var result = getBrasseries();
-
-    // $("#main").append('<table id="first" class="display">');
-    // context.render('templates/headerTable.template').appendTo("#first");
-    // $("#first").append('<tbody>');
-    // $.each(result, function(index, elem) {
-    //   context.render('templates/itemTable.template', 
-    //   {
-    //     name: elem["name"],
-    //     legalName: elem["legalName"],
-    //     otherName: elem["otherName"],
-    //     address: elem["address"],
-    //     city: elem["city"],
-    //     postalCode: elem["postalCode"],
-    //     province: elem["province"],
-    //     country: elem["country"],
-    //     longitude: elem["longitude"],
-    //     latitude: elem["latitude"],
-    //     phone: elem["phone"],
-    //     email: elem["email"],
-    //     yearFondation: elem["yearFondation"],
-    //     adminRegion: elem["adminRegion"],
-    //     isAMBQMember: elem["isAMBQMember"],
-    //     numPermit: elem["numPermit"],
-    //     brasseUnderPermit: elem["brasseUnderPermit"],
-    //     typePermit: elem["typePermit"],
-    //     webSite: elem["webSite"],
-    //     facebook: elem["facebook"],
-    //     instagram: elem["instagram"],
-    //     ratebeer: elem["ratebeer"],
-    //     auMenu: elem["auMenu"],
-    //     untappd: elem["untappd"],
-    //     pinterest: elem["pinterest"],
-    //     snapchat: elem["snapchat"], 
-    //     twitter: elem["twitter"],
-    //     youtube: elem["youtube"],
-    //     wikidata: elem["wikidata"],
-    //     autre: elem["autre"],
-    //     notes: elem["notes"]
-    //   }).appendTo("tbody");
-    // });
-
-    // $('#first').DataTable({fixedHeader: true});
-    // $('#second').DataTable({fixedHeader: true});
   });
 
   this.get('#/add', function(context) {
@@ -441,6 +342,7 @@ var app = $.sammy('#main', function() {
     context.app.swap('');
 
     if (sessionStorage.getItem('priviledge')) {
+      $("#main").append('<div id="plot" class="row justify-content-center">');
       drawPlot();
     }else{
       context.render('templates/forbidden.template').appendTo(context.$element());
@@ -448,7 +350,6 @@ var app = $.sammy('#main', function() {
 
   });
 
-  // TODO.. add un Doc.
   this.get("#/doc", function(context){
     context.app.swap('');
   });
