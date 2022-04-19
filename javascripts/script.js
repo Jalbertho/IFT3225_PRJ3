@@ -243,6 +243,7 @@ var app = $.sammy('#main', function() {
       dataType: "json",
       success: function(data) {
         $("#first").DataTable({
+            "autoWidth": false,
             "aaData": data,
             "columns": [
               {"data": 'name'},
