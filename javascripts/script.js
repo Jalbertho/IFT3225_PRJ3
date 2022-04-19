@@ -4,6 +4,8 @@ $(document).ready(function(){
   // ---------- Events Handler ---------- //
   onClick("login");
   onClick("table");
+  onClick("add");
+  onClick("delete");
   onClick("plot");
   onClick("doc");
 
