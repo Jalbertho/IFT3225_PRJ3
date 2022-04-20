@@ -1,5 +1,5 @@
 <?php
-
+// Le code ci-dessous a été pris des notes de cours de IFT3225-H22 (rest.pdf)
 require "./config.php";
 
 $name = "";

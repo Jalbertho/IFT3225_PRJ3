@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col">
     <div class="row justify-content-center mx-4">
-      <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3.</p>
+      <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3. La majorité des codes en lien avec le service REST ont été pris du PDF des notes de cours rest.pdf et une partie a été prise à partir de Alex Web Develop "PHP Login and Authentication Tutorial" (https://alexwebdevelop.com/user-authentication/) et de la page https://phpdelusions.net/pdo_examples/delete.</p>
     </div>
     <div class="row justify-content-center mx-4">
       <ul class="list-group list-group-flush justify-content-center">
