@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <h2>GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</h2>
+          <h3>GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</h3>
           <p>asjhdaslkdhaskj</p>
         </li>
         <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</li>
