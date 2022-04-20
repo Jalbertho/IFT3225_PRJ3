@@ -41,6 +41,7 @@
             <br>
             Cette requête prend en paramètre un objet JSON contenant au minimum les champs name, address, city, postalCode, province, country, latitude, longitude, adminRegion, typePermit et isAMBQMember et contenant au maximum tous les champs se trouvant dans la table brasseries. Elle ajoute ensuite la nouvelle brasserie dans la table Brasseries. 
             <br>
+            <br>
             {"name": "&lt;name&gt;", "address": "&lt;address&gt;", "city": "&lt;city&gt;", "postalCode": "&lt;postalCode&gt;", "province": "&lt;province&gt;", "country": "&lt;country&gt;", "latitude": "&lt;latitude&gt;", "longitude": "&lt;longitude&gt;", "adminRegion": "&lt;adminRegion&gt;", "typePermit": "&lt;typePermit&gt;", "isAMBQMember": "&lt;isAMBQMember&gt;"}
           </p>
         </li>
