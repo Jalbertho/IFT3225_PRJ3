@@ -3,8 +3,8 @@
     <div class="row justify-content-center mx-4">
       <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3.</p>
     </div>
-    <div class="row justify-content-center mx-4 mw-5">
-      <ul class="list-group list-group-flush">
+    <div class="row justify-content-center mx-4">
+      <ul class="list-group list-group-flush justify-content-center">
         <li class="list-group-item">
           <p>
             <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</span>
