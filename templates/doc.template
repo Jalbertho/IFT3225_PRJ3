@@ -1,33 +1,61 @@
 <div class="row justify-content-center">
   <div class="col">
     <div class="row justify-content-center mx-4">
-      <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3. 
-        Une description plus exhaustive de chacun des services se trouve dans le rapport.
+      <p>Le service REST disponible sur Les Microbrasseries du Québec permet de manipuler les tables Brasseries et Account de la base de données jalbertk_web_projet3.</p>
     </div>
     <div class="row justify-content-center">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</span><br>
-          asjhdaslkdhaskj</p>
+          <p>
+            <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</span>
+            <br>
+            Cette requête retourne sous forme JSON toutes les brasseries se trouvant dans la table Brasseries avec leurs informations.
+          </p>
         </li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</span><br></p>
+          <p>
+            <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</span>
+            <br>
+            Cette requête retourne sous forme JSON tous les noms des brasseries se trouvant dans la table Brasseries.
+          </p>
         </li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/&lt;pfx&gt;</span><br></p>
+          <p>
+            <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/&lt;pfx&gt;</span>
+            <br>
+            Cette requête prend en paramètre un préfixe et retourne sous forme JSON tous les noms des brasseries commençant par ce préfixe 
+            se trouvant dans la table Brasseries.
+          </p>
         </li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/&lt;permis&gt;</span><br></p>
+          <p>
+            <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/&lt;permis&gt;</span>
+            <br>
+            Cette requête prend en paramètre un numéro de permis valide et retourne sous forme JSON toutes informations concernant cette brasserie 
+            se trouvant dans la table Brasseries.
+          </p>
         </li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/&lt;input&gt;</span><br></p>
+          <p>
+            <span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/&lt;input&gt;</span>
+            <br>
+            Cette requête prend en paramètre un objet JSON contenant au minimum les champs name, address, city, postalCode, province, country, latitude, longitude, adminRegion, typePermit et isAMBQMember et contenant au maximum tous les champs se trouvant dans la table brasseries. Elle ajoute ensuite la nouvelle brasserie dans la table Brasseries. 
+          </p>
         </li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/&lt;name&gt;</span><br></p>
+          <p>
+            <span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/&lt;name&gt;</span>
+            <br>
+            Cette requête prend en paramètre le nom de la brasserie et la retire de la table Brasserie. 
+          </p>
         </li>
         <li class="list-group-item"></li>
         <li class="list-group-item">
-          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/&lt;username&gt;/&lt;password&gt;</span><br></p>
+          <p>
+            <span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/&lt;username&gt;/&lt;password&gt;</span>
+            <br>
+            Cette requête prend en paramètre le nom d'utilisateur et le mot de passe et retourne le privilège de l'usager s'il est inscrit dans la table Account.
+          </p>
         </li>
       </ul>
     </div>
