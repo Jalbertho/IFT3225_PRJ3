@@ -10,13 +10,25 @@
           <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/all</span><br>
           asjhdaslkdhaskj</p>
         </li>
-        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</li>
-        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/&lt;pfx&gt;</li>
-        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/&lt;permis&gt;</li>
-        <li class="list-group-item">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/&lt;input&gt;</li>
-        <li class="list-group-item">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/&lt;name&gt;</li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names</span><br></p>
+        </li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/names/&lt;pfx&gt;</span><br></p>
+        </li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/permis/&lt;permis&gt;</span><br></p>
+        </li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/add/&lt;input&gt;</span><br></p>
+        </li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">POST https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/delete/&lt;name&gt;</span><br></p>
+        </li>
         <li class="list-group-item"></li>
-        <li class="list-group-item">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/&lt;username&gt;/&lt;password&gt;</li>
+        <li class="list-group-item">
+          <p><span class="font-weight-bold">GET https://www-ens.iro.umontreal.ca/~jalbertk/fyWdSJ8v/PRJ3/App/login/&lt;username&gt;/&lt;password&gt;</span><br></p>
+        </li>
       </ul>
     </div>
     <div class="row justify-content-center mx-4 mt-4">
